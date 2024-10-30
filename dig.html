@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dig - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                dig
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dig.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengantar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Domain Information Groper (dig)</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+dig (Domain Information Groper) adalah alat baris perintah yang digunakan untuk mengquery sistem DNS. Dig sangat berguna untuk mendapatkan informasi tentang alamat IP, catatan DNS, dan untuk troubleshooting masalah DNS.
+        </pre>
+
+        <h2 id="contoh">Contoh Penggunaan</h2>
+
+        <h3>1. Menampilkan Catatan A untuk Domain</h3>
+        <pre>
+dig example.com A
+        </pre>
+
+        <h3>2. Menampilkan Catatan AAAA untuk Domain</h3>
+        <pre>
+dig example.com AAAA
+        </pre>
+
+        <h3>3. Menampilkan Catatan MX untuk Domain</h3>
+        <pre>
+dig example.com MX
+        </pre>
+
+        <h3>4. Menampilkan Catatan NS untuk Domain</h3>
+        <pre>
+dig example.com NS
+        </pre>
+
+        <h3>5. Menampilkan Catatan CNAME untuk Domain</h3>
+        <pre>
+dig www.example.com CNAME
+        </pre>
+
+        <h3>6. Menampilkan Catatan TXT untuk Domain</h3>
+        <pre>
+dig example.com TXT
+        </pre>
+
+        <h3>7. Menggunakan DNS Server Tertentu</h3>
+        <pre>
+dig @8.8.8.8 example.com
+        </pre>
+
+        <h3>8. Melihat Semua Catatan untuk Domain</h3>
+        <pre>
+dig example.com ANY
+        </pre>
+
+        <h3>9. Menampilkan Catatan SOA untuk Domain</h3>
+        <pre>
+dig example.com SOA
+        </pre>
+
+        <h3>10. Menggunakan +short untuk Output Ringkas</h3>
+        <pre>
+dig +short example.com
+        </pre>
+
+        <h3>11. Menampilkan Waktu Respons DNS</h3>
+        <pre>
+dig example.com +stats
+        </pre>
+
+        <h3>12. Menggunakan dig dengan Query Lanjutan</h3>
+        <pre>
+dig example.com +trace
+        </pre>
+
+        <h3>13. Menampilkan Catatan PTR untuk Alamat IP</h3>
+        <pre>
+dig -x 93.184.216.34
+        </pre>
+
+        <h3>14. Menggunakan dig untuk Men-debug Masalah DNS</h3>
+        <pre>
+dig example.com +debug
+        </pre>
+
+        <h3>15. Mencari Catatan SPF</h3>
+        <pre>
+dig example.com TXT | grep spf
+        </pre>
+
+        <h3>16. Menggunakan dig untuk Melihat Entri Cache DNS</h3>
+        <pre>
+dig example.com +cache
+        </pre>
+
+        <h3>17. Menyimpan Output dig ke File</h3>
+        <pre>
+dig example.com > output.txt
+        </pre>
+
+        <h3>18. Menggunakan dig dalam Script</h3>
+        <pre>
+#!/bin/bash
+dig example.com A
+        </pre>
+
+        <h3>19. Menggunakan dig untuk Memeriksa Redundansi DNS</h3>
+        <pre>
+dig example.com NS +short
+        </pre>
+
+        <h3>20. Menggunakan dig untuk Mencetak Catatan DNS dalam Format yang Dapat Diproses</h3>
+        <pre>
+dig example.com ANY +multiline
+        </pre>
+
+        <h3>21. Menggunakan dig untuk Memverifikasi DNSSEC</h3>
+        <pre>
+dig +dnssec example.com
+        </pre>
+
+        <h3>22. Menampilkan Catatan A untuk Subdomain</h3>
+        <pre>
+dig sub.example.com A
+        </pre>
+
+        <h3>23. Menggunakan dig untuk Memeriksa TTL Catatan DNS</h3>
+        <pre>
+dig example.com +ttl
+        </pre>
+
+        <h3>24. Menggunakan dig untuk Mencari Informasi DNS yang Terlalu Lama</h3>
+        <pre>
+dig example.com +timeout=10
+        </pre>
+
+        <h3>25. Menggunakan dig untuk Mencari Informasi DNS dalam Format JSON</h3>
+        <pre>
+dig example.com ANY +json
+        </pre>
+
+        <h3>26. Menggunakan dig untuk Mencetak Rincian Catatan DNS Tertentu</h3>
+        <pre>
+dig example.com TXT +short
+        </pre>
+
+        <h3>27. Menggunakan dig untuk Melihat Query DNS di Jaringan</h3>
+        <pre>
+tcpdump -i eth0 port 53
+        </pre>
+
+        <h3>28. Menggunakan dig untuk Menampilkan Catatan SRV</h3>
+        <pre>
+dig example.com SRV
+        </pre>
+
+        <h3>29. Menampilkan Catatan NAPTR</h3>
+        <pre>
+dig example.com NAPTR
+        </pre>
+
+        <h3>30. Menggunakan dig untuk Menguji DNS dari Jarak Jauh</h3>
+        <pre>
+dig @dns.server.example.com example.com A
+        </pre>
+
+        <h3>31. Menampilkan Catatan DNAME untuk Domain</h3>
+        <pre>
+dig example.com DNAME
+        </pre>
+
+        <h3>32. Menggunakan dig untuk Memeriksa Catatan DNS di Jaringan IPv6</h3>
+        <pre>
+dig -6 example.com A
+        </pre>
+
+        <h3>33. Menampilkan Hasil dalam Format CSV</h3>
+        <pre>
+dig example.com +short | tr '\n' ','
+        </pre>
+
+        <h3>34. Menampilkan Catatan DNS dalam Format Terstruktur</h3>
+        <pre>
+dig example.com ANY +json
+        </pre>
+
+        <h3>35. Menggunakan dig untuk Menguji RDP DNS</h3>
+        <pre>
+dig rd.example.com A
+        </pre>
+
+        <h3>36. Menggunakan dig untuk Memeriksa Alamat IP dari Email</h3>
+        <pre>
+dig mx.example.com
+        </pre>
+
+        <h3>37. Menggunakan dig untuk Mencari CNAME yang Terkait dengan Domain</h3>
+        <pre>
+dig www.example.com CNAME +short
+        </pre>
+
+        <h3>38. Menampilkan Catatan CAA untuk Domain</h3>
+        <pre>
+dig example.com CAA
+        </pre>
+
+        <h3>39. Menggunakan dig untuk Melihat Semua Catatan DNS</h3>
+        <pre>
+dig example.com ANY +nostats +nocomments +nocmd
+        </pre>
+
+        <h3>40. Menggunakan dig untuk Mengidentifikasi Masalah DNS</h3>
+        <pre>
+dig example.com +trace +short
+        </pre>
+
+        <h3>41. Menggunakan dig untuk Memeriksa Alamat IP dari DNS</h3>
+        <pre>
+dig +short example.com
+        </pre>
+
+        <h3>42. Menggunakan dig untuk Memeriksa Rekursi DNS</h3>
+        <pre>
+dig +recurse example.com
+        </pre>
+
+        <h3>43. Menampilkan Hasil dengan Entri Waktu</h3>
+        <pre>
+dig example.com +stats +short
+        </pre>
+
+        <h3>44. Menggunakan dig untuk Melihat Catatan TTL DNS</h3>
+        <pre>
+dig example.com +ttl
+        </pre>
+
+        <h3>45. Menggunakan dig untuk Memeriksa DNS di Host Tertentu</h3>
+        <pre>
+dig @ns1.example.com example.com A
+        </pre>
+
+        <h3>46. Menggunakan dig untuk Melihat Perubahan Catatan DNS</h3>
+        <pre>
+dig example.com +trace
+        </pre>
+
+        <h3>47. Menggunakan dig untuk Mencetak Semua Catatan DNS untuk Subdomain</h3>
+        <pre>
+dig sub.example.com ANY
+        </pre>
+
+        <h3>48. Menggunakan dig untuk Memeriksa DNS pada IPv6</h3>
+        <pre>
+dig -x 2001:db8::1
+        </pre>
+
+        <h3>49. Menggunakan dig untuk Memeriksa DNS Responsif</h3>
+        <pre>
+dig example.com +time=5
+        </pre>
+
+        <h3>50. Menggunakan dig untuk Mencetak DNS dengan Waktu Respons</h3>
+        <pre>
+dig example.com +stats
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Pastikan Anda memiliki izin sebelum melakukan query pada server DNS.
+- Hasil dari dig dapat bervariasi tergantung pada konfigurasi DNS dan waktu respons.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Penggunaan dan Contoh dig</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

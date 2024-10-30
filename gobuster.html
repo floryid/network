@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gobuster - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                Gobuster
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengenalan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">50 Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Cheat Sheet Gobuster</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+Gobuster adalah alat untuk brute-forcing direktori dan file pada server web, serta subdomain. Ini membantu dalam menemukan area yang tidak terlihat dari aplikasi web.
+        </pre>
+
+        <h2 id="contoh">50 Contoh Penggunaan</h2>
+
+        <h3>1. Memindai direktori dengan daftar kata</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt
+        </pre>
+
+        <h3>2. Memindai file dengan daftar kata</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -x php,html,js
+        </pre>
+
+        <h3>3. Menggunakan mode DNS untuk menemukan subdomain</h3>
+        <pre>
+gobuster dns -d example.com -w /path/to/wordlist.txt
+        </pre>
+
+        <h3>4. Menyimpan hasil ke file</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -o hasil.txt
+        </pre>
+
+        <h3>5. Menggunakan opsi verbose untuk output lebih detail</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -v
+        </pre>
+
+        <h3>6. Menggunakan cookie untuk autentikasi</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt --cookie "cookie_name=cookie_value"
+        </pre>
+
+        <h3>7. Mengatur batas waktu permintaan</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -t 50 --timeout 5s
+        </pre>
+
+        <h3>8. Menggunakan mode vhost untuk subdomain</h3>
+        <pre>
+gobuster vhost -u https://example.com -w /path/to/wordlist.txt
+        </pre>
+
+        <h3>9. Memindai direktori dengan status kode HTTP tertentu</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -s "200,204,301,302"
+        </pre>
+
+        <h3>10. Memindai dengan opsi rekursi</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -r
+        </pre>
+
+        <h3>11. Menggunakan proxy untuk menyembunyikan alamat IP</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt --proxy http://127.0.0.1:8080
+        </pre>
+
+        <h3>12. Mengabaikan status kode tertentu</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -s "403,404"
+        </pre>
+
+        <h3>13. Memindai direktori dengan batas maksimal 50 permintaan</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -n -m 50
+        </pre>
+
+        <h3>14. Menentukan user-agent khusus</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -a "Mozilla/5.0"
+        </pre>
+
+        <h3>15. Menampilkan hasil dalam format JSON</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -o hasil.json -f json
+        </pre>
+
+        <h3>16. Mengatur jumlah thread saat melakukan pemindaian</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -t 10
+        </pre>
+
+        <h3>17. Menggunakan file daftar untuk DNS bruteforce</h3>
+        <pre>
+gobuster dns -d example.com -w /path/to/wordlist.txt -o hasil.txt
+        </pre>
+
+        <h3>18. Memindai direktori dengan mengabaikan SSL</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt --no-ssl
+        </pre>
+
+        <h3>19. Memindai subdomain dengan metode yang berbeda</h3>
+        <pre>
+gobuster dns -d example.com -w /path/to/wordlist.txt -t 50 -r
+        </pre>
+
+        <h3>20. Memindai file di direktori tertentu</h3>
+        <pre>
+gobuster dir -u https://example.com/path/ -w /path/to/wordlist.txt
+        </pre>
+
+        <h3>21. Mencari direktori tersembunyi</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -k
+        </pre>
+
+        <h3>22. Memindai dengan daftar kata yang sudah difilter</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/filtered_wordlist.txt
+        </pre>
+
+        <h3>23. Menggunakan mode DNS dengan output ke file</h3>
+        <pre>
+gobuster dns -d example.com -w /path/to/wordlist.txt -o hasil_dns.txt
+        </pre>
+
+        <h3>24. Mencari file dengan ekstensi tertentu</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -x php,txt
+        </pre>
+
+        <h3>25. Mencari direktori dengan parameter yang disembunyikan</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/hidden_wordlist.txt
+        </pre>
+
+        <h3>26. Mencari direktori dengan status tertentu</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -s "200,301"
+        </pre>
+
+        <h3>27. Menggunakan batasan waktu saat mencari subdomain</h3>
+        <pre>
+gobuster dns -d example.com -w /path/to/wordlist.txt --timeout 5s
+        </pre>
+
+        <h3>28. Menggunakan mode vhost dengan batas waktu</h3>
+        <pre>
+gobuster vhost -u https://example.com -w /path/to/wordlist.txt --timeout 5s
+        </pre>
+
+        <h3>29. Mengabaikan status kode 403</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -s "200,204,301,302"
+        </pre>
+
+        <h3>30. Menentukan file hasil dengan format HTML</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -o hasil.html
+        </pre>
+
+        <h3>31. Memindai secara rekursif dengan batasan</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -r -l
+        </pre>
+
+        <h3>32. Menggunakan header khusus</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -H "Authorization: Bearer token"
+        </pre>
+
+        <h3>33. Menambahkan ekstensi ke hasil</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -x php,html
+        </pre>
+
+        <h3>34. Menggunakan proxy SOCKS5</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt --proxy socks5://127.0.0.1:1080
+        </pre>
+
+        <h3>35. Memindai direktori dengan query string</h3>
+        <pre>
+gobuster dir -u "https://example.com/index.php?id=1" -w /path/to/wordlist.txt
+        </pre>
+
+        <h3>36. Menggunakan SSL dan mengabaikan sertifikat</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt --no-check-certificate
+        </pre>
+
+        <h3>37. Menyimpan hasil ke format CSV</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -o hasil.csv -f csv
+        </pre>
+
+        <h3>38. Memindai subdomain dengan hasil ke file</h3>
+        <pre>
+gobuster dns -d example.com -w /path/to/wordlist.txt -o hasil_subdomain.txt
+        </pre>
+
+        <h3>39. Mengatur user-agent untuk pemindaian</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -a "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+        </pre>
+
+        <h3>40. Menggunakan daftar kata yang terpisah dengan koma</h3>
+        <pre>
+gobuster dir -u https://example.com -w "word1,word2,word3"
+        </pre>
+
+        <h3>41. Menggunakan opsi -k untuk mematikan SSL</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -k
+        </pre>
+
+        <h3>42. Menyimpan hasil dengan waktu dan format JSON</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -o hasil_$(date +%F).json
+        </pre>
+
+        <h3>43. Memindai dengan batas waktu lebih lama</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt --timeout 10s
+        </pre>
+
+        <h3>44. Menggunakan metode HTTP POST</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -X POST
+        </pre>
+
+        <h3>45. Memindai beberapa URL secara bersamaan</h3>
+        <pre>
+gobuster dir -u https://example1.com -u https://example2.com -w /path/to/wordlist.txt
+        </pre>
+
+        <h3>46. Menyimpan hasil dengan format XML</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -o hasil.xml -f xml
+        </pre>
+
+        <h3>47. Menampilkan hasil dengan detail lebih tinggi</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -v -k
+        </pre>
+
+        <h3>48. Memindai direktori dengan metode rekursif dan batasan</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -r -n
+        </pre>
+
+        <h3>49. Menggunakan daftar kata yang besar dengan batasan memori</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/large_wordlist.txt --memory-limit 500M
+        </pre>
+
+        <h3>50. Mencari direktori dan file dengan pengaturan waktu</h3>
+        <pre>
+gobuster dir -u https://example.com -w /path/to/wordlist.txt -s "200,204" --timeout 2s
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Gunakan Gobuster secara etis dan hanya pada situs yang Anda miliki izin untuk menguji.
+- Hasil pemindaian dapat memberikan wawasan tentang kerentanan potensial yang perlu diperbaiki.
+- Selalu perbarui daftar kata Anda untuk hasil yang lebih baik.
+        </pre>
+
+        <footer class="footer">
+            <p>&copy; 2024 Nofrinto Flory. Semua Hak Dilindungi.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

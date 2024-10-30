@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Terminal - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .navbar {
+            background-color: #000;
+            border-bottom: 2px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #252525;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .terminal {
+            background-color: #000;
+            padding: 20px;
+            border: 1px solid #00ff00;
+            height: 400px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        .input-line {
+            display: flex;
+            align-items: center;
+        }
+        .input-line span {
+            margin-right: 5px;
+        }
+        .terminal-input {
+            background: none;
+            border: none;
+            color: #00ff00;
+            width: 100%;
+            outline: none;
+            font-family: inherit;
+            font-size: inherit;
+        }
+        .output-line {
+            margin-bottom: 5px;
+        }
+        .footer {
+            background-color: #000;
+            color: #00ff00;
+            padding: 10px;
+            text-align: center;
+            border-top: 2px solid #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Syber9</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="buku.html">Buku</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kontak.html">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Simulasi Terminal -->
+    <div class="container">
+        <h1 class="my-4 text-center">Simulasi Terminal</h1>
+        <div class="terminal" id="terminal">
+            <div class="output-line">Selamat datang di terminal Syber9. Ketik <code>help</code> untuk melihat perintah.</div>
+        </div>
+        <div class="input-line">
+            <span>&gt;</span>
+            <input type="text" id="terminalInput" class="terminal-input" placeholder="Ketik perintah di sini..." autofocus>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Syber9. Semua hak cipta dilindungi.</p>
+    </div>
+
+    <script>
+        document.getElementById('terminalInput').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                const terminal = document.getElementById('terminal');
+                const input = event.target.value.trim();
+                const output = document.createElement('div');
+                output.className = 'output-line';
+                output.innerHTML = '&gt; ' + input;
+                terminal.appendChild(output);
+
+                const response = handleCommand(input);
+                if (response) {
+                    const responseLine = document.createElement('div');
+                    responseLine.className = 'output-line';
+                    responseLine.innerHTML = response;
+                    terminal.appendChild(responseLine);
+                }
+
+                event.target.value = '';
+                terminal.scrollTop = terminal.scrollHeight;
+            }
+        });
+
+        function handleCommand(command) {
+            switch (command.toLowerCase()) {
+                case 'help':
+                    return 'Perintah yang tersedia: help, clear, info, scan, exit';
+                case 'clear':
+                    const terminal = document.getElementById('terminal');
+                    terminal.innerHTML = '';
+                    return 'Terminal dibersihkan.';
+                case 'info':
+                    return 'Syber9 Terminal v1.0 - Developer: Nofrinto Flory';
+                case 'scan':
+                    return 'Memulai pemindaian jaringan...<br>192.168.1.1 - Port 22 terbuka<br>192.168.1.2 - Port 80 terbuka';
+                case 'exit':
+                    return 'Keluar dari terminal. Selamat tinggal!';
+                default:
+                    return 'Perintah tidak dikenal. Ketik "help" untuk daftar perintah.';
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

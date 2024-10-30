@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #0e0e0e;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.9);
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #00cc00 !important;
+        }
+        .contact-section {
+            margin-top: 40px;
+        }
+        .section-title {
+            color: #00ff00;
+            text-align: center;
+            border-bottom: 2px solid #00ff00;
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #00ff00;
+            border-top: 1px solid #00ff00;
+            padding-top: 10px;
+        }
+        .map-container {
+            height: 400px;
+            margin-bottom: 40px;
+        }
+        .form-control:focus {
+            border-color: #00ff00;
+            box-shadow: none;
+        }
+        .btn-custom {
+            background-color: #00ff00;
+            color: #0e0e0e;
+            transition: background-color 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #00cc00;
+        }
+        @media (max-width: 576px) {
+            .map-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                Kontak Saya
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kontak.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Projek</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <div class="container contact-section">
+        <h2 class="section-title">Hubungi Saya</h2>
+        <p class="text-center">Jika Anda memiliki pertanyaan, jangan ragu untuk menghubungi saya!</p>
+
+        <form>
+            <div class="mb-3">
+                <label for="name" class="form-label">Nama</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Alamat Email</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="subject" class="form-label">Subjek</label>
+                <input type="text" class="form-control" id="subject" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Pesan</label>
+                <textarea class="form-control" id="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-custom">Kirim Pesan</button>
+        </form>
+
+        <h2 class="section-title mt-5">Lokasi</h2>
+        <div class="map-container" id="map"></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Syber9</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function initMap() {
+            var location = {lat: -7.123456, lng: 106.123456}; // Ganti dengan koordinat yang sesuai
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script> <!-- Ganti YOUR_API_KEY dengan kunci API Anda -->
+</body>
+</html>

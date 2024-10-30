@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet Nikto - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                Nikto
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengantar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#instalasi">Instalasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#penggunaan">Penggunaan Dasar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fitur">Fitur Utama</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Cheat Sheet Nikto</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+Nikto adalah alat pemindai web yang digunakan untuk melakukan pemindaian terhadap kerentanan pada server web. Ini mendeteksi berbagai masalah keamanan seperti konfigurasi yang tidak tepat, file berbahaya, dan banyak lagi.
+        </pre>
+
+        <h2 id="instalasi">Instalasi</h2>
+        <pre>
+# Untuk menginstal Nikto, Anda dapat menggunakan perintah berikut:
+git clone https://github.com/sullo/nikto.git
+
+# Masuk ke direktori Nikto:
+cd nikto/program
+
+# Jalankan Nikto:
+perl nikto.pl
+        </pre>
+
+        <h2 id="penggunaan">Penggunaan Dasar</h2>
+        <pre>
+# Untuk memindai situs web:
+perl nikto.pl -h http://targetwebsite.com
+        </pre>
+
+        <h2 id="fitur">Fitur Utama</h2>
+        <pre>
+1. **Pemindaian Kerentanan**: Mendeteksi kerentanan yang dikenal pada aplikasi web.
+2. **Pemeriksaan Konfigurasi**: Memeriksa konfigurasi server web untuk masalah keamanan.
+3. **Dukungan SSL**: Mampu melakukan pemindaian pada situs yang menggunakan HTTPS.
+4. **Output yang Beragam**: Menyimpan hasil pemindaian dalam format TXT, HTML, dan CSV.
+        </pre>
+
+        <h2 id="contoh">Contoh Penggunaan</h2>
+        <h3>1. Memindai Situs Web</h3>
+        <pre>
+perl nikto.pl -h http://example.com
+        </pre>
+
+        <h3>2. Memindai dengan Output dalam Format HTML</h3>
+        <pre>
+perl nikto.pl -h http://example.com -o output.html -Format htm
+        </pre>
+
+        <h3>3. Memindai dengan Opsi SSL</h3>
+        <pre>
+perl nikto.pl -h https://example.com
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Pastikan Anda memiliki izin untuk melakukan pemindaian terhadap server yang Anda targetkan.
+- Gunakan Nikto dengan etika dan sesuai hukum yang berlaku.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Cheat Sheet Nikto</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

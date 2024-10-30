@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet Hashcat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hashcat</h1>
+
+        <h2>Perintah Dasar</h2>
+        <pre>
+# Jalankan Hashcat dengan pengaturan default
+hashcat -m [format] -a [mode] [file_hash] [wordlist]
+
+# Contoh:
+hashcat -m 0 -a 0 hashes.txt wordlist.txt
+        </pre>
+
+        <h2>Format Hash Umum</h2>
+        <pre>
+# Format hash yang umum digunakan:
+- 0: MD5
+- 100: SHA1
+- 1400: SHA256
+- 22000: WPA/WPA2
+- 2600: bcrypt
+        </pre>
+
+        <h2>Mode Serangan</h2>
+        <pre>
+# Jenis mode serangan:
+- 0: Straight (Wordlist)
+- 1: Combination
+- 3: Brute-force
+- 6: Hybrid Wordlist + Mask
+- 7: Hybrid Mask + Wordlist
+        </pre>
+
+        <h2>Contoh Serangan dengan Wordlist</h2>
+        <pre>
+# Gunakan wordlist untuk menyerang hash
+hashcat -m 0 -a 0 hashes.txt wordlist.txt
+        </pre>
+
+        <h2>Brute-force dengan Mask</h2>
+        <pre>
+# Serangan brute-force menggunakan mask
+hashcat -m 0 -a 3 hashes.txt ?l?l?l?l?l?l
+
+# Contoh:
+hashcat -m 0 -a 3 hashes.txt ?u?u?u?u?u?u (6 huruf kapital)
+        </pre>
+
+        <h2>Menampilkan Hasil</h2>
+        <pre>
+# Menampilkan hasil setelah proses cracking
+hashcat --show hashes.txt
+        </pre>
+
+        <h2>Menyimpan dan Mengambil Sesi</h2>
+        <pre>
+# Menyimpan sesi yang sedang berjalan
+hashcat -m [format] -a [mode] --session=my_session hashes.txt wordlist.txt
+
+# Mengambil sesi yang disimpan
+hashcat --restore
+        </pre>
+
+        <h2>Melihat Format Hash yang Didukung</h2>
+        <pre>
+# Untuk melihat semua format hash yang didukung
+hashcat -h | grep -A 10 "Supported hash types"
+        </pre>
+
+        <h2>Opsi Tambahan</h2>
+        <pre>
+# Menggunakan aturan pada wordlist
+hashcat -m 0 -a 0 -r rules/best64.rule hashes.txt wordlist.txt
+        </pre>
+
+        <h2>Pengaturan GPU</h2>
+        <pre>
+# Untuk mengatur penggunaan GPU
+hashcat -m 0 -a 0 --opencl-device-types 1 hashes.txt wordlist.txt
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Cheat Sheet Hashcat</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

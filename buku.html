@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buku - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .navbar {
+            background-color: #000;
+            border-bottom: 2px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #252525;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #1e1e1e;
+            border: 1px solid #00ff00;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        p, pre, li{
+            color: #00ff00;
+        }
+        a{
+            text-decoration: none;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card-title {
+            color: #00ff00;
+        }
+        .button-hacker {
+            background-color: #00ff00;
+            border: none;
+            color: #121212;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            margin: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .button-hacker:hover {
+            background-color: #121212;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+        }
+        .glitch {
+            font-size: 2em;
+            color: #00ff00;
+            animation: glitch 1s infinite;
+        }
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, -2px); }
+            40% { transform: translate(2px, 2px); }
+            60% { transform: translate(-1px, 1px); }
+            80% { transform: translate(1px, -1px); }
+            100% { transform: translate(0); }
+        }
+        .footer {
+            background-color: #000;
+            color: #00ff00;
+            padding: 10px;
+            text-align: center;
+            border-top: 2px solid #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Syber9</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kontak.html">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="container text-center">
+        <h1 class="my-4 glitch">Buku & Panduan Keamanan</h1>
+        <p>Berbagai panduan dan buku tentang keamanan siber, teknik pemindaian, dan eksploitasi yang harus Anda ketahui.</p>
+    </div>
+
+    <!-- Buku List -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Pemrograman Python untuk Hacking</h5>
+                        <p>Pelajari dasar-dasar Python dan aplikasinya dalam dunia hacking, dari pembuatan alat hingga eksploitasi.</p>
+                        <button class="button-hacker"><a href="python.html">Baca Sekarang</a></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Nmap untuk Pemula</h5>
+                        <p>Memahami cara menggunakan Nmap untuk pemindaian jaringan, deteksi port, dan analisis keamanan.</p>
+                        <button class="button-hacker"><a href="">Baca Sekarang</a></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Exploit Development</h5>
+                        <p>Menyelami dunia eksploitasi, dari penemuan kerentanan hingga pengembangan exploit.</p>
+                        <button class="button-hacker"><a href="exlpoit.html">Baca Sekarang</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animasi Terminal -->
+    <div class="container text-center my-5">
+        <h2 class="glitch">Simulasi Terminal</h2>
+        <p>Sesi simulasi untuk mencoba perintah dasar hacking.</p>
+        <button class="button-hacker"><a href="simulasi.html">Mulai Simulasi</a> </button>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Syber9. Semua hak cipta dilindungi.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

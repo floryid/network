@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet Google Dork - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                Google Dork Cheat Sheet
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengenalan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">50 Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Google Dork</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+Google Dorking adalah teknik pencarian yang menggunakan operator pencarian khusus untuk menemukan informasi tersembunyi di situs web. Ini dapat digunakan untuk menemukan kerentanan, file sensitif, dan informasi yang tidak terindeks oleh mesin pencari biasa.
+        </pre>
+
+        <h2 id="contoh">50 Contoh Penggunaan</h2>
+
+        <h3>1. Mencari file PDF di situs tertentu</h3>
+        <pre>
+site:example.com filetype:pdf
+        </pre>
+
+        <h3>2. Mencari halaman login di situs tertentu</h3>
+        <pre>
+inurl:login site:example.com
+        </pre>
+
+        <h3>3. Mencari file konfigurasi yang terpapar</h3>
+        <pre>
+intitle:"index of" "config.php"
+        </pre>
+
+        <h3>4. Mencari direktori yang terdaftar</h3>
+        <pre>
+intitle:"index of" "parent directory"
+        </pre>
+
+        <h3>5. Mencari file .xls (Excel) di internet</h3>
+        <pre>
+filetype:xls
+        </pre>
+
+        <h3>6. Mencari dokumen .doc (Word) di situs tertentu</h3>
+        <pre>
+site:example.com filetype:doc
+        </pre>
+
+        <h3>7. Mencari informasi kredensial yang terpapar</h3>
+        <pre>
+"username" "password"
+        </pre>
+
+        <h3>8. Mencari backup database yang terpapar</h3>
+        <pre>
+"backup.sql"
+        </pre>
+
+        <h3>9. Mencari server FTP yang terbuka</h3>
+        <pre>
+intitle:"index of" "ftp"
+        </pre>
+
+        <h3>10. Mencari informasi tentang pengguna di forum</h3>
+        <pre>
+site:forum.example.com "user" "email"
+        </pre>
+
+        <h3>11. Mencari halaman dengan informasi sensitif</h3>
+        <pre>
+inurl:wp-content/plugins/ "confidential"
+        </pre>
+
+        <h3>12. Mencari file yang berisi kata sandi</h3>
+        <pre>
+"password" filetype:txt
+        </pre>
+
+        <h3>13. Mencari informasi tentang versi perangkat lunak</h3>
+        <pre>
+"powered by" "version"
+        </pre>
+
+        <h3>14. Mencari forum dengan file attachment</h3>
+        <pre>
+site:forum.example.com inurl:attachment
+        </pre>
+
+        <h3>15. Mencari formulir pencarian yang rentan</h3>
+        <pre>
+inurl:"search.php?q="
+        </pre>
+
+        <h3>16. Mencari direktori dengan file log</h3>
+        <pre>
+intitle:"index of" "logs"
+        </pre>
+
+        <h3>17. Mencari file CSV yang terpapar</h3>
+        <pre>
+filetype:csv
+        </pre>
+
+        <h3>18. Mencari halaman dengan error tertentu</h3>
+        <pre>
+"error" "404"
+        </pre>
+
+        <h3>19. Mencari aplikasi web dengan kerentanan</h3>
+        <pre>
+inurl:"/admin" "login"
+        </pre>
+
+        <h3>20. Mencari file yang terbuat dengan PHP</h3>
+        <pre>
+filetype:php
+        </pre>
+
+        <h3>21. Mencari API yang terpapar</h3>
+        <pre>
+"api" "key"
+        </pre>
+
+        <h3>22. Mencari direktori yang mengandung file konfigurasi</h3>
+        <pre>
+intitle:"index of" "config"
+        </pre>
+
+        <h3>23. Mencari file zip yang terpapar</h3>
+        <pre>
+filetype:zip
+        </pre>
+
+        <h3>24. Mencari halaman yang mengandung kata "confidential"</h3>
+        <pre>
+"confidential" site:example.com
+        </pre>
+
+        <h3>25. Mencari data pengguna di situs pendidikan</h3>
+        <pre>
+site:edu "student" "email"
+        </pre>
+
+        <h3>26. Mencari file yang mengandung "api_key"</h3>
+        <pre>
+"api_key" filetype:txt
+        </pre>
+
+        <h3>27. Mencari laporan keuangan yang terpapar</h3>
+        <pre>
+filetype:pdf "financial report"
+        </pre>
+
+        <h3>28. Mencari file yang berisi informasi server</h3>
+        <pre>
+"server" filetype:conf
+        </pre>
+
+        <h3>29. Mencari halaman dengan informasi pengguna</h3>
+        <pre>
+inurl:"profile.php?id="
+        </pre>
+
+        <h3>30. Mencari file HTML yang berisi informasi penting</h3>
+        <pre>
+filetype:html "important"
+        </pre>
+
+        <h3>31. Mencari file dengan format .bak (backup)</h3>
+        <pre>
+filetype:bak
+        </pre>
+
+        <h3>32. Mencari file JavaScript yang terpapar</h3>
+        <pre>
+filetype:js
+        </pre>
+
+        <h3>33. Mencari file konfigurasi untuk database</h3>
+        <pre>
+"db_config" filetype:php
+        </pre>
+
+        <h3>34. Mencari dokumen yang berisi informasi login</h3>
+        <pre>
+"login" filetype:doc
+        </pre>
+
+        <h3>35. Mencari direktori gambar yang terdaftar</h3>
+        <pre>
+intitle:"index of" "images"
+        </pre>
+
+        <h3>36. Mencari file video yang terpapar</h3>
+        <pre>
+filetype:mp4
+        </pre>
+
+        <h3>37. Mencari informasi tentang versi PHP yang digunakan</h3>
+        <pre>
+"PHP Version" "on"
+        </pre>
+
+        <h3>38. Mencari direktori dengan file media</h3>
+        <pre>
+intitle:"index of" "media"
+        </pre>
+
+        <h3>39. Mencari file yang berisi nama pengguna dan kata sandi</h3>
+        <pre>
+"username:password" filetype:txt
+        </pre>
+
+        <h3>40. Mencari file yang berisi data sensitif</h3>
+        <pre>
+"confidential data" filetype:doc
+        </pre>
+
+        <h3>41. Mencari file log server yang terpapar</h3>
+        <pre>
+filetype:log
+        </pre>
+
+        <h3>42. Mencari halaman dengan error 500</h3>
+        <pre>
+"500 Internal Server Error"
+        </pre>
+
+        <h3>43. Mencari direktori yang mengandung file executable</h3>
+        <pre>
+intitle:"index of" "executable"
+        </pre>
+
+        <h3>44. Mencari file yang berisi email pengguna</h3>
+        <pre>
+"email" filetype:txt
+        </pre>
+
+        <h3>45. Mencari laporan tahunan di situs tertentu</h3>
+        <pre>
+site:example.com "annual report" filetype:pdf
+        </pre>
+
+        <h3>46. Mencari file yang berisi alamat IP</h3>
+        <pre>
+"IP Address" filetype:txt
+        </pre>
+
+        <h3>47. Mencari dokumen yang berisi informasi sensitif di situs pemerintah</h3>
+        <pre>
+site:gov "confidential"
+        </pre>
+
+        <h3>48. Mencari informasi tentang perusahaan di situs tertentu</h3>
+        <pre>
+site:example.com "company profile"
+        </pre>
+
+        <h3>49. Mencari halaman dengan data sensitif di forum</h3>
+        <pre>
+site:forum.example.com "sensitive data"
+        </pre>
+
+        <h3>50. Mencari file konfigurasi Apache yang terpapar</h3>
+        <pre>
+inurl:"httpd.conf"
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Gunakan teknik ini secara etis dan hanya untuk tujuan yang sah.
+- Dorking dapat mengungkapkan informasi sensitif; berhati-hatilah untuk tidak mengeksploitasi kerentanan yang ditemukan.
+- Selalu periksa kebijakan privasi dan penggunaan sebelum melakukan pencarian.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Cheat Sheet Google Dork</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

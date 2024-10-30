@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OWASP ZAP - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                OWASP ZAP
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengantar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#instalasi">Instalasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#penggunaan">Penggunaan Dasar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fitur">Fitur Utama</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Cheat Sheet OWASP ZAP</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+OWASP ZAP (Zed Attack Proxy) adalah alat pemindai keamanan aplikasi web yang digunakan untuk menemukan kerentanan keamanan. Ini sangat berguna bagi pengembang dan penguji keamanan.
+        </pre>
+
+        <h2 id="instalasi">Instalasi</h2>
+        <pre>
+# Untuk menginstal OWASP ZAP, Anda dapat mengunduh dari situs resminya:
+https://www.zaproxy.org/download/
+
+# Atau menggunakan perintah berikut untuk sistem berbasis Debian:
+sudo apt-get install zaproxy
+        </pre>
+
+        <h2 id="penggunaan">Penggunaan Dasar</h2>
+        <pre>
+# Untuk menjalankan OWASP ZAP dari command line:
+zap.sh -daemon -port 8080
+        </pre>
+
+        <h2 id="fitur">Fitur Utama</h2>
+        <pre>
+1. **Pemindaian Otomatis**: Mampu melakukan pemindaian otomatis terhadap aplikasi web.
+2. **Pengujian Manual**: Menyediakan alat untuk pengujian manual yang mendalam.
+3. **Integrasi CI/CD**: Dapat diintegrasikan dengan pipeline CI/CD untuk pemindaian otomatis.
+4. **Dukungan API**: Menawarkan API untuk otomatisasi dan integrasi dengan alat lain.
+        </pre>
+
+        <h2 id="contoh">Contoh Penggunaan</h2>
+        <h3>1. Memindai Situs Web</h3>
+        <pre>
+# Melakukan pemindaian terhadap situs web:
+zap.sh -quickstart -url http://example.com
+        </pre>
+
+        <h3>2. Menghasilkan Laporan dalam Format HTML</h3>
+        <pre>
+# Menghasilkan laporan hasil pemindaian:
+zap.sh -report report.html -format html
+        </pre>
+
+        <h3>3. Menggunakan API untuk Pemindaian</h3>
+        <pre>
+# Menggunakan curl untuk melakukan pemindaian melalui API:
+curl "http://localhost:8080/JSON/ascan/action/scan/?url=http://example.com"
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Pastikan Anda memiliki izin untuk melakukan pemindaian terhadap aplikasi yang Anda targetkan.
+- Gunakan ZAP dengan etika dan sesuai hukum yang berlaku.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Cheat Sheet OWASP ZAP</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

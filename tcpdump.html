@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tcpdump - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                Tcpdump
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengantar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Tcpdump</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+Tcpdump adalah alat baris perintah untuk menganalisis lalu lintas jaringan. Dengan Tcpdump, Anda dapat menangkap dan menganalisis paket data yang lewat di jaringan Anda. Alat ini sering digunakan oleh administrator jaringan dan peneliti keamanan untuk troubleshoot dan analisis lalu lintas.
+        </pre>
+
+        <h2 id="contoh">Contoh Penggunaan</h2>
+
+        <h3>1. Menangkap Semua Paket pada Antarmuka Default</h3>
+        <pre>
+# Menangkap semua paket pada antarmuka default
+tcpdump
+        </pre>
+
+        <h3>2. Menangkap Paket pada Antarmuka Tertentu</h3>
+        <pre>
+# Menangkap paket di antarmuka eth0
+tcpdump -i eth0
+        </pre>
+
+        <h3>3. Menyimpan Hasil Tangkap ke File</h3>
+        <pre>
+# Menyimpan hasil tangkap ke file .pcap
+tcpdump -w hasil_tangkap.pcap
+        </pre>
+
+        <h3>4. Membaca File Hasil Tangkap</h3>
+        <pre>
+# Membaca file .pcap yang sudah disimpan
+tcpdump -r hasil_tangkap.pcap
+        </pre>
+
+        <h3>5. Menampilkan Hasil Tangkap Secara Real-Time</h3>
+        <pre>
+# Menampilkan hasil tangkap secara real-time
+tcpdump -i eth0 -n
+        </pre>
+
+        <h3>6. Menampilkan Hanya Paket TCP</h3>
+        <pre>
+# Menampilkan paket TCP saja
+tcpdump tcp
+        </pre>
+
+        <h3>7. Menampilkan Hanya Paket UDP</h3>
+        <pre>
+# Menampilkan paket UDP saja
+tcpdump udp
+        </pre>
+
+        <h3>8. Menampilkan Hanya Paket ICMP</h3>
+        <pre>
+# Menampilkan paket ICMP saja
+tcpdump icmp
+        </pre>
+
+        <h3>9. Menangkap Paket Berdasarkan Port Tertentu</h3>
+        <pre>
+# Menangkap paket pada port 80
+tcpdump port 80
+        </pre>
+
+        <h3>10. Menangkap Paket dari Alamat IP Tertentu</h3>
+        <pre>
+# Menangkap paket dari IP tertentu
+tcpdump src host 192.168.1.1
+        </pre>
+
+        <h3>11. Menangkap Paket ke Alamat IP Tertentu</h3>
+        <pre>
+# Menangkap paket menuju IP tertentu
+tcpdump dst host 192.168.1.1
+        </pre>
+
+        <h3>12. Menangkap Paket dengan Filter Gabungan</h3>
+        <pre>
+# Menangkap paket dari dan menuju IP tertentu
+tcpdump host 192.168.1.1
+        </pre>
+
+        <h3>13. Menampilkan Hanya Paket dengan Panjang Tertentu</h3>
+        <pre>
+# Menampilkan paket dengan panjang lebih dari 100 bytes
+tcpdump greater 100
+        </pre>
+
+        <h3>14. Menyaring Berdasarkan Protokol Tertentu</h3>
+        <pre>
+# Menyaring berdasarkan protokol TCP
+tcpdump -i eth0 tcp
+        </pre>
+
+        <h3>15. Menggunakan Filter Berdasarkan MAC Address</h3>
+        <pre>
+# Menyaring berdasarkan alamat MAC
+tcpdump ether host 00:11:22:33:44:55
+        </pre>
+
+        <h3>16. Menangkap Traffic Berdasarkan Waktu</h3>
+        <pre>
+# Menangkap paket setelah waktu tertentu
+tcpdump -G 60 -w hasil_tangkap-%Y-%m-%d_%H-%M-%S.pcap
+        </pre>
+
+        <h3>17. Menggunakan Output ke File</h3>
+        <pre>
+# Menyimpan hasil tangkap ke file
+tcpdump -i eth0 -w hasil_tangkap.pcap
+        </pre>
+
+        <h3>18. Menampilkan Ringkasan Hasil Tangkap</h3>
+        <pre>
+# Menampilkan ringkasan hasil tangkap
+tcpdump -i eth0 -c 10
+        </pre>
+
+        <h3>19. Mengatur Verbosity</h3>
+        <pre>
+# Mengatur verbosity untuk detail lebih banyak
+tcpdump -vvv
+        </pre>
+
+        <h3>20. Menangkap Semua Traffic HTTP</h3>
+        <pre>
+# Menangkap traffic HTTP
+tcpdump -i eth0 'tcp port 80'
+        </pre>
+
+        <h3>21. Menangkap Traffic HTTPS</h3>
+        <pre>
+# Menangkap traffic HTTPS
+tcpdump -i eth0 'tcp port 443'
+        </pre>
+
+        <h3>22. Menggunakan Filter Berdasarkan User-Agent</h3>
+        <pre>
+# Menangkap traffic yang mengandung user-agent tertentu
+tcpdump -A 'tcp[20:4] = 0x47455420'
+        </pre>
+
+        <h3>23. Menampilkan Semua Traffic IPv6</h3>
+        <pre>
+# Menampilkan semua traffic IPv6
+tcpdump -i eth0 ip6
+        </pre>
+
+        <h3>24. Mencetak Detail Paket</h3>
+        <pre>
+# Mencetak detail paket ke terminal
+tcpdump -i eth0 -X
+        </pre>
+
+        <h3>25. Menangkap dan Menyimpan Hasil Ke CSV</h3>
+        <pre>
+# Menyimpan hasil tangkap ke CSV
+tcpdump -i eth0 -nn -tttt > hasil_tangkap.csv
+        </pre>
+
+        <h3>26. Menampilkan Paket dengan Header Lengkap</h3>
+        <pre>
+# Menampilkan paket dengan header lengkap
+tcpdump -i eth0 -X -vv
+        </pre>
+
+        <h3>27. Menangkap Traffic FTP</h3>
+        <pre>
+# Menangkap traffic FTP
+tcpdump -i eth0 'port 21'
+        </pre>
+
+        <h3>28. Menangkap Traffic SMTP</h3>
+        <pre>
+# Menangkap traffic SMTP
+tcpdump -i eth0 'port 25'
+        </pre>
+
+        <h3>29. Menangkap Traffic DNS</h3>
+        <pre>
+# Menangkap traffic DNS
+tcpdump -i eth0 'port 53'
+        </pre>
+
+        <h3>30. Menggunakan Filter dengan `not`</h3>
+        <pre>
+# Menangkap semua paket kecuali yang berasal dari IP tertentu
+tcpdump not src host 192.168.1.1
+        </pre>
+
+        <h3>31. Menggunakan Filter dengan `and`</h3>
+        <pre>
+# Menangkap paket TCP dari IP tertentu ke port tertentu
+tcpdump tcp and src host 192.168.1.1 and dst port 80
+        </pre>
+
+        <h3>32. Menggunakan Filter dengan `or`</h3>
+        <pre>
+# Menangkap paket dari dua host yang berbeda
+tcpdump host 192.168.1.1 or host 192.168.1.2
+        </pre>
+
+        <h3>33. Menangkap Traffic VoIP</h3>
+        <pre>
+# Menangkap traffic VoIP
+tcpdump -i eth0 'udp port 5060'
+        </pre>
+
+        <h3>34. Menangkap Traffic berdasarkan VLAN</h3>
+        <pre>
+# Menangkap traffic dengan VLAN tertentu
+tcpdump -i eth0 vlan
+        </pre>
+
+        <h3>35. Menangkap Traffic berdasarkan QoS</h3>
+        <pre>
+# Menangkap traffic dengan QoS tertentu
+tcpdump -i eth0 'ip[1:1] & 0xF8 = 0x20'
+        </pre>
+
+        <h3>36. Menangkap Traffic Multicast</h3>
+        <pre>
+# Menangkap traffic multicast
+tcpdump -i eth0 'ether[0] & 1 != 0'
+        </pre>
+
+        <h3>37. Menangkap Traffic Broadcast</h3>
+        <pre>
+# Menangkap traffic broadcast
+tcpdump -i eth0 'broadcast'
+        </pre>
+
+        <h3>38. Menangkap Traffic dengan Time Stamp</h3>
+        <pre>
+# Menangkap paket dengan time stamp
+tcpdump -tttt
+        </pre>
+
+        <h3>39. Menangkap Traffic Tertentu dengan Batas Waktu</h3>
+        <pre>
+# Menangkap traffic selama 10 detik
+timeout 10 tcpdump -i eth0
+        </pre>
+
+        <h3>40. Menangkap Traffic dengan Filter Length</h3>
+        <pre>
+# Menangkap paket dengan panjang tertentu
+tcpdump 'length <= 64'
+        </pre>
+
+        <h3>41. Menangkap Traffic berdasarkan Source Port</h3>
+        <pre>
+# Menangkap traffic dari port sumber tertentu
+tcpdump src port 8080
+        </pre>
+
+        <h3>42. Menangkap Traffic berdasarkan Destination Port</h3>
+        <pre>
+# Menangkap traffic ke port tujuan tertentu
+tcpdump dst port 8080
+        </pre>
+
+        <h3>43. Menangkap Traffic dengan Fallback</h3>
+        <pre>
+# Menangkap traffic dengan fallback
+tcpdump -i eth0 -w hasil_tangkap.pcap -C 100
+        </pre>
+
+        <h3>44. Menghentikan Tcpdump Secara Manual</h3>
+        <pre>
+# Menghentikan tcpdump
+Ctrl + C
+        </pre>
+
+        <h3>45. Menangkap Traffic dengan Hasil Lebih Ringkas</h3>
+        <pre>
+# Menangkap traffic dengan hasil ringkas
+tcpdump -i eth0 -c 50
+        </pre>
+
+        <h3>46. Menggunakan Output dengan Format Hexadecimal</h3>
+        <pre>
+# Menggunakan output dalam format hexadecimal
+tcpdump -i eth0 -x
+        </pre>
+
+        <h3>47. Menggunakan Filter Berdasarkan Flags TCP</h3>
+        <pre>
+# Menangkap traffic dengan flag SYN
+tcpdump 'tcp[tcpflags] & tcp-syn != 0'
+        </pre>
+
+        <h3>48. Menangkap Traffic RDP</h3>
+        <pre>
+# Menangkap traffic RDP
+tcpdump -i eth0 'tcp port 3389'
+        </pre>
+
+        <h3>49. Menangkap Traffic SSH</h3>
+        <pre>
+# Menangkap traffic SSH
+tcpdump -i eth0 'tcp port 22'
+        </pre>
+
+        <h3>50. Menangkap Traffic pada Jaringan WiFi</h3>
+        <pre>
+# Menangkap traffic pada jaringan WiFi
+tcpdump -i wlan0
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Selalu jalankan tcpdump dengan hak akses yang sesuai (misalnya, sebagai root).
+- Hati-hati saat menangkap paket di jaringan publik atau tanpa izin.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Tcpdump Penggunaan dan Contoh</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

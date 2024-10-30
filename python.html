@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemrograman Python untuk Hacking - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .navbar {
+            background-color: #000;
+            border-bottom: 2px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #252525;
+        }
+        p{
+            color: #00ff00;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #1e1e1e;
+            border: 1px solid #00ff00;
+            margin-bottom: 20px;
+        }
+        .card-header {
+            background-color: #00ff00;
+            color: #121212;
+            font-weight: bold;
+        }
+        .code-block {
+            background-color: #000;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        .btn-hacker {
+            background-color: #00ff00;
+            color: #121212;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            margin-top: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .btn-hacker:hover {
+            background-color: #121212;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+        }
+        .footer {
+            background-color: #000;
+            color: #00ff00;
+            padding: 10px;
+            text-align: center;
+            border-top: 2px solid #00ff00;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Syber9</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="buku.html">Buku</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kontak.html">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="container text-center">
+        <h1 class="my-4">Cheat Sheet: Pemrograman Python untuk Hacking</h1>
+        <p>Berikut ini adalah panduan singkat untuk penggunaan Python dalam dunia hacking. Dilengkapi dengan contoh-contoh kode yang sering digunakan oleh para *ethical hacker*.</p>
+    </div>
+
+    <!-- Python Basics -->
+    <div class="container">
+        <div class="card">
+            <div class="card-header">Dasar-dasar Python</div>
+            <div class="card-body">
+                <p>Memahami dasar Python adalah kunci sebelum masuk ke teknik hacking yang lebih dalam.</p>
+                <div class="code-block">
+                    <pre>
+# Menampilkan "Hello World" di Python
+print("Hello World")
+
+# Menggunakan variabel
+ip_address = "192.168.1.1"
+print(f"IP Address Target: {ip_address}")
+
+# Looping sederhana
+for i in range(5):
+    print(f"Percobaan ke-{i + 1}")
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Network Scanning -->
+    <div class="container">
+        <div class="card">
+            <div class="card-header">Pemindaian Jaringan</div>
+            <div class="card-body">
+                <p>Python dapat digunakan untuk membuat alat pemindai jaringan sederhana. Contoh berikut menggunakan pustaka <code>socket</code> untuk memindai port terbuka.</p>
+                <div class="code-block">
+                    <pre>
+import socket
+
+def scan_ports(ip):
+    for port in range(1, 1024):
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        socket.setdefaulttimeout(1)
+        result = sock.connect_ex((ip, port))
+        if result == 0:
+            print(f"Port {port} terbuka")
+        sock.close()
+
+# Contoh penggunaan
+scan_ports("192.168.1.1")
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Web Scraping -->
+    <div class="container">
+        <div class="card">
+            <div class="card-header">Web Scraping untuk Pengumpulan Data</div>
+            <div class="card-body">
+                <p>Python dengan pustaka <code>BeautifulSoup</code> dan <code>requests</code> dapat digunakan untuk mengambil data dari situs web.</p>
+                <div class="code-block">
+                    <pre>
+import requests
+from bs4 import BeautifulSoup
+
+url = "http://example.com"
+response = requests.get(url)
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# Mencetak semua tag <a> (link)
+for link in soup.find_all('a'):
+    print(link.get('href'))
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Password Cracking -->
+    <div class="container">
+        <div class="card">
+            <div class="card-header">Brute Force Password</div>
+            <div class="card-body">
+                <p>Contoh sederhana serangan <em>brute force</em> untuk mencoba kata sandi menggunakan pustaka <code>itertools</code>.</p>
+                <div class="code-block">
+                    <pre>
+import itertools
+
+def brute_force(password_list, target_password):
+    for attempt in itertools.product(password_list, repeat=4):
+        guess = ''.join(attempt)
+        print(f"Mencoba: {guess}")
+        if guess == target_password:
+            print(f"Kata sandi ditemukan: {guess}")
+            return True
+    return False
+
+# Contoh penggunaan
+password_list = 'abc123'
+brute_force(password_list, 'abc1')
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Syber9. Semua hak cipta dilindungi.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

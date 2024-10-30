@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #33ff33;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #33ff33;
+        }
+        .navbar-brand img {
+            height: 50px;
+            width: auto;
+        }
+        .navbar-nav .nav-link, .dropdown-item {
+            color: #33ff33 !important;
+        }
+        .navbar-nav .nav-link:hover, .dropdown-item:hover {
+            background-color: #262626;
+        }
+        .dropdown-menu {
+            background-color: #0d0d0d;
+            border: 1px solid #33ff33;
+        }
+        header {
+            background-image: url('cyber-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #33ff33;
+            padding: 100px 0;
+            text-shadow: 0 0 10px #33ff33;
+        }
+        footer {
+            background-color: #0d0d0d;
+            border-top: 1px solid #33ff33;
+        }
+        .glow-text {
+            text-shadow: 0 0 10px #33ff33, 0 0 20px #33ff33, 0 0 30px #33ff33;
+        }
+        .neon-border {
+            border: 1px solid #33ff33;
+            box-shadow: 0 0 10px #33ff33;
+            padding: 20px;
+        }
+        @keyframes scanline {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+        .scanline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(246, 2, 2, 0.263) 50%);
+            animation: scanline 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Scanline Animasi -->
+    <div class="scanline"></div>
+
+    <!-- Header Section -->
+    <header class="text-center">
+        <h1 class="mb-0 glow-text">Nofrinto Flory - Syber9</h1>
+        <p>Your gateway to the cyber world</p>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="buku.html" id="bookDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Network Scaning
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="bookDropdown">
+                            <li><a class="dropdown-item" href="network.html">Network</a></li>
+                            <li><a class="dropdown-item" href="nmap.html">Nmap</a></li>
+                            <li><a class="dropdown-item" href="sqlmap.html">SQLMap</a></li>
+                            <li><a class="dropdown-item" href="gobuster.html">Gobuster</a></li>
+                            <li><a class="dropdown-item" href="hydra.html">Hydra</a></li>
+                            <li><a class="dropdown-item" href="nessus.html">SESSUS</a></li>
+                            <li><a class="dropdown-item" href="sqlinjection.html">SQL Injection</a></li>
+                            <li><a class="dropdown-item" href="praktik.html">Best Practic Vulnerability</a></li>
+                            <li><a class="dropdown-item" href="action.html">Post-Scanning Actions</a></li>
+                            <li><a class="dropdown-item" href="terminalnmap.html">Halaman Nmap</a></li>
+                            <li><a class="dropdown-item" href="openvas.html">OpenVas</a></li>
+                            <li><a class="dropdown-item" href="nikto.html">Nikto</a></li>
+                            <li><a class="dropdown-item" href="metasploit.html">Metasploit</a></li>
+                            <li><a class="dropdown-item" href="lynis.html">Lynis</a></li>
+                            <li><a class="dropdown-item" href="arachi.html">Arachi</a></li>
+                            <li><a class="dropdown-item" href="w3af.html">W3af</a></li>
+                            <li><a class="dropdown-item" href="qualys.html">Qualys</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="buku.html" id="bookDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Password Vulnerability
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="bookDropdown">
+                            <li><a class="dropdown-item" href="pass.html">Test Kelemahan Password</a></li>
+                            <li><a class="dropdown-item" href="john.html">John The Ripper</a></li>
+                            <li><a class="dropdown-item" href="zap.html">OWASP ZAP</a></li>
+                            <li><a class="dropdown-item" href="hydraa.html">Hydra 1</a></li>
+                            <li><a class="dropdown-item" href="hydra.html">Hydra</a></li>
+                            <li><a class="dropdown-item" href="medusa.html">Medusa</a></li>
+                            <li><a class="dropdown-item" href="ncrack.html">Ncrack</a></li>
+                            <li><a class="dropdown-item" href="pwned.html">Have I Been Pwned</a></li>
+                            <li><a class="dropdown-item" href="aircrack.html">Aircrack-ng</a></li>
+                            <li><a class="dropdown-item" href="terminalnmap.html">Halaman Nmap</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="buku.html" id="bookDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Web Scaning
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="bookDropdown">
+                            <li><a class="dropdown-item" href="dalfox.html">Dalfox</a></li>
+                            <li><a class="dropdown-item" href="params.html">ParamSpider</a></li>
+                            <li><a class="dropdown-item" href="wpscan.html">WPScan</a></li>
+                            <li><a class="dropdown-item" href="dork.html">Google Dork</a></li>
+                            <li><a class="dropdown-item" href="wireshark.html">Wireshark</a></li>
+                            <li><a class="dropdown-item" href="tcpdump.html">Tcpdump</a></li>
+                            <li><a class="dropdown-item" href="netcat.html">Netcat</a></li>
+                            <li><a class="dropdown-item" href="hping3.html">Hping3</a></li>
+                            <li><a class="dropdown-item" href="trace.html">Traceroute</a></li>
+                            <li><a class="dropdown-item" href="arp.html">Arp</a></li>
+                            <li><a class="dropdown-item" href="dig.html">Dig</a></li>
+                            <li><a class="dropdown-item" href="curl.html">Curl</a></li>
+                        </ul>
+                    </li><li class="nav-item">
+                        <a class="nav-link" href="compliance.html">Compliance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kontak.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">LogOut</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content Section -->
+    <div class="container my-5">
+        <div class="text-center neon-border">
+            <h2 class="glow-text">Welcome to Nofrinto Flory - Syber9</h2>
+            <p>Your one-stop resource for cybersecurity tools and knowledge.</p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="text-center py-4">
+        <p class="mb-0">&copy; 2024 Nofrinto Flory. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

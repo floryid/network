@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> /etc/shadow - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                /etc/shadow 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengenalan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#struktur">Struktur File</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">20 Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Cheat Sheet /etc/shadow</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+File /etc/shadow menyimpan informasi terkait kata sandi untuk akun pengguna di sistem Unix/Linux.
+Hanya pengguna dengan hak akses tertentu yang dapat membaca file ini.
+        </pre>
+
+        <h2 id="struktur">Struktur File</h2>
+        <pre>
+Format baris dalam file /etc/shadow adalah sebagai berikut:
+username:password:last_changed:min:max:warn:inactive:expire:reserved
+
+- username: Nama pengguna.
+- password: Hash dari kata sandi pengguna (atau karakter spesial seperti "!" untuk menunjukkan akun nonaktif).
+- last_changed: Tanggal terakhir kata sandi diubah (dalam hari sejak 1 Jan 1970).
+- min: Jumlah hari minimum sebelum kata sandi dapat diubah.
+- max: Jumlah hari maksimum sebelum kata sandi harus diubah.
+- warn: Jumlah hari sebelum pengguna diberi peringatan bahwa kata sandi akan kadaluarsa.
+- inactive: Jumlah hari setelah kata sandi kadaluarsa, di mana akun menjadi nonaktif.
+- expire: Tanggal akun akan kadaluarsa (dalam hari sejak 1 Jan 1970).
+- reserved: Kolom yang tidak digunakan.
+        </pre>
+
+        <h2 id="contoh">20 Contoh Penggunaan</h2>
+        <h3>1. Melihat isi file /etc/shadow</h3>
+        <pre>
+cat /etc/shadow
+        </pre>
+
+        <h3>2. Mengedit file /etc/shadow dengan nano</h3>
+        <pre>
+sudo nano /etc/shadow
+        </pre>
+
+        <h3>3. Menambah pengguna baru dengan kata sandi</h3>
+        <pre>
+sudo useradd -m -p $(openssl passwd -1 password) newuser
+        </pre>
+
+        <h3>4. Mengganti kata sandi pengguna</h3>
+        <pre>
+sudo passwd username
+        </pre>
+
+        <h3>5. Menghapus pengguna dan informasi dari /etc/shadow</h3>
+        <pre>
+sudo userdel username
+        </pre>
+
+        <h3>6. Menonaktifkan akun pengguna</h3>
+        <pre>
+sudo usermod -L username
+        </pre>
+
+        <h3>7. Mengaktifkan kembali akun pengguna yang dinonaktifkan</h3>
+        <pre>
+sudo usermod -U username
+        </pre>
+
+        <h3>8. Mengatur tanggal kedaluwarsa untuk kata sandi</h3>
+        <pre>
+sudo chage -E 2024-12-31 username
+        </pre>
+
+        <h3>9. Mengatur jumlah hari sebelum kata sandi harus diubah</h3>
+        <pre>
+sudo chage -m 7 username
+        </pre>
+
+        <h3>10. Melihat informasi terkait kata sandi pengguna</h3>
+        <pre>
+sudo chage -l username
+        </pre>
+
+        <h3>11. Mengatur peringatan sebelum kedaluwarsa</h3>
+        <pre>
+sudo chage -W 7 username
+        </pre>
+
+        <h3>12. Mengatur masa aktif akun pengguna</h3>
+        <pre>
+sudo chage -I 30 username
+        </pre>
+
+        <h3>13. Menjalankan John the Ripper untuk membongkar hash kata sandi</h3>
+        <pre>
+john /etc/shadow
+        </pre>
+
+        <h3>14. Mengonversi kata sandi menjadi hash menggunakan OpenSSL</h3>
+        <pre>
+openssl passwd -6 password
+        </pre>
+
+        <h3>15. Mengambil informasi akun pengguna dari /etc/shadow</h3>
+        <pre>
+grep username /etc/shadow
+        </pre>
+
+        <h3>16. Mengganti hash kata sandi secara manual</h3>
+        <pre>
+sudo nano /etc/shadow
+# Edit baris dengan username dan ganti hash
+        </pre>
+
+        <h3>17. Menyalin isi file /etc/shadow ke file lain untuk backup</h3>
+        <pre>
+sudo cp /etc/shadow /etc/shadow.bak
+        </pre>
+
+        <h3>18. Menggunakan awk untuk mengekstrak username dari /etc/shadow</h3>
+        <pre>
+awk -F: '{print $1}' /etc/shadow
+        </pre>
+
+        <h3>19. Menggunakan sed untuk menghapus akun dari /etc/shadow</h3>
+        <pre>
+sudo sed -i '/^username:/d' /etc/shadow
+        </pre>
+
+        <h3>20. Menghitung jumlah pengguna dalam /etc/shadow</h3>
+        <pre>
+wc -l < /etc/shadow
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Hanya pengguna dengan izin khusus yang dapat mengakses file /etc/shadow.
+- Perlakukan informasi ini dengan hati-hati; akses tidak sah dapat menyebabkan pelanggaran keamanan.
+- Penggunaan alat seperti John the Ripper untuk membongkar hash dari /etc/shadow hanya boleh dilakukan dengan izin dan untuk tujuan keamanan yang sah.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory -/etc/shadow</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

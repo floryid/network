@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet Burp Suite - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                Burp Suite
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengantar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#instalasi">Instalasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#penggunaan">Penggunaan Dasar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fitur">Fitur Utama</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Cheat Sheet Burp Suite</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+Burp Suite adalah platform pengujian keamanan aplikasi web yang kuat. Ini menyediakan alat untuk melakukan pemindaian, mengidentifikasi kerentanan, dan mengeksploitasi kelemahan dalam aplikasi web.
+        </pre>
+
+        <h2 id="instalasi">Instalasi</h2>
+        <pre>
+# Burp Suite tersedia dalam versi Community dan Professional.
+# Unduh dari situs resmi:
+https://portswigger.net/burp
+
+# Ekstrak dan jalankan Burp Suite:
+java -jar burpsuite.jar
+        </pre>
+
+        <h2 id="penggunaan">Penggunaan Dasar</h2>
+        <pre>
+# Untuk mengonfigurasi browser agar menggunakan Burp Suite sebagai proxy:
+1. Atur pengaturan proxy browser ke 127.0.0.1:8080.
+2. Impor sertifikat CA Burp ke browser untuk menangani HTTPS.
+
+# Setelah itu, buka aplikasi web melalui browser yang dikonfigurasi.
+        </pre>
+
+        <h2 id="fitur">Fitur Utama</h2>
+        <pre>
+1. **Intercepting Proxy**: Mampu menangkap dan memodifikasi permintaan dan respons HTTP/S.
+2. **Scanner**: Pemindai otomatis untuk menemukan kerentanan.
+3. **Repeater**: Mengirim permintaan HTTP berulang kali dengan mudah.
+4. **Intruder**: Melakukan serangan brute force atau fuzzing untuk menguji kerentanan.
+5. **Extender**: Memungkinkan pengguna untuk menambahkan plugin atau ekstensi tambahan.
+6. **Dukungan HTTPS**: Mampu menangani dan mengintersepsi trafik HTTPS.
+        </pre>
+
+        <h2 id="contoh">Contoh Penggunaan</h2>
+        <h3>1. Menggunakan Intercepting Proxy</h3>
+        <pre>
+# Buka Burp Suite, dan pastikan Intercept diaktifkan.
+# Akses aplikasi web melalui browser yang telah dikonfigurasi.
+# Modifikasi permintaan sesuai kebutuhan sebelum diteruskan ke server.
+        </pre>
+
+        <h3>2. Menggunakan Repeater</h3>
+        <pre>
+# Pilih permintaan yang ingin diuji dari History.
+# Klik kanan dan pilih "Send to Repeater".
+# Ubah permintaan dan klik "Send" untuk melihat respons dari server.
+        </pre>
+
+        <h3>3. Menggunakan Intruder untuk Serangan Brute Force</h3>
+        <pre>
+# Pilih permintaan login dari History.
+# Klik kanan dan pilih "Send to Intruder".
+# Atur posisi untuk parameter yang ingin diuji.
+# Tentukan payloads yang ingin digunakan (mis. daftar kata sandi).
+# Klik "Start attack" untuk menjalankan serangan.
+        </pre>
+
+        <h3>4. Menggunakan Scanner untuk Mendeteksi Kerentanan</h3>
+        <pre>
+# Buka Burp Suite, pilih target yang ingin dipindai.
+# Klik kanan dan pilih "Scan".
+# Lihat hasil pemindaian untuk kerentanan yang ditemukan.
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Pastikan Anda memiliki izin untuk melakukan pengujian terhadap aplikasi yang Anda targetkan.
+- Gunakan Burp Suite dengan etika dan sesuai hukum yang berlaku.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Cheat Sheet Burp Suite</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

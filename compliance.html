@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet Compliance and Standards - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .navbar {
+            background-color: #000;
+            border-bottom: 2px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #252525;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        p, li{
+            color: #00ff00;
+        }
+        .card {
+            background-color: #1e1e1e;
+            border: 1px solid #00ff00;
+            margin-bottom: 20px;
+        }
+        .card-title {
+            color: #00ff00;
+        }
+        pre, code {
+            background-color: #000;
+            color: #00ff00;
+            padding: 2px;
+            border-radius: 5px;
+            margin: 2px 2px;
+        }
+        .footer {
+            background-color: #000;
+            color: #00ff00;
+            padding: 10px;
+            text-align: center;
+            border-top: 2px solid #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Syber9</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kontak.html">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="container text-center">
+        <h1 class="my-4">Compliance and Standards</h1>
+        <p>Panduan singkat tentang kepatuhan terhadap standar keamanan informasi dan peraturan.</p>
+    </div>
+
+    <!-- Content -->
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">1. ISO 27001</h5>
+                <p>ISO 27001 adalah standar internasional untuk sistem manajemen keamanan informasi (Information Security Management System/ISMS). Beberapa langkah penting untuk kepatuhan terhadap ISO 27001:</p>
+                <ul>
+                    <li>Menerapkan kebijakan keamanan informasi dan prosedur terkait.</li>
+                    <li>Melakukan analisis risiko secara berkala.</li>
+                    <li>Mengelola aset informasi dengan cara yang aman.</li>
+                    <li>Melakukan audit internal untuk memastikan kepatuhan.</li>
+                </ul>
+                <pre><code>
+# Contoh Kebijakan Keamanan Informasi:
+1. Identifikasi semua aset informasi.
+2. Evaluasi risiko terhadap masing-masing aset.
+3. Implementasikan kontrol untuk mengurangi risiko.
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">2. NIST Cybersecurity Framework</h5>
+                <p>Kerangka kerja dari NIST (National Institute of Standards and Technology) menyediakan panduan untuk mengelola dan mengurangi risiko keamanan siber:</p>
+                <ul>
+                    <li>Identify (Identifikasi): Menilai aset dan risiko.</li>
+                    <li>Protect (Perlindungan): Implementasi kontrol keamanan.</li>
+                    <li>Detect (Deteksi): Memonitor aktivitas untuk mendeteksi insiden.</li>
+                    <li>Respond (Respon): Merespons insiden secara efektif.</li>
+                    <li>Recover (Pemulihan): Memulihkan dari insiden.</li>
+                </ul>
+                <pre><code>
+# Contoh Identifikasi Aset:
+1. Server
+2. Database
+3. Jaringan internal dan eksternal
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">3. PCI-DSS</h5>
+                <p>PCI-DSS (Payment Card Industry Data Security Standard) adalah standar keamanan yang harus diikuti oleh semua entitas yang menangani data pemegang kartu kredit:</p>
+                <ul>
+                    <li>Membatasi akses ke data pemegang kartu.</li>
+                    <li>Menerapkan enkripsi pada data yang disimpan dan yang ditransmisikan.</li>
+                    <li>Memantau dan menguji jaringan secara berkala.</li>
+                    <li>Menjaga kebijakan keamanan informasi yang kuat.</li>
+                </ul>
+                <pre><code>
+# Contoh Implementasi PCI-DSS:
+1. Enkripsi data kartu kredit menggunakan AES-256.
+2. Batasi akses hanya kepada personel yang berwenang.
+3. Audit log akses data secara rutin.
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">4. GDPR</h5>
+                <p>General Data Protection Regulation (GDPR) adalah peraturan Uni Eropa untuk perlindungan data pribadi. Beberapa prinsip utama GDPR adalah:</p>
+                <ul>
+                    <li>Data hanya boleh dikumpulkan untuk tujuan yang sah.</li>
+                    <li>Memastikan keamanan data yang diproses.</li>
+                    <li>Memberikan hak kepada individu untuk mengakses dan menghapus data mereka.</li>
+                </ul>
+                <pre><code>
+# Contoh Implementasi GDPR:
+1. Dapatkan persetujuan eksplisit sebelum mengumpulkan data.
+2. Enkripsi data pelanggan saat disimpan.
+3. Hapus data sesuai permintaan pengguna.
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">5. HIPAA</h5>
+                <p>Health Insurance Portability and Accountability Act (HIPAA) mengatur standar untuk perlindungan data kesehatan di Amerika Serikat:</p>
+                <ul>
+                    <li>Menerapkan kontrol akses untuk data kesehatan elektronik (ePHI).</li>
+                    <li>Audit aktivitas pengguna pada sistem ePHI.</li>
+                    <li>Menerapkan kebijakan privasi dan keamanan bagi pasien.</li>
+                </ul>
+                <pre><code>
+# Contoh Kepatuhan HIPAA:
+1. Hanya personel medis yang berwenang yang dapat mengakses ePHI.
+2. Audit aktivitas akses ePHI setiap minggu.
+3. Terapkan dua faktor otentikasi untuk akses sistem.
+                </code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Syber9. Semua hak cipta dilindungi.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

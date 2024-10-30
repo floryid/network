@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hping3 - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                Hping3
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="hping3.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengantar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Hping3</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+Hping3 adalah alat baris perintah yang digunakan untuk mengirim dan menerima paket TCP/IP. Hping3 sering digunakan untuk pengujian jaringan, pemecahan masalah, dan analisis keamanan. Dengan Hping3, pengguna dapat mengontrol berbagai aspek pengiriman paket dan menganalisis respons dari host yang dituju.
+        </pre>
+
+        <h2 id="contoh">Contoh Penggunaan</h2>
+
+        <h3>1. Mengirim Ping ke Host</h3>
+        <pre>
+# Mengirim ping ke host
+hping3 -c 4 example.com
+        </pre>
+
+        <h3>2. Mengirim Paket TCP ke Port Tertentu</h3>
+        <pre>
+# Mengirim paket TCP ke port 80
+hping3 -S -p 80 example.com
+        </pre>
+
+        <h3>3. Menggunakan Mode Verbose</h3>
+        <pre>
+# Menggunakan mode verbose untuk detail lebih
+hping3 -S -p 80 -v example.com
+        </pre>
+
+        <h3>4. Mengirim Paket UDP</h3>
+        <pre>
+# Mengirim paket UDP
+hping3 -2 -p 53 example.com
+        </pre>
+
+        <h3>5. Mengirim Paket ICMP</h3>
+        <pre>
+# Mengirim paket ICMP
+hping3 -1 example.com
+        </pre>
+
+        <h3>6. Menggunakan Hping3 untuk Port Scanning</h3>
+        <pre>
+# Memindai port 1 hingga 100
+hping3 -S -p 1-100 example.com
+        </pre>
+
+        <h3>7. Mengirim Data Dengan Payload</h3>
+        <pre>
+# Mengirim paket dengan payload
+hping3 -d 120 -S -p 80 example.com
+        </pre>
+
+        <h3>8. Menggunakan TCP SYN Flood</h3>
+        <pre>
+# Melakukan SYN flood ke port 80
+hping3 -S --flood -p 80 example.com
+        </pre>
+
+        <h3>9. Menyaring IP dengan RDP</h3>
+        <pre>
+# Menyaring IP dengan RDP
+hping3 -c 4 -s 3389 example.com
+        </pre>
+
+        <h3>10. Melakukan Ping Sweep</h3>
+        <pre>
+# Melakukan ping sweep pada subnet
+hping3 -1 -c 1 192.168.1.0/24
+        </pre>
+
+        <h3>11. Menggunakan Hping3 untuk Mendeteksi Firewall</h3>
+        <pre>
+# Mendeteksi firewall dengan TCP SYN
+hping3 -S -p 80 -c 1 example.com
+        </pre>
+
+        <h3>12. Mengirim Paket TCP dengan Bendera FIN</h3>
+        <pre>
+# Mengirim paket dengan bendera FIN
+hping3 -F -p 80 example.com
+        </pre>
+
+        <h3>13. Menggunakan Hping3 untuk Menguji Koneksi</h3>
+        <pre>
+# Menguji koneksi TCP ke host
+hping3 -S -p 22 -c 3 example.com
+        </pre>
+
+        <h3>14. Mengirim Paket dengan Bendera RST</h3>
+        <pre>
+# Mengirim paket dengan bendera RST
+hping3 -R -p 80 example.com
+        </pre>
+
+        <h3>15. Mengirim Paket dengan Payload Khusus</h3>
+        <pre>
+# Mengirim paket dengan payload khusus
+echo "Hello, World!" | hping3 -d 12 -E - -p 80 example.com
+        </pre>
+
+        <h3>16. Menggunakan Hping3 untuk Mendeteksi OS</h3>
+        <pre>
+# Mendeteksi OS dengan TCP options
+hping3 -O -p 80 example.com
+        </pre>
+
+        <h3>17. Mengirim Paket dengan TTL Khusus</h3>
+        <pre>
+# Mengirim paket dengan TTL 64
+hping3 -t 64 -S -p 80 example.com
+        </pre>
+
+        <h3>18. Mendeteksi Paket yang Diterima</h3>
+        <pre>
+# Mendeteksi paket yang diterima
+hping3 -S -p 80 --tcp-timestamp example.com
+        </pre>
+
+        <h3>19. Menggunakan Hping3 untuk Menerima Respon ICMP</h3>
+        <pre>
+# Menerima respon ICMP
+hping3 -1 example.com
+        </pre>
+
+        <h3>20. Mengirim Paket UDP dengan Ukuran Khusus</h3>
+        <pre>
+# Mengirim paket UDP dengan ukuran 100 byte
+hping3 -2 -d 100 -p 53 example.com
+        </pre>
+
+        <h3>21. Melakukan HTTP Request dengan Hping3</h3>
+        <pre>
+# Melakukan HTTP request ke port 80
+hping3 -c 1 -d 40 -s 80 -p 80 example.com
+        </pre>
+
+        <h3>22. Menggunakan Hping3 untuk Menguji DNS</h3>
+        <pre>
+# Menguji DNS dengan UDP
+hping3 -2 -p 53 example.com
+        </pre>
+
+        <h3>23. Menggunakan Hping3 untuk Menganalisis Respons</h3>
+        <pre>
+# Menganalisis respons dengan Hping3
+hping3 -S -c 4 -p 80 example.com
+        </pre>
+
+        <h3>24. Mengirimkan Multiple Packet</h3>
+        <pre>
+# Mengirim beberapa paket
+hping3 -c 10 -S -p 80 example.com
+        </pre>
+
+        <h3>25. Menggunakan Hping3 untuk Menghitung Round Trip Time</h3>
+        <pre>
+# Menghitung round trip time
+hping3 -c 5 -S -p 80 example.com
+        </pre>
+
+        <h3>26. Menggunakan Hping3 untuk Mendeteksi RDP</h3>
+        <pre>
+# Mendeteksi Remote Desktop Protocol
+hping3 -S -p 3389 example.com
+        </pre>
+
+        <h3>27. Mengirimkan Paket TCP ke Semua Port</h3>
+        <pre>
+# Mengirim paket TCP ke semua port
+hping3 -S -p 1-65535 example.com
+        </pre>
+
+        <h3>28. Mengirimkan Ping ke Alamat IP Jarak Jauh</h3>
+        <pre>
+# Mengirim ping ke alamat IP jarak jauh
+hping3 -c 4 8.8.8.8
+        </pre>
+
+        <h3>29. Mencetak Hasil dalam Format CSV</h3>
+        <pre>
+# Mencetak hasil dalam format CSV
+hping3 -S -p 80 example.com > results.csv
+        </pre>
+
+        <h3>30. Menggunakan Hping3 untuk Mendeteksi Scanning</h3>
+        <pre>
+# Mendeteksi scanning
+hping3 -S --scan 1-1000 example.com
+        </pre>
+
+        <h3>31. Menggunakan Hping3 untuk Flooding dengan UDP</h3>
+        <pre>
+# Flooding dengan paket UDP
+hping3 -2 --flood -p 53 example.com
+        </pre>
+
+        <h3>32. Menggunakan Hping3 untuk Menjalankan Telnet</h3>
+        <pre>
+# Menjalankan telnet dengan Hping3
+hping3 -S -p 23 example.com
+        </pre>
+
+        <h3>33. Menggunakan Hping3 untuk Mencetak Statistik</h3>
+        <pre>
+# Mencetak statistik setelah pengujian
+hping3 -S -p 80 -c 100 example.com
+        </pre>
+
+        <h3>34. Menggunakan Hping3 untuk Menerima Respon dari Host</h3>
+        <pre>
+# Menerima respon dari host
+hping3 -S -p 80 example.com
+        </pre>
+
+        <h3>35. Menggunakan Hping3 untuk Mencetak Hasil dengan Tanggal</h3>
+        <pre>
+# Mencetak hasil dengan tanggal
+hping3 -S -p 80 example.com | ts '%Y-%m-%d %H:%M:%S'
+        </pre>
+
+        <h3>36. Menggunakan Hping3 untuk Memeriksa Ketersediaan Port</h3>
+        <pre>
+# Memeriksa ketersediaan port
+hping3 -S -p 8080 example.com
+        </pre>
+
+        <h3>37. Menggunakan Hping3 untuk Memindai Subnet</h3>
+        <pre>
+# Memindai subnet
+hping3 -S -p 80 192.168.1.0/24
+        </pre>
+
+        <h3>38. Menggunakan Hping3 untuk Mencetak Informasi Host</h3>
+        <pre>
+# Mencetak informasi host
+hping3 -S -p 80 -c 3 example.com
+        </pre>
+
+        <h3>39. Menggunakan Hping3 untuk Menerima Paket dari Host</h3>
+        <pre>
+# Menerima paket dari host
+hping3 -S -p 80 -c 1 example.com
+        </pre>
+
+        <h3>40. Menggunakan Hping3 untuk Menjalankan Layanan HTTP</h3>
+        <pre>
+# Menjalankan layanan HTTP
+hping3 -S -p 80 example.com
+        </pre>
+
+        <h3>41. Menggunakan Hping3 untuk Menyimpan Respon ke File</h3>
+        <pre>
+# Menyimpan respon ke file
+hping3 -S -p 80 example.com > response.txt
+        </pre>
+
+        <h3>42. Menggunakan Hping3 untuk Menghitung Latensi</h3>
+        <pre>
+# Menghitung latensi
+hping3 -S -p 80 -c 10 example.com
+        </pre>
+
+        <h3>43. Menggunakan Hping3 untuk Mendeteksi Versi TCP</h3>
+        <pre>
+# Mendeteksi versi TCP
+hping3 -S -p 80 -V example.com
+        </pre>
+
+        <h3>44. Menggunakan Hping3 untuk Menggunakan Mode Raw Socket</h3>
+        <pre>
+# Menggunakan mode raw socket
+hping3 --rawip example.com
+        </pre>
+
+        <h3>45. Menggunakan Hping3 untuk Menangkap Paket</h3>
+        <pre>
+# Menangkap paket
+hping3 -I eth0 -p 80 example.com
+        </pre>
+
+        <h3>46. Menggunakan Hping3 untuk Melakukan Slowloris Attack</h3>
+        <pre>
+# Melakukan Slowloris attack
+hping3 --slowloris -p 80 example.com
+        </pre>
+
+        <h3>47. Menggunakan Hping3 untuk Melihat Detail Respon</h3>
+        <pre>
+# Melihat detail respon
+hping3 -S -p 80 -c 1 example.com
+        </pre>
+
+        <h3>48. Menggunakan Hping3 untuk Menguji FTP</h3>
+        <pre>
+# Menguji FTP dengan Hping3
+hping3 -S -p 21 example.com
+        </pre>
+
+        <h3>49. Menggunakan Hping3 untuk Menjalankan Remote Command</h3>
+        <pre>
+# Menjalankan remote command
+hping3 -c 5 -S -p 80 example.com
+        </pre>
+
+        <h3>50. Menggunakan Hping3 untuk Menerima Respon Berkelanjutan</h3>
+        <pre>
+# Menerima respon berkelanjutan
+hping3 -S --flood -p 80 example.com
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Pastikan Anda memiliki izin sebelum menggunakan Hping3 untuk mengakses atau menguji jaringan.
+- Hping3 dapat digunakan untuk tujuan baik dan buruk; gunakan dengan bijak dan bertanggung jawab.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Hping3 Penggunaan dan Contoh</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

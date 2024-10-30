@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OWASP Password Strength Cheat Sheet - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                OWASP Password Strength 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengenalan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kekuatan">Kekuatan Kata Sandi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">Contoh Kata Sandi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>OWASP Password Strength Cheat Sheet</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+Kata sandi yang kuat adalah salah satu cara terbaik untuk melindungi akun dan data pribadi Anda. Cheat sheet ini memberikan panduan tentang kekuatan kata sandi dan tips untuk membuat kata sandi yang aman.
+        </pre>
+
+        <h2 id="kekuatan">Kekuatan Kata Sandi</h2>
+        <pre>
+1. **Panjang**: Kata sandi harus memiliki minimal 12 karakter. Semakin panjang, semakin baik.
+2. **Kompleksitas**: Gunakan kombinasi huruf besar, huruf kecil, angka, dan simbol.
+3. **Kekacauan**: Hindari menggunakan kata atau frasa umum. Sebaliknya, gunakan kombinasi yang tidak mudah ditebak.
+4. **Unik**: Jangan gunakan kata sandi yang sama untuk beberapa akun.
+5. **Pengelolaan**: Pertimbangkan menggunakan pengelola kata sandi untuk menyimpan kata sandi yang kompleks dan unik.
+        </pre>
+
+        <h2 id="contoh">Contoh Kata Sandi</h2>
+        <h3>Contoh Kata Sandi Lemah</h3>
+        <pre>
+1. password123
+2. qwerty
+3. 12345678
+4. letmein
+5. abcdefg
+        </pre>
+
+        <h3>Contoh Kata Sandi Kuat</h3>
+        <pre>
+1. R3g!n@D@wn2024
+2. $ecur3Pa$$w0rd!
+3. T!g3r$AreF@st123
+4. 9#ChocoL@teC@ke!
+5. 4uR@n!umCh3rri3s#
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Selalu ubah kata sandi secara berkala.
+- Gunakan autentikasi dua faktor (2FA) untuk keamanan tambahan.
+- Jangan pernah berbagi kata sandi Anda dengan orang lain.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - OWASP Password Strength Cheat Sheet</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

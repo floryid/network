@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John the Ripper Cheat Sheet - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                John the Ripper
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengenalan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#instalasi">Instalasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#penggunaan">Penggunaan Dasar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#opsi">Opsi Tambahan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>John the Ripper Cheat Sheet</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+John the Ripper adalah alat pemulihan kata sandi yang dirancang untuk mengidentifikasi kata sandi yang lemah dengan melakukan serangan brute force, serangan kamus, dan serangan lain untuk memecahkan hash kata sandi.
+        </pre>
+
+        <h2 id="instalasi">Instalasi</h2>
+        <pre>
+# Untuk menginstal John the Ripper, gunakan perintah berikut:
+git clone https://github.com/openwall/john.git
+
+# Masuk ke direktori John the Ripper:
+cd john/src
+
+# Kompilasi John the Ripper:
+make
+        </pre>
+
+        <h2 id="penggunaan">Penggunaan Dasar</h2>
+        <pre>
+# Untuk memecahkan hash kata sandi:
+john --wordlist=passwords.txt hashes.txt
+        </pre>
+
+        <h2 id="contoh">Contoh Penggunaan</h2>
+        <h3>1. Memecahkan Hash MD5</h3>
+        <pre>
+# Buat file dengan hash MD5:
+echo '5f4dcc3b5aa765d61d8327deb882cf99' > hashes.txt
+
+# Gunakan John the Ripper untuk memecahkan hash:
+john --format=raw-md5 hashes.txt
+        </pre>
+
+        <h3>2. Menggunakan Serangan Kamus</h3>
+        <pre>
+# Menggunakan file kata sandi yang sudah ada:
+john --wordlist=wordlist.txt --rules hashes.txt
+        </pre>
+
+        <h3>3. Menampilkan Hasil</h3>
+        <pre>
+# Untuk melihat hasil pemecahan:
+john --show hashes.txt
+        </pre>
+
+        <h2 id="opsi">Opsi Tambahan</h2>
+        <pre>
+# Untuk menjalankan John the Ripper dengan mode serangan lainnya:
+# 1. Serangan Brute Force
+john --incremental hashes.txt
+
+# 2. Menentukan format hash secara manual
+john --format=sha512crypt --wordlist=passwords.txt hashes.txt
+
+# 3. Menghentikan dan melanjutkan pemecahan
+# Hentikan dengan Ctrl+C, dan lanjutkan dengan:
+john --restore
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Gunakan John the Ripper secara etis dan hanya pada sistem yang Anda miliki atau memiliki izin untuk menguji.
+- Kombinasi kata sandi yang kuat dan panjang akan mengurangi kemungkinan keberhasilan serangan brute force.
+- Pastikan untuk membaca dokumentasi resmi untuk informasi lebih lanjut dan opsi lanjutan.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - John the Ripper Cheat Sheet</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>w3af - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                w3af
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengantar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>w3af</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+w3af adalah framework untuk mengaudit dan menyerang aplikasi web. Dengan w3af, Anda dapat mendeteksi dan mengeksploitasi kerentanan di aplikasi web. Ini adalah alat yang banyak digunakan oleh profesional keamanan untuk melakukan pengujian penetrasi.
+        </pre>
+
+        <h2 id="contoh">Contoh Penggunaan</h2>
+
+        <h3>1. Memulai w3af dalam Mode Interaktif</h3>
+        <pre>
+$ w3af_console
+        </pre>
+
+        <h3>2. Mengatur Target</h3>
+        <pre>
+> set target http://example.com
+        </pre>
+
+        <h3>3. Mengatur Plugin</h3>
+        <pre>
+> set plugins audit sqli, xss
+        </pre>
+
+        <h3>4. Menjalankan Scan</h3>
+        <pre>
+> run
+        </pre>
+
+        <h3>5. Menghasilkan Laporan</h3>
+        <pre>
+> save report.pdf
+        </pre>
+
+        <h3>6. Mengatur Cookie</h3>
+        <pre>
+> set cookie SESSIONID=abc123
+        </pre>
+
+        <h3>7. Menjalankan Scan dengan Parameter Tambahan</h3>
+        <pre>
+> run -c 5
+        </pre>
+
+        <h3>8. Mengatur User-Agent</h3>
+        <pre>
+> set user_agent Mozilla/5.0
+        </pre>
+
+        <h3>9. Mengatur Protokol</h3>
+        <pre>
+> set protocol https
+        </pre>
+
+        <h3>10. Menggunakan Mode Ganda (Scan dan Eksploitasi)</h3>
+        <pre>
+> set scan_mode double
+        </pre>
+
+        <h3>11. Menentukan Tipe Kerentanan yang Dicari</h3>
+        <pre>
+> set vulnerability type sqli
+        </pre>
+
+        <h3>12. Mengatur Port untuk Scan</h3>
+        <pre>
+> set port 8080
+        </pre>
+
+        <h3>13. Menggunakan Proxies</h3>
+        <pre>
+> set proxy http://127.0.0.1:8080
+        </pre>
+
+        <h3>14. Menyimpan Konfigurasi</h3>
+        <pre>
+> save my_config.w3af
+        </pre>
+
+        <h3>15. Memuat Konfigurasi yang Disimpan</h3>
+        <pre>
+> load my_config.w3af
+        </pre>
+
+        <h3>16. Mengatur Timeout</h3>
+        <pre>
+> set timeout 30
+        </pre>
+
+        <h3>17. Menjalankan Plugin Spesifik</h3>
+        <pre>
+> run -p xss
+        </pre>
+
+        <h3>18. Menggunakan Database untuk Penyimpanan Hasil</h3>
+        <pre>
+> set db backend sqlite
+        </pre>
+
+        <h3>19. Menjalankan Pencarian berdasarkan Input Pengguna</h3>
+        <pre>
+> search my_vulnerability
+        </pre>
+
+        <h3>20. Melihat Statistik Scan</h3>
+        <pre>
+> stats
+        </pre>
+
+        <h3>21. Menggunakan Mode Batch</h3>
+        <pre>
+$ w3af_batch -t http://example.com -p sqli,xss
+        </pre>
+
+        <h3>22. Menjalankan Pencarian Berdasarkan Filter</h3>
+        <pre>
+> filter my_filter
+        </pre>
+
+        <h3>23. Menggunakan Pencarian Hasil Sebelumnya</h3>
+        <pre>
+> recall previous_scan
+        </pre>
+
+        <h3>24. Mengatur Level Deteksi</h3>
+        <pre>
+> set level 3
+        </pre>
+
+        <h3>25. Menggunakan API untuk Mengendalikan w3af</h3>
+        <pre>
+$ w3af_api --host http://127.0.0.1:8000
+        </pre>
+
+        <h3>26. Menjalankan w3af di Background</h3>
+        <pre>
+$ w3af_console -b
+        </pre>
+
+        <h3>27. Menggunakan Output ke Format XML</h3>
+        <pre>
+> save report.xml
+        </pre>
+
+        <h3>28. Mengatur Pengaturan Lainnya</h3>
+        <pre>
+> set max_concurrent 10
+        </pre>
+
+        <h3>29. Menjalankan Scan secara Paralel</h3>
+        <pre>
+> parallel_scan
+        </pre>
+
+        <h3>30. Menggunakan Laporan HTML</h3>
+        <pre>
+> save report.html
+        </pre>
+
+        <h3>31. Mengatur Pengaturan HTTP</h3>
+        <pre>
+> set http_header "Accept-Encoding: gzip"
+        </pre>
+
+        <h3>32. Menjalankan Plugin yang Tidak Terdaftar</h3>
+        <pre>
+> run -p all
+        </pre>
+
+        <h3>33. Menggunakan Plugin Reversi</h3>
+        <pre>
+> run -p reverse_shell
+        </pre>
+
+        <h3>34. Menggunakan Daftar Kata untuk Brute Force</h3>
+        <pre>
+> set wordlist /path/to/wordlist.txt
+        </pre>
+
+        <h3>35. Menggunakan Pengecualian</h3>
+        <pre>
+> exclude my_excluded_vulnerability
+        </pre>
+
+        <h3>36. Menjalankan Penilaian Risiko</h3>
+        <pre>
+> risk_assessment
+        </pre>
+
+        <h3>37. Menangani Kesalahan</h3>
+        <pre>
+> handle_errors
+        </pre>
+
+        <h3>38. Menggunakan Fuzzing</h3>
+        <pre>
+> fuzz my_endpoint
+        </pre>
+
+        <h3>39. Menggunakan Daftar Sumber Terbuka</h3>
+        <pre>
+> set sources open_source
+        </pre>
+
+        <h3>40. Menggunakan Plugin Pencarian Kerentanan</h3>
+        <pre>
+> search vulnerability_plugin
+        </pre>
+
+        <h3>41. Mengatur Protokol untuk HTTPS</h3>
+        <pre>
+> set https true
+        </pre>
+
+        <h3>42. Melihat Log Aktivitas</h3>
+        <pre>
+> logs
+        </pre>
+
+        <h3>43. Menggunakan Templat Laporan</h3>
+        <pre>
+> template report_template
+        </pre>
+
+        <h3>44. Menggunakan Deteksi Kerentanan Terhadap API</h3>
+        <pre>
+> set api_detection true
+        </pre>
+
+        <h3>45. Menjalankan Plugin Reputasi Domain</h3>
+        <pre>
+> run -p domain_reputation
+        </pre>
+
+        <h3>46. Menggunakan DNS Spoofing</h3>
+        <pre>
+> dns_spoofing true
+        </pre>
+
+        <h3>47. Menggunakan Plugin Deteksi Cross-Site Request Forgery (CSRF)</h3>
+        <pre>
+> run -p csrf_detection
+        </pre>
+
+        <h3>48. Melihat Hasil Scan Secara Real-Time</h3>
+        <pre>
+> live_results
+        </pre>
+
+        <h3>49. Menggunakan W3AF untuk Audit Keamanan</h3>
+        <pre>
+> audit_security
+        </pre>
+
+        <h3>50. Menghentikan Proses Scan</h3>
+        <pre>
+> exit
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+Selalu gunakan w3af secara etis dan hanya untuk tujuan pengujian penetrasi dengan izin yang tepat. Memahami dan mengikuti hukum serta kebijakan terkait adalah hal yang sangat penting.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Syber9</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medusa - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                Medusa
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengantar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Medusa</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+Medusa adalah alat pengujian keamanan yang dirancang untuk melakukan serangan brute-force terhadap berbagai protokol seperti FTP, HTTP, SSH, dan banyak lagi. Ini memungkinkan penyerang untuk mencoba berbagai kombinasi nama pengguna dan kata sandi untuk mendapatkan akses ke sistem yang dilindungi.
+        </pre>
+
+        <h2 id="contoh">Contoh Penggunaan</h2>
+
+        <h3>1. Menggunakan Medusa untuk Serangan FTP</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp
+        </pre>
+
+        <h3>2. Menggunakan Medusa untuk Serangan SSH</h3>
+        <pre>
+medusa -h ssh.example.com -u admin -P /path/to/passwords.txt -M ssh
+        </pre>
+
+        <h3>3. Menggunakan Medusa untuk Serangan HTTP</h3>
+        <pre>
+medusa -h http.example.com -u admin -P /path/to/passwords.txt -M http
+        </pre>
+
+        <h3>4. Menggunakan Medusa untuk Serangan RDP</h3>
+        <pre>
+medusa -h rdp.example.com -u admin -P /path/to/passwords.txt -M rdp
+        </pre>
+
+        <h3>5. Menggunakan Medusa untuk Serangan Telnet</h3>
+        <pre>
+medusa -h telnet.example.com -u admin -P /path/to/passwords.txt -M telnet
+        </pre>
+
+        <h3>6. Menggunakan Medusa untuk Serangan SMTP</h3>
+        <pre>
+medusa -h smtp.example.com -u admin -P /path/to/passwords.txt -M smtp
+        </pre>
+
+        <h3>7. Menggunakan Medusa untuk Serangan SNMP</h3>
+        <pre>
+medusa -h snmp.example.com -u admin -P /path/to/passwords.txt -M snmp
+        </pre>
+
+        <h3>8. Menggunakan Medusa untuk Mengatur Jumlah Proses</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -t 10
+        </pre>
+
+        <h3>9. Menggunakan Medusa untuk Mengambil Timeout Khusus</h3>
+        <pre>
+medusa -h ssh.example.com -u admin -P /path/to/passwords.txt -M ssh -T 5
+        </pre>
+
+        <h3>10. Menggunakan Medusa untuk Menyimpan Output ke File</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -o output.txt
+        </pre>
+
+        <h3>11. Menggunakan Medusa dengan Format Hasil Khusus</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -F csv
+        </pre>
+
+        <h3>12. Menggunakan Medusa untuk Menargetkan Beberapa Host</h3>
+        <pre>
+medusa -h host1.example.com,host2.example.com -u admin -P /path/to/passwords.txt -M ssh
+        </pre>
+
+        <h3>13. Menggunakan Medusa untuk Menggunakan File Username</h3>
+        <pre>
+medusa -h ssh.example.com -U /path/to/usernames.txt -P /path/to/passwords.txt -M ssh
+        </pre>
+
+        <h3>14. Menggunakan Medusa untuk Menggunakan Autentikasi SSL</h3>
+        <pre>
+medusa -h https://secure.example.com -u admin -P /path/to/passwords.txt -M http
+        </pre>
+
+        <h3>15. Menggunakan Medusa untuk Mengambil Informasi Versi</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -v
+        </pre>
+
+        <h3>16. Menggunakan Medusa untuk Mengatur Timeout untuk Respon</h3>
+        <pre>
+medusa -h ssh.example.com -u admin -P /path/to/passwords.txt -M ssh -T 5 -m
+        </pre>
+
+        <h3>17. Menggunakan Medusa untuk Serangan UDP</h3>
+        <pre>
+medusa -h udp.example.com -u admin -P /path/to/passwords.txt -M udp
+        </pre>
+
+        <h3>18. Menggunakan Medusa untuk Mengambil Informasi Layanan</h3>
+        <pre>
+medusa -h ssh.example.com -u admin -P /path/to/passwords.txt -M ssh -v
+        </pre>
+
+        <h3>19. Menggunakan Medusa untuk Mengatur Jumlah Uji Coba Maksimum</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -m 5
+        </pre>
+
+        <h3>20. Menggunakan Medusa untuk Mencoba Koneksi HTTPS</h3>
+        <pre>
+medusa -h https://secure.example.com -u admin -P /path/to/passwords.txt -M http
+        </pre>
+
+        <h3>21. Menggunakan Medusa untuk Menyimpan Log</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -o logfile.txt
+        </pre>
+
+        <h3>22. Menggunakan Medusa untuk Mencoba Koneksi dengan Opsi Verbose</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -v
+        </pre>
+
+        <h3>23. Menggunakan Medusa untuk Menjalankan di Background</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -b
+        </pre>
+
+        <h3>24. Menggunakan Medusa untuk Mengatur Protokol Khusus</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -P custom_protocol
+        </pre>
+
+        <h3>25. Menggunakan Medusa untuk Menggunakan IPv6</h3>
+        <pre>
+medusa -h [2001:db8::1] -u admin -P /path/to/passwords.txt -M ssh
+        </pre>
+
+        <h3>26. Menggunakan Medusa untuk Mengatur Pengulangan</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -r 3
+        </pre>
+
+        <h3>27. Menggunakan Medusa untuk Mengambil Akses melalui Proksi</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -p proxy.example.com:8080
+        </pre>
+
+        <h3>28. Menggunakan Medusa untuk Menjalankan di Mode Terkendali</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -C
+        </pre>
+
+        <h3>29. Menggunakan Medusa untuk Mengatur Antrian Koneksi</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -q 10
+        </pre>
+
+        <h3>30. Menggunakan Medusa untuk Menjalankan Serangan Menggunakan Shell Script</h3>
+        <pre>
+bash script.sh
+        </pre>
+
+        <h3>31. Menggunakan Medusa untuk Menyimpan Hasil dalam Format JSON</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -F json
+        </pre>
+
+        <h3>32. Menggunakan Medusa untuk Mempercepat Serangan dengan Opsi Optimasi</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -O
+        </pre>
+
+        <h3>33. Menggunakan Medusa untuk Mengambil Output dalam Format XML</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -F xml
+        </pre>
+
+        <h3>34. Menggunakan Medusa untuk Menjalankan Serangan yang Terdistribusi</h3>
+        <pre>
+medusa -h host1.example.com,host2.example.com -u admin -P /path/to/passwords.txt -M ssh -d
+        </pre>
+
+        <h3>35. Menggunakan Medusa untuk Menjalankan Serangan Berdasarkan Port Tertentu</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -p 21
+        </pre>
+
+        <h3>36. Menggunakan Medusa untuk Memastikan Konektivitas ke Server</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -c
+        </pre>
+
+        <h3>37. Menggunakan Medusa untuk Menjalankan di Mode Interaktif</h3>
+        <pre>
+medusa -i
+        </pre>
+
+        <h3>38. Menggunakan Medusa untuk Mencoba Koneksi dengan Berbagai Alamat IP</h3>
+        <pre>
+medusa -h 192.168.1.1,192.168.1.2 -u admin -P /path/to/passwords.txt -M ssh
+        </pre>
+
+        <h3>39. Menggunakan Medusa untuk Mencoba Koneksi dengan Pengaturan Khusus</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -S
+        </pre>
+
+        <h3>40. Menggunakan Medusa untuk Mengubah Port Default</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -p 2121
+        </pre>
+
+        <h3>41. Menggunakan Medusa untuk Mencoba Koneksi dengan Opsi Pemantauan</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -m
+        </pre>
+
+        <h3>42. Menggunakan Medusa untuk Mengambil Data dari Beberapa Sumber</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -d data.txt
+        </pre>
+
+        <h3>43. Menggunakan Medusa untuk Menjalankan Serangan Secara Manual</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -m manual
+        </pre>
+
+        <h3>44. Menggunakan Medusa untuk Memperoleh Hasil Secara Asinkron</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -a
+        </pre>
+
+        <h3>45. Menggunakan Medusa untuk Mengambil Akses dengan Opsi SSL/TLS</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -s
+        </pre>
+
+        <h3>46. Menggunakan Medusa untuk Mengatur Kecepatan Koneksi</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -l 100
+        </pre>
+
+        <h3>47. Menggunakan Medusa untuk Mengambil Akses dengan Opsi Kompresi</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -c
+        </pre>
+
+        <h3>48. Menggunakan Medusa untuk Menjalankan dengan Opsi Pengulangan Tertentu</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -r 2
+        </pre>
+
+        <h3>49. Menggunakan Medusa untuk Mengambil Hasil yang Dikenakan pada Semua Target</h3>
+        <pre>
+medusa -h ftp.example.com -u admin -P /path/to/passwords.txt -M ftp -t all
+        </pre>
+
+        <h3>50. Menggunakan Medusa untuk Menampilkan Bantuan dan Opsi</h3>
+        <pre>
+medusa -h
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Pastikan Anda memiliki izin sebelum melakukan pengujian keamanan pada sistem.
+- Penggunaan Medusa untuk serangan brute-force tanpa izin adalah ilegal.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Penggunaan dan Contoh Medusa</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualys - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                Qualys
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#instalasi">Instalasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#penggunaan">Penggunaan Dasar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#opsi-lanjutan">Opsi Lanjutan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">Contoh Perintah</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Cheat Sheet Qualys</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+Qualys adalah platform keamanan berbasis cloud yang menyediakan berbagai layanan audit dan pemindaian untuk menemukan kerentanan dalam sistem dan aplikasi.
+        </pre>
+
+        <h2 id="instalasi">Instalasi</h2>
+        <pre>
+# Untuk menggunakan Qualys, Anda perlu mendaftar dan mengakses platform melalui web.
+# Tidak ada instalasi perangkat lunak yang diperlukan.
+        </pre>
+
+        <h2 id="penggunaan">Penggunaan Dasar</h2>
+        <pre>
+# Setelah login, pilih 'VM Scan' untuk melakukan pemindaian kerentanan.
+# Anda dapat mengatur pemindaian baru dengan memilih target dan jenis pemindaian.
+        </pre>
+
+        <h2 id="opsi-lanjutan">Opsi Lanjutan</h2>
+        <pre>
+# Untuk melakukan pemindaian lebih mendalam, pilih opsi 'Advanced Scan'.
+# Anda juga dapat mengatur jadwal pemindaian berkala untuk laporan rutin.
+        </pre>
+
+        <h2 id="contoh">Contoh Penggunaan</h2>
+        <h3>1. Memulai Pemindaian</h3>
+        <pre>
+# Pilih target untuk pemindaian
+# Klik pada 'New Scan' dan atur parameter pemindaian.
+        </pre>
+
+        <h3>2. Melihat Hasil Pemindaian</h3>
+        <pre>
+# Setelah pemindaian selesai, pergi ke tab 'Results' untuk melihat laporan.
+        </pre>
+
+        <h3>3. Mengatur Pemberitahuan</h3>
+        <pre>
+# Atur pemberitahuan email untuk mendapatkan update tentang status pemindaian.
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Pastikan Anda memiliki izin untuk melakukan pemindaian terhadap target.
+- Gunakan hasil pemindaian untuk memperbaiki kerentanan yang ditemukan.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Cheat Sheet Qualys</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

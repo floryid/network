@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>curl - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                curl
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengantar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>curl</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+curl adalah alat baris perintah yang digunakan untuk mentransfer data dari atau ke server menggunakan berbagai protokol. curl sangat berguna untuk berinteraksi dengan API dan menguji koneksi ke server.
+        </pre>
+
+        <h2 id="contoh">Contoh Penggunaan</h2>
+
+        <h3>1. Mengambil Halaman Web</h3>
+        <pre>
+curl http://example.com
+        </pre>
+
+        <h3>2. Mengambil Halaman Web dengan HTTPS</h3>
+        <pre>
+curl https://example.com
+        </pre>
+
+        <h3>3. Menyimpan Output ke File</h3>
+        <pre>
+curl -o output.html http://example.com
+        </pre>
+
+        <h3>4. Mengikuti Pengalihan</h3>
+        <pre>
+curl -L http://example.com
+        </pre>
+
+        <h3>5. Mengirim Permintaan POST</h3>
+        <pre>
+curl -X POST -d "param1=value1&param2=value2" http://example.com/api
+        </pre>
+
+        <h3>6. Mengirim Data dalam Format JSON</h3>
+        <pre>
+curl -X POST -H "Content-Type: application/json" -d '{"key":"value"}' http://example.com/api
+        </pre>
+
+        <h3>7. Mengirim Header Khusus</h3>
+        <pre>
+curl -H "Authorization: Bearer TOKEN" http://example.com/api
+        </pre>
+
+        <h3>8. Menggunakan Proksi</h3>
+        <pre>
+curl -x http://proxyserver:port http://example.com
+        </pre>
+
+        <h3>9. Mengambil Halaman Web dengan Header Khusus</h3>
+        <pre>
+curl -H "User-Agent: MyUserAgent" http://example.com
+        </pre>
+
+        <h3>10. Mengambil Halaman Web dan Menampilkan Hanya Header</h3>
+        <pre>
+curl -I http://example.com
+        </pre>
+
+        <h3>11. Mengambil Halaman Web dengan Waktu Tunggu</h3>
+        <pre>
+curl --max-time 10 http://example.com
+        </pre>
+
+        <h3>12. Mengambil Halaman Web dengan Verifikasi Sertifikat SSL</h3>
+        <pre>
+curl --cacert cacert.pem https://example.com
+        </pre>
+
+        <h3>13. Mengambil Halaman Web Tanpa Memverifikasi Sertifikat SSL</h3>
+        <pre>
+curl -k https://example.com
+        </pre>
+
+        <h3>14. Menggunakan Curl untuk Mengunduh File Biner</h3>
+        <pre>
+curl -O http://example.com/file.zip
+        </pre>
+
+        <h3>15. Mengambil Konten HTML dan Menampilkan di Terminal</h3>
+        <pre>
+curl -s http://example.com
+        </pre>
+
+        <h3>16. Menggunakan curl dengan FTP</h3>
+        <pre>
+curl -u username:password ftp://example.com/file.txt
+        </pre>
+
+        <h3>17. Menggunakan curl untuk Mengunggah File dengan FTP</h3>
+        <pre>
+curl -T localfile.txt -u username:password ftp://example.com/
+        </pre>
+
+        <h3>18. Mengambil Halaman Web dan Menampilkan Status Kode</h3>
+        <pre>
+curl -o /dev/null -w "%{http_code}" http://example.com
+        </pre>
+
+        <h3>19. Mengambil Halaman Web dan Menampilkan Waktu Respons</h3>
+        <pre>
+curl -o /dev/null -w "%{time_total}" http://example.com
+        </pre>
+
+        <h3>20. Mengambil Halaman Web dengan Redirect ke File</h3>
+        <pre>
+curl -L -o output.html http://example.com
+        </pre>
+
+        <h3>21. Menggunakan curl untuk Memeriksa Koneksi Jaringan</h3>
+        <pre>
+curl -I http://google.com
+        </pre>
+
+        <h3>22. Menggunakan curl untuk Menangani Cookies</h3>
+        <pre>
+curl -c cookies.txt -b cookies.txt http://example.com
+        </pre>
+
+        <h3>23. Mengambil Halaman Web dengan Kompresi Gzip</h3>
+        <pre>
+curl --compressed http://example.com
+        </pre>
+
+        <h3>24. Mengambil Halaman Web dengan Menambahkan Header Pengguna</h3>
+        <pre>
+curl -H "User-Agent: Custom User Agent" http://example.com
+        </pre>
+
+        <h3>25. Menggunakan curl untuk Melihat Progres Unduhan</h3>
+        <pre>
+curl -O -# http://example.com/file.zip
+        </pre>
+
+        <h3>26. Menggunakan curl untuk Menghapus File di Server</h3>
+        <pre>
+curl -X DELETE http://example.com/api/resource/1
+        </pre>
+
+        <h3>27. Menggunakan curl untuk Mendaftar dengan Formulir</h3>
+        <pre>
+curl -X POST -d "username=user&password=pass" http://example.com/register
+        </pre>
+
+        <h3>28. Menggunakan curl untuk Mengunduh Halaman Web sebagai File HTML</h3>
+        <pre>
+curl -o page.html http://example.com
+        </pre>
+
+        <h3>29. Menggunakan curl untuk Mencetak Hasil dalam Format Terstruktur</h3>
+        <pre>
+curl -s -H "Accept: application/json" http://example.com/api
+        </pre>
+
+        <h3>30. Menggunakan curl untuk Menghentikan Respons dan Menampilkan Header</h3>
+        <pre>
+curl -D headers.txt http://example.com
+        </pre>
+
+        <h3>31. Menggunakan curl untuk Menampilkan Hasil dalam Format Pretty</h3>
+        <pre>
+curl -s http://example.com | python -m json.tool
+        </pre>
+
+        <h3>32. Menggunakan curl untuk Melihat Hasil dengan Waktu Respons</h3>
+        <pre>
+curl -w "@curl-format.txt" -o /dev/null -s http://example.com
+        </pre>
+
+        <h3>33. Menggunakan curl untuk Mengunggah File dengan HTTP PUT</h3>
+        <pre>
+curl -X PUT -T localfile.txt http://example.com/resource
+        </pre>
+
+        <h3>34. Menggunakan curl untuk Mengunduh Banyak File Secara Bersamaan</h3>
+        <pre>
+curl -O http://example.com/file1.zip -O http://example.com/file2.zip
+        </pre>
+
+        <h3>35. Menggunakan curl untuk Mengambil Halaman Web dengan Opsi -s dan -o</h3>
+        <pre>
+curl -s -o output.html http://example.com
+        </pre>
+
+        <h3>36. Menggunakan curl untuk Meneruskan Data POST sebagai JSON</h3>
+        <pre>
+curl -X POST -H "Content-Type: application/json" -d '{"key":"value"}' http://example.com/api
+        </pre>
+
+        <h3>37. Menggunakan curl untuk Mengambil Halaman Web dengan Autentikasi Dasar</h3>
+        <pre>
+curl -u username:password http://example.com
+        </pre>
+
+        <h3>38. Menggunakan curl untuk Mengatur Timeout untuk Koneksi</h3>
+        <pre>
+curl --connect-timeout 5 http://example.com
+        </pre>
+
+        <h3>39. Menggunakan curl untuk Menampilkan Konten sebagai Plain Text</h3>
+        <pre>
+curl -H "Accept: text/plain" http://example.com
+        </pre>
+
+        <h3>40. Menggunakan curl untuk Mengambil Halaman Web dalam Mode Verbose</h3>
+        <pre>
+curl -v http://example.com
+        </pre>
+
+        <h3>41. Menggunakan curl untuk Mengambil Halaman Web dengan Versi TLS Tertentu</h3>
+        <pre>
+curl --tlsv1.2 https://example.com
+        </pre>
+
+        <h3>42. Menggunakan curl untuk Mengambil Halaman Web dan Menampilkan Waktu Respons dalam Detik</h3>
+        <pre>
+curl -w "Total Time: %{time_total}\n" -o /dev/null -s http://example.com
+        </pre>
+
+        <h3>43. Menggunakan curl untuk Menggunakan DNS Server Tertentu</h3>
+        <pre>
+curl --dns-servers 8.8.8.8 http://example.com
+        </pre>
+
+        <h3>44. Menggunakan curl untuk Mengubah Alamat IP Sumber</h3>
+        <pre>
+curl --interface 192.168.1.10 http://example.com
+        </pre>
+
+        <h3>45. Menggunakan curl untuk Mengambil Halaman Web dengan Deteksi Kerentanan</h3>
+        <pre>
+curl -s http://example.com | grep "vulnerable"
+        </pre>
+
+        <h3>46. Menggunakan curl untuk Mengambil Halaman Web dengan Cookie Khusus</h3>
+        <pre>
+curl -b "name=value" http://example.com
+        </pre>
+
+        <h3>47. Menggunakan curl untuk Menyimpan Cookies dari Respons</h3>
+        <pre>
+curl -c cookies.txt http://example.com
+        </pre>
+
+        <h3>48. Menggunakan curl untuk Mengambil Halaman Web dengan Penanganan Kesalahan</h3>
+        <pre>
+curl -f http://example.com
+        </pre>
+
+        <h3>49. Menggunakan curl untuk Mengambil Halaman Web dengan Autentikasi HTTP</h3>
+        <pre>
+curl --user username:password http://example.com
+        </pre>
+
+        <h3>50. Menggunakan curl untuk Menampilkan Semua Pilihan yang Tersedia</h3>
+        <pre>
+curl --help
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Pastikan Anda memiliki izin sebelum melakukan permintaan HTTP ke server.
+- Hasil dari curl dapat bervariasi tergantung pada konfigurasi server dan pengaturan jaringan.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Penggunaan dan Contoh curl</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

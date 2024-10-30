@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParamSpider - Nofrinto Flory</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+            color: #00ff00;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                ParamSpider
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pengantar">Pengantar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#penggunaan">Penggunaan Dasar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contoh">Contoh Penggunaan</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container">
+        <h1 id="pengantar">ParamSpider Cheat Sheet</h1>
+        <p>ParamSpider adalah alat untuk mencari parameter tersembunyi dalam URL yang berguna untuk pengujian keamanan web. Berikut adalah panduan untuk penggunaan dasar dan beberapa contoh penerapannya.</p>
+
+        <h2 id="penggunaan">Penggunaan Dasar</h2>
+        <pre>python3 paramspider.py -d target.com</pre>
+        <p>Perintah di atas akan mencari parameter tersembunyi pada domain <code>target.com</code>.</p>
+
+        <h2 id="contoh">Contoh Penggunaan</h2>
+        <ol>
+            <li><b>Mencari parameter dengan filter</b>
+                <pre>python3 paramspider.py -d target.com --exclude jpg,png,css</pre>
+                <p>Mencari parameter tetapi mengecualikan file dengan ekstensi <code>jpg</code>, <code>png</code>, dan <code>css</code>.</p>
+            </li>
+            <li><b>Hanya menampilkan URL yang tidak duplikat</b>
+                <pre>python3 paramspider.py -d target.com --level high --quiet</pre>
+                <p>Menampilkan hanya URL unik tanpa informasi tambahan.</p>
+            </li>
+            <li><b>Menyimpan output ke file teks</b>
+                <pre>python3 paramspider.py -d target.com -o hasil.txt</pre>
+                <p>Menyimpan hasil pencarian ke file <code>hasil.txt</code>.</p>
+            </li>
+            <li><b>Mengubah level kedalaman pencarian</b>
+                <pre>python3 paramspider.py -d target.com --level 3</pre>
+                <p>Menjalankan pencarian hingga kedalaman level 3 untuk hasil yang lebih rinci.</p>
+            </li>
+            <li><b>Mengaktifkan mode verbose untuk informasi lebih</b>
+                <pre>python3 paramspider.py -d target.com -v</pre>
+                <p>Menjalankan pencarian dengan informasi detail pada setiap tahap.</p>
+            </li>
+            <li><b>Mengecualikan URL tertentu</b>
+                <pre>python3 paramspider.py -d target.com --exclude-subs example.com</pre>
+                <p>Mengecualikan subdomain tertentu, misalnya <code>example.com</code>, dari hasil pencarian.</p>
+            </li>
+            <li><b>Memilih output khusus berdasarkan extension</b>
+                <pre>python3 paramspider.py -d target.com --output-format json</pre>
+                <p>Menampilkan hasil dalam format JSON.</p>
+            </li>
+        </ol>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2024 Nofrinto Flory - ParamSpider Cheat Sheet
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

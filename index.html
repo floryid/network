@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #33ff33;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #33ff33;
+        }
+        .navbar-nav .nav-link {
+            color: #33ff33 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+            border-radius: 10px;
+        }
+        header {
+            background-image: url('cyber-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #33ff33;
+            padding: 50px 0;
+            text-shadow: 0 0 10px #33ff33;
+        }
+        .glow-text {
+            text-shadow: 0 0 10px #33ff33, 0 0 20px #33ff33, 0 0 30px #33ff33;
+        }
+        .card {
+            background-color: #1a1a1a;
+            border: 1px solid #33ff33;
+            box-shadow: 0 0 10px #33ff33;
+        }
+        .footer {
+            background-color: #0d0d0d;
+            border-top: 1px solid #33ff33;
+        }
+        a{
+            text-decoration: none;
+        }
+        .terminal-btn {
+            background-color: #262626;
+            border: 1px solid #33ff33;
+            color: #33ff33;
+            padding: 10px 20px;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .terminal-btn:hover {
+            background-color: #33ff33;
+            color: #0d0d0d;
+        }
+        @keyframes scanline {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+        .scanline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(51, 255, 51, 0.263) 50%);
+            animation: scanline 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Scanline Animasi -->
+    <div class="scanline"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand glow-text" href="#">Syber9</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">LogOut</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bagian Header -->
+    <header class="text-center">
+        <h1 class="glow-text">Dashboard Syber9</h1>
+        <p>Situs keamanan dengan nuansa hacker.</p>
+    </header>
+
+    <!-- Bagian Dashboard -->
+    <section id="dashboard" class="container my-5">
+        <div class="text-center">
+            <h2 class="glow-text">Dashboard</h2>
+            <p>Explore tools and information with style.</p>
+            <div>
+                <button class="terminal-btn"><a href="#">Scan</a></button>
+                <button class="terminal-btn"><a href="nmap.html">Nmap</a></button>
+                <button class="terminal-btn"><a href="gobuster.html">Gobuster</a></button>
+                <button class="terminal-btn"><a href="hydra.html">Hydra</a></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Tentang -->
+    <section id="about" class="container my-5">
+        <div class="text-center">
+            <h2 class="glow-text">Tentang Syber9</h2>
+            <p>Syber9 adalah platform pembelajaran dan eksplorasi keamanan siber.</p>
+            <p>Didesain untuk para enthusiast dan profesional di bidang keamanan jaringan.</p>
+        </div>
+    </section>
+
+    <!-- Bagian Footer -->
+    <footer class="footer text-center py-4">
+        <p class="mb-0">&copy; 2024 Nofrinto Flory. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

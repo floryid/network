@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanning Best Practices - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #33ff33;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #33ff33;
+        }
+        .navbar-nav .nav-link {
+            color: #33ff33 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+        header {
+            background-image: url('cyber-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #33ff33;
+            padding: 50px 0;
+            text-shadow: 0 0 10px #33ff33;
+        }
+        p, pre, li{
+            color: #33ff33;
+        }
+        .glow-text {
+            text-shadow: 0 0 10px #33ff33, 0 0 20px #33ff33, 0 0 30px #33ff33;
+        }
+        .card {
+            background-color: #1a1a1a;
+            border: 1px solid #33ff33;
+            box-shadow: 0 0 10px #33ff33;
+        }
+        .footer {
+            background-color: #0d0d0d;
+            border-top: 1px solid #33ff33;
+        }
+        .terminal-btn {
+            background-color: #262626;
+            border: 1px solid #33ff33;
+            color: #33ff33;
+            padding: 10px 20px;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .terminal-btn:hover {
+            background-color: #33ff33;
+            color: #0d0d0d;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand glow-text" href="#">Syber9</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="buku.html">Buku</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kontak.html">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bagian Header -->
+    <header class="text-center">
+        <h1 class="glow-text">Scanning Best Practices</h1>
+        <p>Panduan dan praktik terbaik untuk melakukan pemindaian keamanan jaringan.</p>
+    </header>
+
+    <!-- Bagian Cheat Sheet -->
+    <div class="container my-5">
+        <div class="text-center">
+            <h2 class="glow-text">Praktik Terbaik dalam Scanning</h2>
+            <p>Menggunakan alat seperti Nmap dan lainnya untuk pemindaian yang efektif dan aman.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title glow-text">1. Persiapan Pemindaian</h5>
+                        <p>Sebelum melakukan pemindaian, pastikan untuk:</p>
+                        <ul>
+                            <li>Mendapatkan izin dari pemilik jaringan atau sistem sebelum melakukan pemindaian.</li>
+                            <li>Menggunakan alat seperti Nmap atau Nessus pada lingkungan yang terkendali.</li>
+                            <li>Mengecek daftar IP dan domain yang akan dipindai.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title glow-text">2. Nmap untuk Pemindaian Dasar</h5>
+                        <p>Nmap adalah alat populer untuk pemindaian port dan layanan pada suatu host.</p>
+                        <pre><code>Contoh Perintah Dasar:
+nmap -sS -p 80,443 example.com</code></pre>
+                        <p>Perintah ini melakukan pemindaian SYN untuk port 80 dan 443 pada domain example.com.</p>
+                        <p>Gunakan opsi <code>-A</code> untuk mendeteksi versi layanan dan sistem operasi:</p>
+                        <pre><code>nmap -A example.com</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title glow-text">3. Pemindaian dengan Nessus</h5>
+                        <p>Nessus adalah alat pemindaian kerentanan yang sangat efektif untuk mengidentifikasi risiko keamanan pada jaringan.</p>
+                        <pre><code>Langkah-langkah:
+1. Instalasi Nessus pada server atau mesin lokal.
+2. Buat profil pemindaian.
+3. Pilih jenis pemindaian (contoh: Basic Network Scan).
+4. Tentukan target IP atau subnet untuk dipindai.
+5. Jalankan pemindaian dan analisis hasilnya.</code></pre>
+                        <p>Nessus memungkinkan untuk menghasilkan laporan yang detail tentang kerentanan yang ditemukan.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title glow-text">4. Praktik Terbaik Pemindaian</h5>
+                        <p>Beberapa tips untuk pemindaian yang lebih aman dan efektif:</p>
+                        <ul>
+                            <li>Gunakan pemindaian <code>-Pn</code> di Nmap jika ping tidak diizinkan oleh firewall.</li>
+                            <li>Batasi kecepatan pemindaian dengan opsi <code>--scan-delay</code> untuk menghindari deteksi oleh sistem IDS/IPS.</li>
+                            <li>Selalu periksa log untuk memantau aktivitas pemindaian yang tidak terduga.</li>
+                            <li>Hindari pemindaian massal yang dapat dianggap sebagai serangan.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bagian Footer -->
+    <footer class="footer text-center py-4">
+        <p class="mb-0">&copy; 2024 Nofrinto Flory. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

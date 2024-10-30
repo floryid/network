@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet Nmap - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                Nmap
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengantar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#instalasi">Instalasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#penggunaan">Penggunaan Dasar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">50 Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Cheat Sheet Nmap</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+Nmap adalah alat untuk pemetaan jaringan dan audit keamanan yang membantu dalam menemukan host dan layanan di jaringan.
+        </pre>
+
+        <h2 id="instalasi">Instalasi</h2>
+        <pre>
+# Untuk menginstal Nmap di sistem berbasis Debian/Ubuntu:
+sudo apt-get install nmap
+        </pre>
+
+        <h2 id="penggunaan">Penggunaan Dasar</h2>
+        <pre>
+# Untuk memindai port default pada target:
+nmap target_ip
+        </pre>
+
+        <h2 id="contoh">50 Contoh Penggunaan Nmap</h2>
+
+        <h3>1. Memindai semua port pada target</h3>
+        <pre>
+nmap -p- target_ip
+        </pre>
+
+        <h3>2. Memindai port tertentu</h3>
+        <pre>
+nmap -p 22,80,443 target_ip
+        </pre>
+
+        <h3>3. Memindai dengan output dalam format XML</h3>
+        <pre>
+nmap -oX output.xml target_ip
+        </pre>
+
+        <h3>4. Memindai dengan hasil yang lebih detail (verbose)</h3>
+        <pre>
+nmap -v target_ip
+        </pre>
+
+        <h3>5. Menggunakan nmap untuk menentukan versi layanan</h3>
+        <pre>
+nmap -sV target_ip
+        </pre>
+
+        <h3>6. Menggunakan nmap untuk OS detection</h3>
+        <pre>
+nmap -O target_ip
+        </pre>
+
+        <h3>7. Memindai jaringan lokal</h3>
+        <pre>
+nmap 192.168.1.0/24
+        </pre>
+
+        <h3>8. Memindai menggunakan TCP SYN scan</h3>
+        <pre>
+nmap -sS target_ip
+        </pre>
+
+        <h3>9. Memindai menggunakan UDP scan</h3>
+        <pre>
+nmap -sU target_ip
+        </pre>
+
+        <h3>10. Menggunakan nmap untuk ping sweep</h3>
+        <pre>
+nmap -sn 192.168.1.0/24
+        </pre>
+
+        <h3>11. Memindai layanan pada port tertentu dengan script</h3>
+        <pre>
+nmap --script=http-title target_ip
+        </pre>
+
+        <h3>12. Menggunakan nmap untuk menghindari firewall dengan fragmentasi</h3>
+        <pre>
+nmap -f target_ip
+        </pre>
+
+        <h3>13. Menggunakan nmap untuk melakukan scan agresif</h3>
+        <pre>
+nmap -A target_ip
+        </pre>
+
+        <h3>14. Memindai dengan interval waktu tertentu</h3>
+        <pre>
+nmap --scan-delay 1s target_ip
+        </pre>
+
+        <h3>15. Menentukan user-agent saat melakukan HTTP scan</h3>
+        <pre>
+nmap -p 80 --script=http-useragent-target.nse target_ip
+        </pre>
+
+        <h3>16. Menggunakan nmap untuk menemukan semua host yang aktif di jaringan</h3>
+        <pre>
+nmap -sn 192.168.1.0/24
+        </pre>
+
+        <h3>17. Menggunakan opsi -iL untuk memindai daftar IP dari file</h3>
+        <pre>
+nmap -iL daftar_ip.txt
+        </pre>
+
+        <h3>18. Menggunakan nmap untuk menentukan port yang terbuka pada beberapa host</h3>
+        <pre>
+nmap -p 22,80 192.168.1.1,192.168.1.2
+        </pre>
+
+        <h3>19. Menggunakan nmap untuk mengidentifikasi sistem operasi</h3>
+        <pre>
+nmap -O -F target_ip
+        </pre>
+
+        <h3>20. Memindai port dengan TCP connect scan</h3>
+        <pre>
+nmap -sT target_ip
+        </pre>
+
+        <h3>21. Menggunakan opsi -sP untuk melakukan ping scan</h3>
+        <pre>
+nmap -sP 192.168.1.0/24
+        </pre>
+
+        <h3>22. Menentukan timeout koneksi</h3>
+        <pre>
+nmap --max-retries 0 target_ip
+        </pre>
+
+        <h3>23. Menggunakan nmap untuk memindai port pada semua protokol</h3>
+        <pre>
+nmap -p 1-65535 target_ip
+        </pre>
+
+        <h3>24. Menggunakan opsi -Pn untuk memindai host tanpa ping</h3>
+        <pre>
+nmap -Pn target_ip
+        </pre>
+
+        <h3>25. Menyimpan hasil pemindaian ke dalam file teks</h3>
+        <pre>
+nmap -oN hasil.txt target_ip
+        </pre>
+
+        <h3>26. Memindai dengan waktu tertentu untuk pemindaian UDP</h3>
+        <pre>
+nmap -sU --max-rate 100 target_ip
+        </pre>
+
+        <h3>27. Menggunakan nmap untuk memindai dengan pengaturan spesifik</h3>
+        <pre>
+nmap -p 80 --open -sS target_ip
+        </pre>
+
+        <h3>28. Memindai port di dalam rentang tertentu</h3>
+        <pre>
+nmap -p 20-80 target_ip
+        </pre>
+
+        <h3>29. Menggunakan opsi -sA untuk melakukan ACK scan</h3>
+        <pre>
+nmap -sA target_ip
+        </pre>
+
+        <h3>30. Memindai dengan HTTP method tertentu</h3>
+        <pre>
+nmap --script=http-methods target_ip
+        </pre>
+
+        <h3>31. Menggunakan nmap untuk menganalisis router</h3>
+        <pre>
+nmap -sP -PR target_ip
+        </pre>
+
+        <h3>32. Memindai menggunakan nmap untuk aplikasi web</h3>
+        <pre>
+nmap --script=http-enum target_ip
+        </pre>
+
+        <h3>33. Menggunakan nmap untuk memindai IPv6</h3>
+        <pre>
+nmap -6 target_ip
+        </pre>
+
+        <h3>34. Memindai dengan nmap dan DNS</h3>
+        <pre>
+nmap -sL target_ip
+        </pre>
+
+        <h3>35. Menggunakan nmap untuk mengeksplorasi port SSH</h3>
+        <pre>
+nmap -p 22 -sV target_ip
+        </pre>
+
+        <h3>36. Menggunakan nmap untuk mengeksplorasi semua port</h3>
+        <pre>
+nmap -p- target_ip
+        </pre>
+
+        <h3>37. Menggunakan nmap untuk mendapatkan banner service</h3>
+        <pre>
+nmap -sV --script=banner target_ip
+        </pre>
+
+        <h3>38. Menggunakan nmap untuk memindai subnet secara bersamaan</h3>
+        <pre>
+nmap 192.168.1.0/24,192.168.2.0/24
+        </pre>
+
+        <h3>39. Menentukan ukuran paket</h3>
+        <pre>
+nmap --mtu 1400 target_ip
+        </pre>
+
+        <h3>40. Memindai dengan parameter spesifik untuk ping scan</h3>
+        <pre>
+nmap -sn -PE -PP target_ip
+        </pre>
+
+        <h3>41. Menggunakan nmap untuk menemukan hostname</h3>
+        <pre>
+nmap -sL target_ip
+        </pre>
+
+        <h3>42. Memindai menggunakan nmap untuk perangkat IoT</h3>
+        <pre>
+nmap -sS -p 1-1000 target_ip
+        </pre>
+
+        <h3>43. Menggunakan nmap untuk melakukan brute-force HTTP</h3>
+        <pre>
+nmap --script=http-brute target_ip
+        </pre>
+
+        <h3>44. Memindai untuk menemukan SSL/TLS yang rentan</h3>
+        <pre>
+nmap --script=ssl-enum-ciphers target_ip
+        </pre>
+
+        <h3>45. Menggunakan nmap untuk scan dengan spesifikasi port dan protokol</h3>
+        <pre>
+nmap -p 80,443 -sV -sS target_ip
+        </pre>
+
+        <h3>46. Menyimpan output ke format XML dan teks sekaligus</h3>
+        <pre>
+nmap -oA output target_ip
+        </pre>
+
+        <h3>47. Menggunakan opsi -sR untuk port redirection scan</h3>
+        <pre>
+nmap -sR target_ip
+        </pre>
+
+        <h3>48. Menggunakan nmap untuk mengeksplorasi jaringan dengan ping</h3>
+        <pre>
+nmap -sn -PE 192.168.1.0/24
+        </pre>
+
+        <h3>49. Memindai untuk menemukan service yang rentan</h3>
+        <pre>
+nmap -sV --script=vuln target_ip
+        </pre>
+
+        <h3>50. Menggunakan nmap untuk mengetahui informasi lebih lanjut tentang port tertentu</h3>
+        <pre>
+nmap -p 80 --script=http-title target_ip
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Gunakan Nmap dengan izin yang tepat pada server yang Anda targetkan.
+- Hasil dari Nmap harus digunakan untuk tujuan pengujian keamanan yang sah.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Cheat Sheet Nmap</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

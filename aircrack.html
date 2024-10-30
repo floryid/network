@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet Aircrack-ng - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                Aircrack-ng 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengenalan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#instalasi">Instalasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#penggunaan">Cara Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Cheat Sheet Aircrack-ng</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+Aircrack-ng adalah alat untuk mengaudit keamanan jaringan WiFi. Ini digunakan untuk mendapatkan kunci WEP dan WPA-PSK dengan menggunakan teknik pemecahan kunci yang berbeda.
+        </pre>
+
+        <h2 id="instalasi">Instalasi</h2>
+        <pre>
+# Untuk menginstal Aircrack-ng, Anda dapat menggunakan perintah berikut:
+sudo apt-get update
+sudo apt-get install aircrack-ng
+        </pre>
+
+        <h2 id="penggunaan">Cara Penggunaan</h2>
+        <pre>
+1. **Mode Monitor**: Aktifkan mode monitor pada interface jaringan:
+sudo airmon-ng start wlan0
+
+2. **Mengumpulkan Data**: Gunakan airodump-ng untuk mengumpulkan data dari jaringan:
+airodump-ng wlan0mon
+
+3. **Menangkap Paket**: Fokus pada target dan tangkap paket:
+airodump-ng --bssid [BSSID] -c [CHANNEL] -w [FILENAME] wlan0mon
+
+4. **Menghentikan Pengumpulan**: Setelah cukup paket terkumpul, hentikan airodump-ng dan gunakan aircrack-ng untuk memecahkan kunci:
+aircrack-ng [FILENAME].cap
+        </pre>
+
+        <h2 id="contoh">Contoh Penggunaan</h2>
+        <h3>1. Mengaktifkan Mode Monitor</h3>
+        <pre>
+sudo airmon-ng start wlan0
+        </pre>
+
+        <h3>2. Mengumpulkan Data</h3>
+        <pre>
+airodump-ng wlan0mon
+        </pre>
+
+        <h3>3. Menangkap Paket dari Jaringan Tertentu</h3>
+        <pre>
+airodump-ng --bssid 00:11:22:33:44:55 -c 6 -w mycapture wlan0mon
+        </pre>
+
+        <h3>4. Memecahkan Kunci WPA/WPA2</h3>
+        <pre>
+aircrack-ng mycapture-01.cap -w /path/to/wordlist.txt
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Pastikan Anda memiliki izin untuk mengaudit jaringan yang Anda targetkan.
+- Penggunaan Aircrack-ng harus dilakukan dengan etika dan sesuai dengan hukum yang berlaku.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Cheat Sheet Aircrack-ng</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

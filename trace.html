@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traceroute - Nofrinto Flory - Syber9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
+                Traceroute
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengantar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">Contoh Penggunaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Traceroute</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+Traceroute adalah alat jaringan yang digunakan untuk melacak jalur paket data dari satu host ke host lain di jaringan. Dengan menggunakan Traceroute, pengguna dapat melihat setiap hop yang dilalui paket serta waktu yang dibutuhkan untuk mencapai setiap hop. Ini sangat berguna untuk analisis jaringan dan pemecahan masalah.
+        </pre>
+
+        <h2 id="contoh">Contoh Penggunaan</h2>
+
+        <h3>1. Dasar Penggunaan Traceroute</h3>
+        <pre>
+# Menggunakan Traceroute untuk melacak jalur ke example.com
+traceroute example.com
+        </pre>
+
+        <h3>2. Menentukan Jumlah Maksimal Hop</h3>
+        <pre>
+# Mengatur batas hop maksimum
+traceroute -m 30 example.com
+        </pre>
+
+        <h3>3. Menggunakan Traceroute dengan Protokol UDP</h3>
+        <pre>
+# Menggunakan UDP sebagai protokol
+traceroute -U example.com
+        </pre>
+
+        <h3>4. Menggunakan Traceroute dengan Protokol ICMP</h3>
+        <pre>
+# Menggunakan ICMP sebagai protokol
+traceroute -I example.com
+        </pre>
+
+        <h3>5. Menentukan Ukuran Paket</h3>
+        <pre>
+# Menentukan ukuran paket untuk pengiriman
+traceroute -s 100 example.com
+        </pre>
+
+        <h3>6. Menggunakan Traceroute dengan Interval Waktu</h3>
+        <pre>
+# Mengatur interval waktu antara pengiriman paket
+traceroute -w 2 example.com
+        </pre>
+
+        <h3>7. Menggunakan Traceroute dengan Format Output Berbeda</h3>
+        <pre>
+# Menggunakan output format yang berbeda
+traceroute -n example.com
+        </pre>
+
+        <h3>8. Menggunakan Traceroute untuk Mendeteksi Firewall</h3>
+        <pre>
+# Mendeteksi firewall dengan traceroute
+traceroute -p 80 example.com
+        </pre>
+
+        <h3>9. Menggunakan Traceroute untuk Mencetak Informasi Host</h3>
+        <pre>
+# Mencetak informasi host
+traceroute -q 1 example.com
+        </pre>
+
+        <h3>10. Menggunakan Traceroute untuk Mencetak TTL</h3>
+        <pre>
+# Mengatur TTL untuk pengiriman
+traceroute -t 64 example.com
+        </pre>
+
+        <h3>11. Menggunakan Traceroute untuk Mengirim Paket TCP</h3>
+        <pre>
+# Menggunakan TCP untuk traceroute
+traceroute -T example.com
+        </pre>
+
+        <h3>12. Menentukan Port untuk Traceroute</h3>
+        <pre>
+# Mengatur port untuk pengujian
+traceroute -p 53 example.com
+        </pre>
+
+        <h3>13. Menggunakan Traceroute untuk Mendeteksi Jaringan Internasional</h3>
+        <pre>
+# Mendeteksi jalur ke jaringan internasional
+traceroute -m 20 8.8.8.8
+        </pre>
+
+        <h3>14. Menggunakan Traceroute untuk Menyimpan Hasil ke File</h3>
+        <pre>
+# Menyimpan hasil traceroute ke file
+traceroute example.com > hasil_traceroute.txt
+        </pre>
+
+        <h3>15. Menggunakan Traceroute untuk Melihat Detail Respon</h3>
+        <pre>
+# Melihat detail respon untuk setiap hop
+traceroute -v example.com
+        </pre>
+
+        <h3>16. Menggunakan Traceroute untuk Menguji Koneksi Jaringan</h3>
+        <pre>
+# Menguji koneksi jaringan ke google.com
+traceroute google.com
+        </pre>
+
+        <h3>17. Menggunakan Traceroute dengan IPv6</h3>
+        <pre>
+# Menggunakan IPv6 untuk traceroute
+traceroute -6 example.com
+        </pre>
+
+        <h3>18. Menggunakan Traceroute untuk Melacak Subnet</h3>
+        <pre>
+# Melacak subnet 192.168.1.0/24
+traceroute 192.168.1.0
+        </pre>
+
+        <h3>19. Menggunakan Traceroute untuk Melacak Jalur ke Beberapa Host</h3>
+        <pre>
+# Melacak jalur ke beberapa host
+traceroute example.com www.example.com
+        </pre>
+
+        <h3>20. Menggunakan Traceroute untuk Mencetak Ringkasan</h3>
+        <pre>
+# Mencetak ringkasan hasil traceroute
+traceroute -q 2 -m 10 example.com
+        </pre>
+
+        <h3>21. Menggunakan Traceroute untuk Menguji Kecepatan Jaringan</h3>
+        <pre>
+# Menggunakan traceroute untuk menguji kecepatan
+traceroute -T -p 80 example.com
+        </pre>
+
+        <h3>22. Menggunakan Traceroute untuk Menganalisis Latensi</h3>
+        <pre>
+# Menganalisis latensi pada setiap hop
+traceroute -w 1 example.com
+        </pre>
+
+        <h3>23. Menggunakan Traceroute untuk Memeriksa Pengaturan Jaringan</h3>
+        <pre>
+# Memeriksa pengaturan jaringan ke server
+traceroute -I 10.0.0.1
+        </pre>
+
+        <h3>24. Menggunakan Traceroute untuk Melacak Jalur ke Server FTP</h3>
+        <pre>
+# Melacak jalur ke server FTP
+traceroute -p 21 ftp.example.com
+        </pre>
+
+        <h3>25. Menggunakan Traceroute untuk Melacak Jalur ke Server DNS</h3>
+        <pre>
+# Melacak jalur ke server DNS
+traceroute -p 53 dns.example.com
+        </pre>
+
+        <h3>26. Menggunakan Traceroute untuk Melihat Hops dengan Waktu Respons</h3>
+        <pre>
+# Melihat hops dengan waktu respons
+traceroute -w 3 example.com
+        </pre>
+
+        <h3>27. Menggunakan Traceroute untuk Mendeteksi Masalah Koneksi</h3>
+        <pre>
+# Mendeteksi masalah koneksi ke suatu host
+traceroute example.com
+        </pre>
+
+        <h3>28. Menggunakan Traceroute untuk Menganalisis Rute dalam Jaringan Lokal</h3>
+        <pre>
+# Menganalisis rute dalam jaringan lokal
+traceroute 192.168.1.1
+        </pre>
+
+        <h3>29. Menggunakan Traceroute untuk Mencetak Hasil dengan TTL</h3>
+        <pre>
+# Mencetak hasil dengan TTL
+traceroute -t 30 example.com
+        </pre>
+
+        <h3>30. Menggunakan Traceroute untuk Menguji Ketersediaan Jalur</h3>
+        <pre>
+# Menguji ketersediaan jalur ke google.com
+traceroute google.com
+        </pre>
+
+        <h3>31. Menggunakan Traceroute untuk Menggunakan Protokol TCP dengan Batasan Port</h3>
+        <pre>
+# Menggunakan TCP dengan batasan port
+traceroute -T -p 8080 example.com
+        </pre>
+
+        <h3>32. Menggunakan Traceroute untuk Melacak Jalur Melalui Jaringan VPN</h3>
+        <pre>
+# Melacak jalur melalui jaringan VPN
+traceroute vpn.example.com
+        </pre>
+
+        <h3>33. Menggunakan Traceroute untuk Menguji Koneksi Wi-Fi</h3>
+        <pre>
+# Menguji koneksi Wi-Fi
+traceroute 192.168.0.1
+        </pre>
+
+        <h3>34. Menggunakan Traceroute untuk Mencetak Hasil dalam Format Teks</h3>
+        <pre>
+# Mencetak hasil dalam format teks
+traceroute -n -m 15 example.com
+        </pre>
+
+        <h3>35. Menggunakan Traceroute untuk Mengirim Paket dengan Kecepatan Tinggi</h3>
+        <pre>
+# Mengirim paket dengan kecepatan tinggi
+traceroute -f 5 example.com
+        </pre>
+
+        <h3>36. Menggunakan Traceroute untuk Melacak Jalur Menggunakan IPv4</h3>
+        <pre>
+# Melacak jalur menggunakan IPv4
+traceroute -4 example.com
+        </pre>
+
+        <h3>37. Menggunakan Traceroute untuk Mencetak Waktu Respons untuk Setiap Hop</h3>
+        <pre>
+# Mencetak waktu respons untuk setiap hop
+traceroute -w 1 -q 1 example.com
+        </pre>
+
+        <h3>38. Menggunakan Traceroute untuk Mencetak Semua Hops</h3>
+        <pre>
+# Mencetak semua hops tanpa batasan
+traceroute -m 255 example.com
+        </pre>
+
+        <h3>39. Menggunakan Traceroute untuk Menguji Koneksi dari Berbagai Sumber</h3>
+        <pre>
+# Menguji koneksi dari sumber yang berbeda
+traceroute -s 192.168.1.2 example.com
+        </pre>
+
+        <h3>40. Menggunakan Traceroute untuk Mengirimkan Paket TCP dengan Sandi</h3>
+        <pre>
+# Mengirim paket TCP dengan sandi
+traceroute -T -p 80 -I example.com
+        </pre>
+
+        <h3>41. Menggunakan Traceroute untuk Mendeteksi Penyebab Keterlambatan Jaringan</h3>
+        <pre>
+# Mendeteksi penyebab keterlambatan
+traceroute -w 2 example.com
+        </pre>
+
+        <h3>42. Menggunakan Traceroute untuk Menguji Koneksi ke Jaringan Khusus</h3>
+        <pre>
+# Menguji koneksi ke jaringan khusus
+traceroute specialnetwork.com
+        </pre>
+
+        <h3>43. Menggunakan Traceroute untuk Melacak Jalur ke Server Aplikasi</h3>
+        <pre>
+# Melacak jalur ke server aplikasi
+traceroute app.example.com
+        </pre>
+
+        <h3>44. Menggunakan Traceroute untuk Menguji Rute ke Berbagai Subdomain</h3>
+        <pre>
+# Menguji rute ke subdomain
+traceroute subdomain.example.com
+        </pre>
+
+        <h3>45. Menggunakan Traceroute untuk Menganalisis Jalur ke IP Lokal</h3>
+        <pre>
+# Menganalisis jalur ke IP lokal
+traceroute 127.0.0.1
+        </pre>
+
+        <h3>46. Menggunakan Traceroute untuk Mencetak Hasil dalam Format JSON</h3>
+        <pre>
+# Mencetak hasil dalam format JSON (jika tersedia)
+traceroute --json example.com
+        </pre>
+
+        <h3>47. Menggunakan Traceroute untuk Melacak Jalur Menggunakan HTTPS</h3>
+        <pre>
+# Melacak jalur menggunakan HTTPS
+traceroute -p 443 example.com
+        </pre>
+
+        <h3>48. Menggunakan Traceroute untuk Memeriksa Jalur ke Layanan Streaming</h3>
+        <pre>
+# Memeriksa jalur ke layanan streaming
+traceroute streaming.example.com
+        </pre>
+
+        <h3>49. Menggunakan Traceroute untuk Menguji Jalur ke Server Game</h3>
+        <pre>
+# Menguji jalur ke server game
+traceroute game.example.com
+        </pre>
+
+        <h3>50. Menggunakan Traceroute untuk Menganalisis Jalur ke Cloud Server</h3>
+        <pre>
+# Menganalisis jalur ke cloud server
+traceroute cloud.example.com
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Pastikan Anda memiliki izin sebelum menggunakan Traceroute untuk mengakses atau menguji jaringan.
+- Traceroute dapat memberikan wawasan penting tentang jalur paket dan masalah jaringan; gunakan informasi ini dengan bijak.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Traceroute Penggunaan dan Contoh</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
