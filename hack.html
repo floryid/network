@@ -10,45 +10,42 @@
             padding: 0;
             width: 100%;
             height: 100%;
+            overflow: hidden;
             font-family: Arial, sans-serif;
-            color: #00ff00; /* Warna teks ala hacker */
             display: flex;
             justify-content: center;
             align-items: center;
-            background-image: url('./image/foto1\ \(2\).webp'); /* Ganti dengan URL foto Anda */
-            background-size: cover;
-            background-position: center;
+            background-color: black;
+            color: #00ff00;
         }
-        .overlay {
+        .matrix {
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.75);
-            z-index: 0;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.85);
         }
         .login-container {
             position: relative;
             z-index: 1;
-            max-width: 400px;
             padding: 2rem;
-            background: rgba(0, 0, 0, 0.85);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.75);
+            color: #00ff00;
             border-radius: 8px;
             text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
         .login-container h2 {
             margin-bottom: 1.5rem;
             font-size: 1.5rem;
-            color: #00ff00;
         }
         .form-group {
             margin-bottom: 1rem;
         }
-        .form-group label, .form-group input {
-            display: block;
-            width: 100%;
-        }
         .form-group input {
+            width: 100%;
             padding: 0.75rem;
             margin-top: 0.5rem;
             border: none;
@@ -70,20 +67,13 @@
         .form-group button:hover {
             background-color: #00cc00;
         }
-        .error-message {
-            color: red;
-            display: none;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
     </style>
 </head>
 <body>
-    <div class="overlay"></div>
+    <canvas class="matrix"></canvas>
     <div class="login-container">
         <h2>Syber9 Login</h2>
-        <div class="error-message" id="errorMessage">Invalid username or password</div>
-        <form id="loginForm">
+        <form>
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" required>
@@ -99,16 +89,35 @@
     </div>
 
     <script>
+        const canvas = document.querySelector('.matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = Array(256).join("1").split("");
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#00ff00';
+
+            letters.map((y_pos, index) => {
+                const text = String.fromCharCode(48 + Math.random() * 43);
+                const x_pos = index * 20;
+                ctx.fillText(text, x_pos, y_pos);
+                letters[index] = (y_pos > canvas.height + Math.random() * 1e4) ? 0 : y_pos + 20;
+            });
+        }
+        setInterval(drawMatrix, 50);
+
         function validateLogin() {
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
-            const errorMessage = document.getElementById("errorMessage");
 
             if (username === "syber9" && password === "security101") {
                 alert("Login successful!");
                 window.location.href = "dashboard.html";
             } else {
-                errorMessage.style.display = "block";
+                alert("Invalid username or password.");
             }
         }
     </script>
