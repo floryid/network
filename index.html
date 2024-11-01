@@ -10,6 +10,15 @@
             background-color: #0d0d0d;
             color: #33ff33;
             font-family: 'Courier New', Courier, monospace;
+            padding-bottom: 60px; /* Ruang untuk footer */
+        }
+        .matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
         }
         .navbar {
             background: rgba(0, 0, 0, 0.8);
@@ -21,29 +30,33 @@
         .navbar-nav .nav-link:hover {
             background-color: #262626;
             border-radius: 10px;
+            box-shadow: 1px 1px 10px rgb(247, 7, 2);
         }
         header {
-            background-image: url('cyber-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            color: #f50707;
+            color: #33ff33;
             padding: 50px 0;
             text-shadow: 0 0 10px #33ff33;
         }
         .glow-text {
             text-shadow: 0 0 10px #33ff33, 0 0 20px #33ff33, 0 0 30px #33ff33;
+            background-color: rgb(26, 28, 27);
+            width: auto;
+            opacity: 0.8;
+        }
+        p{
+            background-color: #262626;
+            width: auto;
+            opacity: 0.8;
+            
         }
         .card {
             background-color: #1a1a1a;
             border: 1px solid #33ff33;
             box-shadow: 0 0 10px #33ff33;
         }
-        .footer {
-            background-color: #0d0d0d;
+        footer {
+            background-color: #1a1a1a;
             border-top: 1px solid #33ff33;
-        }
-        a{
-            text-decoration: none;
         }
         .terminal-btn {
             background-color: #262626;
@@ -52,65 +65,38 @@
             padding: 10px 20px;
             margin: 5px;
             transition: background-color 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 1px 1px 10px greenyellow;
+        }
+        a{
+            text-decoration: none;
         }
         .terminal-btn:hover {
             background-color: #33ff33;
             color: #0d0d0d;
+            border-top-right-radius: 50px ;
+            border: 1px solid red;
+            border-bottom-color: rgb(245, 8, 186);
+            border-bottom-left-radius: 10px;
         }
-        @keyframes scanline {
-            0% {
-                transform: translateY(-100%);
-            }
-            100% {
-                transform: translateY(100%);
-            }
+        .footer-links a {
+            color: #33ff33;
+            margin: 0 15px;
+            text-decoration: none;
         }
-        .scanline {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent 50%, rgba(51, 255, 51, 0.263) 50%);
-            animation: scanline 2s infinite;
+        .footer-links a:hover {
+            text-decoration: underline;
         }
-
-        body {
-            margin: 0;
-            overflow: hidden;
-            background-color: #0d0d0d;
-            font-family: Arial, sans-serif;
-            color: #fa1408;
-        }
-        #backgroundCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        .container {
-            position: relative;
-            z-index: 1;
-            color: #f92104;
-            padding: 20px;
-            text-align: center;
-        }
-        .glow-text {
-            text-shadow: 0 0 10px #33ff33, 0 0 20px #33ff33, 0 0 30px #33ff33;
-        }
-    </style>
     </style>
 </head>
 <body>
-    <!-- Scanline Animasi -->
-    <div class="scanline"></div>
+    <!-- Animasi Matrix -->
+    <canvas class="matrix"></canvas>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand glow-text" href="#">Syber9</a>
+            <a class="navbar-brand glow-text" href="index.html">Syber9</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -120,10 +106,10 @@
                         <a class="nav-link" href="dashboard.html">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="register.html">Register</a>
+                        <a class="nav-link" href="hack.html">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="register.html">Login</a>
+                        <a class="nav-link" href="hack.html">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="hack.html">LogOut</a>
@@ -135,15 +121,15 @@
 
     <!-- Bagian Header -->
     <header class="text-center">
-        <h1 class="glow-text">Dashboard Syber9</h1>
-        <p>Situs Belajar Keamanan .</p>
+        <h1 class="glow-text">Nofrinto Flory</h1>
+        <p>Situs Belajar Keamanan.</p>
     </header>
 
     <!-- Bagian Dashboard -->
     <section id="dashboard" class="container my-5">
         <div class="text-center">
             <h2 class="glow-text">Dashboard</h2>
-            <p>Explore tools and information with style.</p>
+            <p>Explore Tools and information for Linux Aplications</p>
             <div>
                 <button class="terminal-btn"><a href="#">Scan</a></button>
                 <button class="terminal-btn"><a href="nmap.html">Nmap</a></button>
@@ -164,79 +150,59 @@
 
     <!-- Bagian Footer -->
     <footer class="footer text-center py-4">
-        <p class="mb-0">&copy; 2024 Nofrinto Flory. Hak Cipta Dilindungi.</p>
+        <div class="container">
+            <div class="footer-links mb-3">
+                <a href="about.html">Tentang Kami</a>
+                <a href="privacy.html">Kebijakan Privasi</a>
+                <a href="terms.html">Syarat dan Ketentuan</a>
+            </div>
+            <p class="mb-0">&copy; 2024 Nofrinto Flory. Hak Cipta Dilindungi.</p>
+        </div>
     </footer>
 
-    <canvas id="backgroundCanvas"></canvas>
-
-    <div class="container">
-        <h1 class="glow-text">Selamat Datang di Syber9</h1>
-        <p>Platform edukasi keamanan siber</p>
-    </div>
-
-    <!-- Three.js CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Setup scene, camera, and renderer
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('backgroundCanvas') });
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        // JavaScript Animasi Matrix
+        const canvas = document.querySelector('.matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-        // Add globe with wireframe
-        const globeGeometry = new THREE.SphereGeometry(5, 32, 32);
-        const globeMaterial = new THREE.MeshBasicMaterial({
-            color: 0x333333,
-            wireframe: true,
-            opacity: 0.5,
-            transparent: true,
-        });
-        const globe = new THREE.Mesh(globeGeometry, globeMaterial);
-        scene.add(globe);
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        const fontSize = 18;
+        const columns = canvas.width / fontSize;
 
-        // Function to create attack lines
-        function createAttackLine(lat1, lon1, lat2, lon2) {
-            const curve = new THREE.QuadraticBezierCurve3(
-                new THREE.Vector3(lat1, lon1, 5),
-                new THREE.Vector3((lat1 + lat2) / 2, (lon1 + lon2) / 2, 8),
-                new THREE.Vector3(lat2, lon2, 5)
-            );
-            const points = curve.getPoints(50);
-            const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
-            const lineMaterial = new THREE.LineBasicMaterial({ color: 0x33ff33 });
-            const attackLine = new THREE.Line(lineGeometry, lineMaterial);
-            scene.add(attackLine);
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.font = fontSize + "px monospace";
+
+            drops.forEach((y, x) => {
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                // Menggunakan warna acak untuk huruf
+                const color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                ctx.fillStyle = color; // Mengatur warna teks
+                ctx.fillText(text, x * fontSize, y * fontSize);
+
+                if (y * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[x] = 0;
+                }
+                drops[x]++;
+            });
         }
+        setInterval(drawMatrix, 50);
 
-        // Example attack lines
-        createAttackLine(-3, 5, 2, -5);
-        createAttackLine(1, 5, -4, 2);
-        createAttackLine(3, -5, -2, 4);
-
-        // Grid background animation
-        const gridHelper = new THREE.GridHelper(50, 50, 0x33ff33, 0x33ff33);
-        gridHelper.rotation.x = Math.PI / 2;
-        gridHelper.position.y = -5;
-        scene.add(gridHelper);
-
-        // Animate the scene
-        function animate() {
-            requestAnimationFrame(animate);
-            globe.rotation.y += 0.002;
-            renderer.render(scene, camera);
-        }
-        camera.position.z = 15;
-        animate();
-
-        // Responsive resize
-        window.addEventListener('resize', () => {
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
+        // Resizing canvas ketika jendela berubah ukuran
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            drops.length = Math.floor(canvas.width / fontSize);
+            drops.fill(1);
         });
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
