@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arachi</title>
+    <title>Instalasi Linux (Ubuntu)</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             background-color: #121212;
             color: #00ff00;
             font-family: 'Courier New', Courier, monospace;
-            overflow-y: scroll; /* Mengizinkan scroll pada sumbu Y */
+            overflow-y: scroll;
         }
         h1, h2 {
             color: #00ff00;
@@ -20,7 +20,7 @@
             margin-top: 20px;
             max-width: 800px;
             position: relative;
-            z-index: 1; /* Konten utama di atas background */
+            z-index: 1;
         }
         pre {
             background-color: #1e1e1e;
@@ -50,9 +50,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0; /* Background di belakang konten */
-            pointer-events: none; /* Mencegah interaksi dengan background */
-            overflow: hidden; /* Menyembunyikan overflow */
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
         }
         .falling {
             position: absolute;
@@ -67,14 +67,6 @@
                 transform: translateY(100vh);
             }
         }
-        @media (max-width: 576px) {
-            h1 {
-                font-size: 2rem;
-            }
-            h2 {
-                font-size: 1.5rem;
-            }
-        }
     </style>
 </head>
 <body>
@@ -83,9 +75,8 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img style="border-radius: 100%;" src="./image/bg1.webp" alt="Nofrinto Flory" width="30" height="30">
-                Arachi
+            <a class="navbar-brand" href="index.html">
+                Cara Instalasi Linux (Ubuntu)
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -96,19 +87,16 @@
                         <a class="nav-link" href="dashboard.html">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#pengantar">Pengantar</a>
+                        <a class="nav-link" href="#pengantar">Pengenalan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#instalasi">Instalasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#penggunaan">Penggunaan Dasar</a>
+                        <a class="nav-link" href="#konfigurasi">Konfigurasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contoh">Contoh Perintah</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                        <a class="nav-link" href="#perintah">Perintah Dasar</a>
                     </li>
                 </ul>
             </div>
@@ -116,96 +104,95 @@
     </nav>
 
     <div class="container">
-        <h1>Arachi</h1>
+        <h1>Cara Instalasi Linux (Ubuntu)</h1>
 
         <h2 id="pengantar">Pengenalan</h2>
         <pre>
-Arachi adalah alat untuk melakukan analisis dan pengujian terhadap jaringan, termasuk pengujian keamanan. Alat ini dapat membantu dalam menemukan celah keamanan dan meningkatkan perlindungan sistem.
+Linux adalah sistem operasi open-source yang banyak digunakan untuk server, desktop, dan perangkat lain.
+Ubuntu adalah salah satu distribusi Linux yang paling populer dan ramah pengguna.
         </pre>
 
         <h2 id="instalasi">Instalasi</h2>
+
+        <h3>Di Windows menggunakan WSL (Windows Subsystem for Linux)</h3>
         <pre>
-# Clone repositori Arachi:
-git clone https://github.com/example/arachi
+1. Buka PowerShell sebagai Administrator.
 
-# Masuk ke direktori Arachi:
-cd arachi
+2. Jalankan perintah berikut untuk menginstal WSL:
+   wsl --install
 
-# Instal dependensi yang diperlukan:
-sudo apt-get install -y <dependency>
+3. Setelah WSL diinstal, Anda bisa menginstal Ubuntu dengan perintah:
+   wsl --install -d Ubuntu
+
+4. Tunggu hingga instalasi selesai. Setelah itu, buka Ubuntu dari menu Start.
         </pre>
 
-        <h2 id="penggunaan">Penggunaan Dasar</h2>
+        <h3>Di Linux (Ubuntu)</h3>
         <pre>
-# Untuk melakukan pemindaian dasar:
-./arachi scan <target>
+1. Jika Anda ingin menginstal Ubuntu di komputer Anda, Anda perlu mengunduh ISO dari:
+   https://ubuntu.com/download
 
-# Untuk melakukan audit keamanan:
-./arachi audit <target>
+2. Buat bootable USB menggunakan balenaEtcher atau Rufus.
+
+3. Boot dari USB dan pilih "Install Ubuntu".
+
+4. Ikuti petunjuk pada layar untuk menyelesaikan instalasi:
+   - Pilih bahasa.
+   - Pilih jenis instalasi (Install Ubuntu or Try Ubuntu).
+   - Atur partisi disk sesuai kebutuhan Anda.
+   - Siapkan akun pengguna dan password.
+
+5. Setelah instalasi selesai, restart komputer dan hapus USB bootable.
         </pre>
 
-        <h2 id="contoh">Contoh Perintah</h2>
-        <h3>1. Melakukan Pemindaian Jaringan</h3>
+        <h2 id="konfigurasi">Konfigurasi</h2>
         <pre>
-./arachi scan 192.168.1.1/24
+# Mengupdate sistem setelah instalasi:
+sudo apt update && sudo apt upgrade
+
+# Menginstal perangkat lunak tambahan:
+sudo apt install <nama-perangkat-lunak>
+
+# Mengonfigurasi firewall (UFW):
+sudo ufw enable
+sudo ufw allow <port> # Untuk mengizinkan port tertentu
         </pre>
 
-        <h3>2. Melakukan Audit Keamanan Terhadap Server</h3>
+        <h2 id="perintah">Perintah Dasar</h2>
         <pre>
-./arachi audit server.example.com
-        </pre>
+# Menjalankan perintah dengan hak akses root:
+sudo <perintah>
 
-        <h3>3. Menghasilkan Laporan dalam Format HTML</h3>
-        <pre>
-./arachi report --format html --output report.html
-        </pre>
+# Menghapus paket:
+sudo apt remove <nama-paket>
 
-        <h3>4. Pemindaian dengan Opsi Tertentu</h3>
-        <pre>
-./arachi scan <target> --options "detailed"
-        </pre>
+# Menampilkan daftar paket terinstal:
+dpkg --list
 
-        <h3>5. Melihat Laporan Audit Sebelumnya</h3>
-        <pre>
-cat /path/to/audit/report.txt
-        </pre>
+# Melihat penggunaan disk:
+df -h
 
-        <h3>6. Menggunakan Plugin Tertentu</h3>
-        <pre>
-./arachi audit <target> --plugin <plugin_name>
-        </pre>
-
-        <h3>7. Mengonfigurasi Pengaturan Arachi</h3>
-        <pre>
-./arachi config set --option <option_name> <value>
-        </pre>
-
-        <h3>8. Melihat Status Sistem</h3>
-        <pre>
-./arachi status
-        </pre>
-
-        <h3>9. Menghentikan Proses Pemindaian</h3>
-        <pre>
-./arachi stop
+# Menjalankan pembaruan dan peningkatan:
+sudo apt update && sudo apt upgrade
         </pre>
 
         <h2 id="catatan">Catatan Penting</h2>
         <pre>
-- Pastikan Anda memiliki izin untuk melakukan pengujian terhadap jaringan atau sistem yang Anda targetkan.
-- Gunakan Arachi secara etis dan sesuai dengan hukum yang berlaku.
+- Pastikan untuk selalu memperbarui sistem Anda.
+- Backup data penting sebelum melakukan instalasi atau pembaruan.
+- Gunakan Linux secara etis dan sesuai dengan hukum yang berlaku.
         </pre>
     </div>
 
     <div class="footer">
-        <p>&copy; 2024 Nofrinto Flory - Arachi</p>
+        <p>&copy; 2024 Cheat Sheet Instalasi Linux (Ubuntu)</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const background = document.getElementById('background');
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        
+
         function createFallingCharacter() {
             const fallingDiv = document.createElement('div');
             fallingDiv.classList.add('falling');
@@ -213,15 +200,14 @@ cat /path/to/audit/report.txt
             fallingDiv.style.left = Math.random() * 100 + 'vw';
             fallingDiv.style.animationDuration = Math.random() * 3 + 2 + 's'; // 2 to 5 seconds
             background.appendChild(fallingDiv);
-            
+
             // Remove falling div after animation ends
             fallingDiv.addEventListener('animationend', () => {
                 fallingDiv.remove();
             });
         }
-        
+
         setInterval(createFallingCharacter, 100); // Create a new character every 100 ms
     </script>
 </body>
 </html>
-

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Linux</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-y: scroll;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+            border-radius: 5px;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .falling {
+            position: absolute;
+            top: -10%;
+            color: rgba(0, 255, 0, 0.7);
+            font-size: 20px;
+            white-space: nowrap;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="background"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                Terminal Linux
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengenalan">Pengenalan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#perintahDasar">Perintah Dasar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#manajemenFile">Manajemen File</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#manajemenSistem">Manajemen Sistem</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#networking">Networking</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Cara Gunakan Terminal Linux</h1>
+
+        <h2 id="pengenalan">Pengenalan</h2>
+        <pre>
+Terminal Linux adalah alat yang kuat untuk menjalankan perintah dan skrip. Berikut adalah 50 perintah dasar yang sering digunakan.
+        </pre>
+
+        <h2 id="perintahDasar">Perintah Dasar</h2>
+        <pre>
+1. pwd                           # Menampilkan direktori saat ini.
+2. cd /path/to/directory         # Mengubah direktori.
+3. ls -la                        # Menampilkan isi direktori.
+4. clear                         # Membersihkan terminal.
+5. history                       # Menampilkan riwayat perintah yang telah dijalankan.
+
+6. cp source_file destination     # Menyalin file.
+7. cp -r source_dir dest_dir      # Menyalin direktori.
+8. mv source_file destination      # Memindahkan atau mengganti nama file.
+9. rm file_name                   # Menghapus file.
+10. rm -r directory_name          # Menghapus direktori dan isinya.
+
+11. touch file_name               # Membuat file baru.
+12. mkdir directory_name          # Membuat direktori baru.
+13. cat file_name                 # Menampilkan isi file.
+14. nano file_name                # Mengedit file menggunakan nano.
+15. vim file_name                 # Mengedit file menggunakan vim.
+
+16. grep 'text' file_name         # Mencari teks dalam file.
+17. find /path -name filename     # Mencari file berdasarkan nama.
+18. du -sh                        # Melihat ukuran direktori.
+19. df -h                         # Melihat penggunaan disk.
+20. free -h                       # Melihat penggunaan memori.
+
+21. sudo apt update               # Mengupdate daftar paket.
+22. sudo apt upgrade              # Mengupgrade semua paket.
+23. sudo apt install package      # Menginstal paket baru.
+24. apt search package            # Mencari paket di repositori.
+25. apt remove package            # Menghapus paket.
+
+26. ps aux                        # Menampilkan semua proses yang berjalan.
+27. top                           # Menampilkan proses yang berjalan secara real-time.
+28. kill process_id               # Menghentikan proses dengan ID tertentu.
+29. killall process_name          # Menghentikan semua proses dengan nama tertentu.
+30. nohup command &               # Menjalankan perintah di background.
+
+31. ifconfig                      # Menampilkan konfigurasi jaringan.
+32. ping ip_address               # Menguji koneksi ke host.
+33. netstat -tuln                 # Melihat koneksi aktif.
+34. wget http://url               # Mengunduh file dari URL.
+35. curl http://url               # Mengambil data dari URL.
+
+36. ssh username@host             # Mengakses server melalui SSH.
+37. scp file username@host:/path  # Mengupload file ke server.
+38. rsync -av source destination   # Menyinkronkan direktori.
+39. tar -czvf archive.tar.gz /dir  # Mengompres direktori.
+40. unzip file.zip                # Mengekstrak file zip.
+
+41. chmod 755 file_name           # Mengubah hak akses file.
+42. chown user:group file_name    # Mengubah pemilik file.
+43. alias ll='ls -la'             # Membuat alias untuk perintah.
+44. crontab -e                    # Mengedit jadwal cron.
+45. history | grep 'command'      # Mencari perintah dalam riwayat.
+
+46. export VAR=value              # Mengatur variabel lingkungan.
+47. echo $VAR                     # Menampilkan nilai variabel.
+48. pwd | xargs -I {} command {}  # Menggunakan output dari perintah lain.
+49. tee file_name                 # Menulis output ke file dan menampilkan di terminal.
+50. man command                   # Menampilkan manual untuk perintah tertentu.
+        </pre>
+
+        <h2 id="manajemenFile">Manajemen File</h2>
+        <pre>
+- Membuat dan menghapus file atau direktori
+- Menyalin dan memindahkan file
+- Mengedit file menggunakan berbagai editor
+        </pre>
+
+        <h2 id="manajemenSistem">Manajemen Sistem</h2>
+        <pre>
+- Mengelola paket perangkat lunak
+- Memantau dan mengelola proses
+- Mengetahui penggunaan sumber daya sistem
+        </pre>
+
+        <h2 id="networking">Networking</h2>
+        <pre>
+- Mengelola koneksi jaringan
+- Menguji konektivitas dengan ping
+- Mengupload dan mendownload file dari server
+        </pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Pastikan untuk selalu memahami perintah yang dijalankan.
+- Gunakan `man <command>` untuk informasi lebih lanjut.
+- Backup data penting sebelum perubahan besar.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory-Terminal Linux</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const background = document.getElementById('background');
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+        function createFallingCharacter() {
+            const fallingDiv = document.createElement('div');
+            fallingDiv.classList.add('falling');
+            fallingDiv.innerText = characters.charAt(Math.floor(Math.random() * characters.length));
+            fallingDiv.style.left = Math.random() * 100 + 'vw';
+            fallingDiv.style.animationDuration = Math.random() * 3 + 2 + 's'; // 2 to 5 seconds
+            background.appendChild(fallingDiv);
+
+            // Remove falling div after animation ends
+            fallingDiv.addEventListener('animationend', () => {
+                fallingDiv.remove();
+            });
+        }
+
+        setInterval(createFallingCharacter, 100); // Create a new character every 100 ms
+    </script>
+</body>
+</html>
