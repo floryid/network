@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coder Terminal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
+        }
+        h1, h2 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+        .falling-text {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .falling-text div {
+            position: absolute;
+            color: rgba(195, 255, 0, 0.5);
+            font-size: 20px;
+            white-space: nowrap;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"> Terminal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengantar">Pengenalan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contoh">Contoh Perintah</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catatan">Catatan Penting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="falling-text">
+        <div style="left: 10%;color: aqua; animation-duration: 5s;">$ ls</div>
+        <div style="left: 20%;color: blue; animation-duration: 7s;">$ cd ..</div>
+        <div style="left: 30%;color: fuchsia; animation-duration: 6s;">$ git status</div>
+        <div style="left: 40%;color: greenyellow; animation-duration: 8s;">$ npm install</div>
+        <div style="left: 50%; color: gold; animation-duration: 9s;">$ python3 script.py</div>
+        <div style="left: 60%;color: orange; animation-duration: 5s;">$ rm -rf folder</div>
+        <div style="left: 70%;color: hotpink; animation-duration: 7s;">$ echo "Hello, World!"</div>
+        <div style="left: 80%;color: aliceblue; animation-duration: 6s;">$ curl http://example.com</div>
+        <div style="left: 90%;color: magenta; animation-duration: 8s;">$ ping google.com</div>
+    </div>
+
+    <div class="container">
+        <h1>Dasar Terminal</h1>
+
+        <h2 id="pengantar">Pengenalan</h2>
+        <pre>
+Cara ini berisi perintah-perintah dasar yang sering digunakan di terminal Linux. 
+Gunakan perintah ini untuk mempermudah pekerjaan Anda.
+        </pre>
+
+        <h2 id="contoh">Contoh Perintah</h2>
+        <h3>1. Melihat isi direktori</h3>
+        <pre>$ ls</pre>
+
+        <h3>2. Masuk ke direktori</h3>
+        <pre>$ cd <nama_direktori></pre>
+
+        <h3>3. Memeriksa status Git</h3>
+        <pre>$ git status</pre>
+
+        <h3>4. Menginstal paket dengan npm</h3>
+        <pre>$ npm install</pre>
+
+        <h3>5. Menjalankan script Python</h3>
+        <pre>$ python3 script.py</pre>
+
+        <h3>6. Menghapus folder</h3>
+        <pre>$ rm -rf <nama_folder></pre>
+
+        <h3>7. Mencetak teks ke layar</h3>
+        <pre>$ echo "Hello, World!"</pre>
+
+        <h3>8. Mengambil konten dari URL</h3>
+        <pre>$ curl http://example.com</pre>
+
+        <h3>9. Melakukan ping ke server</h3>
+        <pre>$ ping google.com</pre>
+
+        <h3>10. Melihat proses yang berjalan</h3>
+        <pre>$ ps aux</pre>
+
+        <h3>11. Menghentikan proses</h3>
+        <pre>$ kill <PID></pre>
+
+        <h3>12. Menyalin file</h3>
+        <pre>$ cp <file_sumber> <file_tujuan></pre>
+
+        <h3>13. Memindahkan file</h3>
+        <pre>$ mv <file_sumber> <file_tujuan></pre>
+
+        <h3>14. Mencari file di sistem</h3>
+        <pre>$ find / -name "<nama_file>"</pre>
+
+        <h3>15. Mengubah hak akses file</h3>
+        <pre>$ chmod <hak_akses> <file></pre>
+
+        <h3>16. Mengubah pemilik file</h3>
+        <pre>$ chown <pemilik>:<grup> <file></pre>
+
+        <h3>17. Mengunduh file dari URL</h3>
+        <pre>$ wget <url_file></pre>
+
+        <h3>18. Membuat file teks baru</h3>
+        <pre>$ touch <nama_file></pre>
+
+        <h3>19. Menampilkan isi file teks</h3>
+        <pre>$ cat <nama_file></pre>
+
+        <h3>20. Mengedit file dengan nano</h3>
+        <pre>$ nano <nama_file></pre>
+
+        <h2 id="catatan">Catatan Penting</h2>
+        <pre>
+- Pastikan Anda memiliki izin untuk melakukan perintah ini.
+- Gunakan perintah dengan hati-hati untuk menghindari kehilangan data.
+        </pre>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Nofrinto Flory - Cheat Sheet Coder Terminal</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

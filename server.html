@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet: Membangun Server Sendiri</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            color: #00ff00;
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+        }
+
+        pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border: 1px solid #00ff00;
+            overflow-x: auto;
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #00ff00;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #00ff00;
+        }
+
+        .navbar-nav .nav-link {
+            color: #00ff00 !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: #262626;
+        }
+
+        /* Latar belakang angka dan huruf */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .background:before {
+            content: '';
+            background: url('https://www.transparenttextures.com/patterns/black-paper.png');
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -2;
+            opacity: 0.1;
+        }
+        
+        .number-pattern {
+            color: rgba(0, 255, 0, 0.1);
+            font-size: 150px;
+            position: absolute;
+            z-index: -1;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .number-pattern {
+                font-size: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Server</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tentukan-tujuan">Tentukan Tujuan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#persiapkan-perangkat">Persiapkan Perangkat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pilih-os">Pilih Sistem Operasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#instal-os">Instal OS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#konfigurasi-jaringan">Konfigurasi Jaringan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#instal-perangkat-lunak">Instal Perangkat Lunak</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengaturan-keamanan">Pengaturan Keamanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#akses-remote">Akses Remote</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#backup-pemeliharaan">Backup dan Pemeliharaan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#domain-hosting">Domain dan Hosting</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#dokumentasi">Dokumentasi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="background"></div>
+    <div class="number-pattern">1234567890</div>
+    <div class="number-pattern" style="transform: translate(-50%, -50%) rotate(90deg);">0987654321</div>
+
+    <div class="container">
+        <h1>Cara Membangun Server Sendiri</h1>
+
+        <h2 id="tentukan-tujuan">1. Tentukan Tujuan Server</h2>
+        <pre>
+- Web hosting
+- File sharing
+- Game server
+- Database server
+        </pre>
+
+        <h2 id="persiapkan-perangkat">2. Persiapkan Perangkat Keras</h2>
+        <pre>
+- Komputer lama, laptop, atau Raspberry Pi
+- Pastikan spesifikasi cukup untuk tujuan server
+        </pre>
+
+        <h2 id="pilih-os">3. Pilih Sistem Operasi</h2>
+        <pre>
+- Linux (Ubuntu Server, CentOS, Debian)
+- Windows Server
+        </pre>
+
+        <h2 id="instal-os">4. Instal Sistem Operasi</h2>
+        <pre>
+1. Unduh ISO dari sistem operasi yang dipilih (contoh: https://ubuntu.com/download/server)
+2. Buat bootable USB atau DVD dengan software seperti Rufus (untuk Windows) atau balenaEtcher (untuk Linux).
+3. Boot dari USB/DVD dan ikuti instruksi untuk menginstal sistem operasi.
+        </pre>
+
+        <h2 id="konfigurasi-jaringan">5. Konfigurasi Jaringan</h2>
+        <pre>
+- Tentukan alamat IP statis
+  - Edit file konfigurasi jaringan
+  - Contoh untuk Ubuntu:
+    $ sudo nano /etc/netplan/01-netcfg.yaml
+
+  Contoh konfigurasi:
+  network:
+    version: 2
+    renderer: networkd
+    ethernets:
+      ens33:
+        dhcp4: no
+        addresses: [192.168.1.100/24]
+        gateway4: 192.168.1.1
+        nameservers:
+          addresses: [8.8.8.8, 8.8.4.4]
+- Buka port yang diperlukan di firewall
+  - Contoh: untuk membuka port 80 dan 443
+    $ sudo ufw allow 80/tcp
+    $ sudo ufw allow 443/tcp
+        </pre>
+
+        <h2 id="instal-perangkat-lunak">6. Instal Perangkat Lunak yang Diperlukan</h2>
+        <pre>
+# Instal Nginx untuk web server
+$ sudo apt update
+$ sudo apt install nginx
+
+# Periksa status Nginx
+$ sudo systemctl status nginx
+
+# Instal MySQL untuk database
+$ sudo apt install mysql-server
+$ sudo mysql_secure_installation
+        </pre>
+
+        <h2 id="pengaturan-keamanan">7. Pengaturan Keamanan</h2>
+        <pre>
+- Ubah port SSH default untuk mengurangi risiko
+  $ sudo nano /etc/ssh/sshd_config
+  - Ubah "Port 22" menjadi "Port 2222" (misalnya)
+  - Restart SSH service
+    $ sudo systemctl restart ssh
+
+- Gunakan firewall (seperti UFW) untuk mengontrol akses
+  $ sudo ufw enable
+
+- Perbarui sistem dan perangkat lunak secara berkala
+  $ sudo apt update && sudo apt upgrade -y
+        </pre>
+
+        <h2 id="akses-remote">8. Akses Remote</h2>
+        <pre>
+- Konfigurasi SSH untuk akses dari jarak jauh
+- Gunakan klien SSH seperti PuTTY (Windows) atau terminal (Linux)
+  Contoh untuk mengakses server dari terminal:
+  $ ssh username@ip_server -p 2222
+        </pre>
+
+        <h2 id="backup-pemeliharaan">9. Backup dan Pemeliharaan</h2>
+        <pre>
+- Rencanakan backup data penting menggunakan rsync atau tar
+  Contoh untuk backup folder:
+  $ tar -cvzf backup.tar.gz /path/to/your/data
+
+- Monitor performa dan keamanan server dengan tools seperti htop atau fail2ban
+        </pre>
+
+        <h2 id="domain-hosting">10. Domain dan Hosting</h2>
+        <pre>
+- Daftarkan domain melalui registrar seperti GoDaddy atau Namecheap.
+- Atur DNS untuk mengarah ke alamat IP server Anda:
+  - Tambahkan A record untuk domain ke IP statis server.
+- Gunakan Dynamic DNS jika IP tidak statis.
+        </pre>
+
+        <h2 id="dokumentasi">11. Dokumentasi</h2>
+        <pre>
+- Catat semua konfigurasi dan langkah-langkah yang diambil untuk referensi di masa depan.
+        </pre>
+
+        <div class="footer">
+            <p>&copy; 2024 Nofrinto Flory: Membangun Server Sendiri</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
